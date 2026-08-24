@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>درس ۵ پایتون | Ghost Code Academy</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#080808;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.logo{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.back{
+    color:#fff;
+    text-decoration:none;
+    background:#222;
+    border:1px solid #444;
+    padding:9px 13px;
+    border-radius:10px;
+    font-size:11px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.lesson-head,
+.box{
+    background:#141414;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:15px;
+}
+
+.icon{
+    font-size:50px;
+}
+
+h1{
+    font-size:27px;
+    margin:10px 0;
+}
+
+h2{
+    font-size:18px;
+}
+
+p,
+li{
+    color:#aaa;
+    font-size:12px;
+    line-height:2;
+}
+
+.code{
+    direction:ltr;
+    text-align:left;
+    background:#050505;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:17px;
+    overflow:auto;
+    color:#e6e6e6;
+    font-family:monospace;
+    line-height:1.7;
+}
+
+.tip{
+    background:#15171f;
+    border-right:4px solid #7d8cff;
+    border-radius:10px;
+    padding:15px;
+    color:#aaa;
+    font-size:11px;
+    line-height:2;
+}
+
+.question{
+    margin-top:15px;
+}
+
+.option{
+    display:block;
+    width:100%;
+    margin-top:8px;
+    padding:12px;
+    background:#222;
+    color:#fff;
+    border:1px solid #444;
+    border-radius:9px;
+    font-family:tahoma;
+    text-align:right;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#303030;
+}
+
+.result{
+    display:none;
+    margin-top:12px;
+    padding:12px;
+    border-radius:9px;
+    font-size:11px;
+}
+
+.complete{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:0;
+    border-radius:11px;
+    background:#fff;
+    color:#000;
+    font-family:tahoma;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.next{
+    display:none;
+    margin-top:12px;
+    padding:13px;
+    background:#222;
+    border:1px solid #555;
+    border-radius:11px;
+    color:#fff;
+    text-decoration:none;
+    text-align:center;
+    font-size:11px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<a href="python.html" class="back">
+← مسیر Python
+</a>
+
+</header>
+
+<main class="container">
+
+<section class="lesson-head">
+
+<div class="icon">🔄</div>
+
+<h1>
+درس ۵: حلقه‌ها در Python
+</h1>
+
+<p>
+با حلقه‌ها می‌توانیم یک بخش از برنامه را چندین بار اجرا کنیم.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🧠 حلقه چیست؟
+</h2>
+
+<p>
+گاهی لازم است یک دستور را چند بار اجرا کنیم.
+به‌جای اینکه همان کد را بارها بنویسیم،
+می‌توانیم از حلقه استفاده کنیم.
+</p>
+
+<div class="tip">
+حلقه‌ها یکی از مهم‌ترین ابزارهای برنامه‌نویسی هستند.
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+1️⃣ حلقه for
+</h2>
+
+<p>
+از <b>for</b> زمانی استفاده می‌کنیم که معمولاً می‌دانیم
+چه تعداد تکرار لازم داریم یا می‌خواهیم روی یک مجموعه حرکت کنیم.
+</p>
+
+<pre class="code">for i in range(5):
+    print(i)</pre>
+
+<p>
+خروجی:</p>
+
+<pre class="code">0
+1
+2
+3
+4</pre>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🔢 تابع range()
+</h2>
+
+<p>
+تابع <b>range()</b> برای تولید یک دنباله از اعداد استفاده می‌شود.
+</p>
+
+<pre class="code">for i in range(1, 6):
+    print(i)</pre>
+
+<p>
+خروجی:</p>
+
+<pre class="code">1
+2
+3
+4
+5</pre>
+
+<div class="tip">
+عدد انتهایی در <b>range()</b> شامل نمی‌شود.
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+2️⃣ حلقه while
+</h2>
+
+<p>
+حلقه <b>while</b> تا زمانی که یک شرط درست باشد ادامه پیدا می‌کند.
+</p>
+
+<pre class="code">x = 1
+
+while x <= 5:
+    print(x)
+    x += 1</pre>
+
+<p>
+خروجی:</p>
+
+<pre class="code">1
+2
+3
+4
+5</pre>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+⚠️ حلقه بی‌نهایت
+</h2>
+
+<p>
+اگر شرط while هیچ‌وقت False نشود، حلقه می‌تواند برای همیشه ادامه پیدا کند.
+</p>
+
+<pre class="code">x = 1
+
+while x <= 5:
+    print(x)
+    x += 1</pre>
+
+<div class="tip">
+در حلقه‌های <b>while</b> حتماً دقت کن که در نهایت شرط بتواند False شود.
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🛑 دستور break
+</h2>
+
+<p>
+با <b>break</b> می‌توانیم حلقه را متوقف کنیم.
+</p>
+
+<pre class="code">for i in range(10):
+
+    if i == 5:
+        break
+
+    print(i)</pre>
+
+<p>
+در این مثال وقتی i به 5 برسد، حلقه متوقف می‌شود.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+⏭️ دستور continue
+</h2>
+
+<p>
+با <b>continue</b> می‌توانیم اجرای همان دور از حلقه را رد کنیم
+و به دور بعدی برویم.
+</p>
+
+<pre class="code">for i in range(5):
+
+    if i == 2:
+        continue
+
+    print(i)</pre>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+📝 تمرین درس
+</h2>
+
+<p>
+کدام دستور برای ساخت یک حلقه با تعداد تکرار مشخص بسیار مناسب است؟
+</p>
+
+<div class="question">
+
+<button
+class="option"
+onclick="answer(false)">
+A) if
+</button>
+
+<button
+class="option"
+onclick="answer(true)">
+B) for
+</button>
+
+<button
+class="option"
+onclick="answer(false)">
+C) print
+</button>
+
+<button
+class="option"
+onclick="answer(false)">
+D) input
+</button>
+
+<div id="result" class="result"></div>
+
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🏆 تکمیل درس
+</h2>
+
+<p>
+تمرین را درست حل کن و درس را کامل کن تا 10 XP بگیری.
+</p>
+
+<button
+class="complete"
+onclick="completeLesson()">
+
+✅ تکمیل درس و دریافت +10 XP
+
+</button>
+
+<a
+id="next"
+href="python-lesson-6.html"
+class="next">
+
+➡️ رفتن به درس ششم
+
+</a>
+
+</section>
+
+</main>
+
+
+<script>
+
+let correct = false;
+
+function answer(isCorrect){
+
+    const result =
+    document.getElementById("result");
+
+    result.style.display = "block";
+
+    if(isCorrect){
+
+        correct = true;
+
+        result.style.background = "#102b17";
+        result.style.color = "#66e68a";
+
+        result.innerText =
+        "✅ درست جواب دادی!";
+
+    }else{
+
+        result.style.background = "#301414";
+        result.style.color = "#ff7777";
+
+        result.innerText =
+        "❌ اشتباهه، دوباره تلاش کن.";
+
+    }
+}
+
+
+function completeLesson(){
+
+    if(!correct){
+
+        alert("📝 اول تمرین را درست حل کن.");
+        return;
+
+    }
+
+    localStorage.setItem(
+        "python_completed",
+        "6"
+    );
+
+    let xp =
+    Number(
+        localStorage.getItem("ghost_xp") || 0
+    );
+
+    xp += 10;
+
+    localStorage.setItem(
+        "ghost_xp",
+        xp
+    );
+
+    alert(
+        "🎉 درس پنجم کامل شد!\n+10 XP"
+    );
+
+    document.getElementById(
+        "next"
+    ).style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
