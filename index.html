@@ -2,7 +2,6 @@
 <html lang="fa" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,56 +19,41 @@ html{
 
 body{
     margin:0;
-
     background:#000;
-
     color:#fff;
-
-    font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
-
+    font-family:tahoma,Arial,sans-serif;
     min-height:100vh;
-
     overflow-x:hidden;
 }
-
 
 /* =========================
    RGB BACKGROUND
 ========================= */
 
 body::before{
-
     content:"";
-
     position:fixed;
-
     inset:-50%;
-
     z-index:-2;
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,0,0,.08),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(0,255,255,.08),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 50% 80%,
-            rgba(0,0,255,.08),
-            transparent 25%
-        );
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(255,0,0,.08),
+        transparent 25%
+    ),
+    radial-gradient(
+        circle at 80% 30%,
+        rgba(0,255,255,.08),
+        transparent 25%
+    ),
+    radial-gradient(
+        circle at 50% 80%,
+        rgba(0,0,255,.08),
+        transparent 25%
+    );
 
-    animation:
-    backgroundMove 10s linear infinite;
-
+    animation:backgroundMove 10s linear infinite;
 }
 
 @keyframes backgroundMove{
@@ -85,62 +69,41 @@ body::before{
     100%{
         transform:rotate(360deg) scale(1);
     }
-
 }
-
 
 /* =========================
    HEADER
 ========================= */
 
 header{
-
     position:sticky;
-
     top:0;
-
     z-index:100;
 
-    height:70px;
+    min-height:70px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     padding:0 18px;
 
-    background:
-    rgba(0,0,0,.85);
+    background:rgba(0,0,0,.88);
 
-    backdrop-filter:
-    blur(15px);
+    backdrop-filter:blur(15px);
 
-    border-bottom:
-    1px solid #222;
-
+    border-bottom:1px solid #222;
 }
-
 
 .logo{
-
     font-size:16px;
-
     font-weight:bold;
-
     white-space:nowrap;
-
 }
-
 
 .logo span{
-
-    animation:
-    logoRGB 4s linear infinite;
-
+    animation:logoRGB 4s linear infinite;
 }
-
 
 @keyframes logoRGB{
 
@@ -148,84 +111,68 @@ header{
         color:red;
     }
 
-    33%{
+    25%{
+        color:#ff00ff;
+    }
+
+    50%{
         color:#00ffff;
     }
 
-    66%{
+    75%{
         color:#7b00ff;
     }
 
     100%{
         color:red;
     }
-
 }
-
 
 nav{
-
     display:flex;
-
     gap:7px;
-
 }
 
-
 nav a{
-
     color:#aaa;
 
     text-decoration:none;
 
     font-size:10px;
 
-    padding:
-    9px 11px;
+    padding:9px 11px;
 
-    border:
-    1px solid #292929;
+    border:1px solid #292929;
 
     border-radius:9px;
 
     transition:.2s;
-
 }
-
 
 nav a:hover{
-
     color:#fff;
-
     border-color:#777;
-
 }
-
 
 /* =========================
    MAIN
 ========================= */
 
 .container{
-
     width:100%;
-
     max-width:1100px;
 
     margin:auto;
 
     padding:
     30px 15px 70px;
-
 }
-
 
 /* =========================
    HERO
 ========================= */
 
 .hero{
-
     position:relative;
 
     text-align:center;
@@ -242,9 +189,7 @@ nav a:hover{
     border:1px solid #222;
 
     overflow:hidden;
-
 }
-
 
 .hero::before{
 
@@ -270,26 +215,20 @@ nav a:hover{
         red
     );
 
-    background-size:
-    400% 400%;
+    background-size:400% 400%;
 
-    animation:
-    rgbBorder 6s linear infinite;
+    animation:rgbBorder 6s linear infinite;
 
     -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
 
-    -webkit-mask-composite:
-    xor;
+    -webkit-mask-composite:xor;
 
-    mask-composite:
-    exclude;
+    mask-composite:exclude;
 
     pointer-events:none;
-
 }
-
 
 @keyframes rgbBorder{
 
@@ -304,48 +243,26 @@ nav a:hover{
     100%{
         background-position:0% 50%;
     }
-
 }
-
 
 .hero-icon{
-
     font-size:65px;
-
-    margin-bottom:5px;
-
 }
-
 
 .hero h1{
-
-    font-size:
-    clamp(25px,6vw,40px);
-
-    margin:
-    5px 0 10px;
-
+    font-size:clamp(25px,6vw,40px);
+    margin:5px 0 10px;
 }
 
-
 .hero p{
-
     color:#888;
-
     font-size:11px;
-
     line-height:2;
 
     max-width:600px;
 
     margin:auto;
-
 }
-
-
-/* =========================
-   BUTTON
-========================= */
 
 .main-button{
 
@@ -353,8 +270,7 @@ nav a:hover{
 
     margin-top:22px;
 
-    padding:
-    13px 25px;
+    padding:13px 25px;
 
     color:#fff;
 
@@ -362,27 +278,21 @@ nav a:hover{
 
     background:#111;
 
-    border:
-    1px solid #444;
+    border:1px solid #444;
 
     border-radius:11px;
 
     font-size:11px;
 
     transition:.25s;
-
 }
-
 
 .main-button:hover{
 
-    transform:
-    translateY(-3px);
+    transform:translateY(-3px);
 
     border-color:#fff;
-
 }
-
 
 /* =========================
    SECTION TITLE
@@ -398,27 +308,17 @@ nav a:hover{
 
     margin:
     30px 5px 15px;
-
 }
-
 
 .section-title h2{
-
     font-size:18px;
-
     margin:0;
-
 }
-
 
 .section-title span{
-
     color:#555;
-
     font-size:9px;
-
 }
-
 
 /* =========================
    CARDS
@@ -435,11 +335,11 @@ nav a:hover{
     );
 
     gap:18px;
-
 }
 
-
-/* RGB CARD */
+/* =========================
+   RGB CARD
+========================= */
 
 .card{
 
@@ -461,20 +361,14 @@ nav a:hover{
         red
     );
 
-    background-size:
-    500% 500%;
+    background-size:500% 500%;
 
-    animation:
-    rgbBorder 5s linear infinite;
+    animation:rgbBorder 5s linear infinite;
 
     transition:
     transform .25s,
     filter .25s;
-
 }
-
-
-/* رنگ داخلی کاملاً مشکی */
 
 .card-inner{
 
@@ -491,9 +385,7 @@ nav a:hover{
     flex-direction:column;
 
     justify-content:space-between;
-
 }
-
 
 .card:hover{
 
@@ -506,16 +398,11 @@ nav a:hover{
         0 0 15px
         rgba(0,255,255,.25)
     );
-
 }
-
 
 .card-icon{
-
     font-size:42px;
-
 }
-
 
 .card-number{
 
@@ -524,19 +411,14 @@ nav a:hover{
     font-size:9px;
 
     margin-top:7px;
-
 }
-
 
 .card h3{
 
     font-size:17px;
 
-    margin:
-    8px 0;
-
+    margin:8px 0;
 }
-
 
 .card p{
 
@@ -545,9 +427,7 @@ nav a:hover{
     font-size:10px;
 
     line-height:1.9;
-
 }
-
 
 .card-button{
 
@@ -565,26 +445,54 @@ nav a:hover{
 
     background:#151515;
 
-    border:
-    1px solid #333;
+    border:1px solid #333;
 
     border-radius:10px;
 
     font-size:10px;
 
     transition:.2s;
-
 }
-
 
 .card-button:hover{
 
     background:#222;
 
     border-color:#777;
-
 }
 
+/* =========================
+   COMING SOON
+========================= */
+
+.soon-title{
+
+    margin-top:45px;
+}
+
+.soon-card{
+
+    opacity:.65;
+}
+
+.soon-card:hover{
+
+    transform:
+    translateY(-4px);
+
+    opacity:.8;
+}
+
+.soon-button{
+
+    cursor:not-allowed;
+
+    color:#666;
+
+    background:#0d0d0d;
+
+    border-color:#252525;
+}
 
 /* =========================
    FEATURES
@@ -601,37 +509,26 @@ nav a:hover{
     );
 
     gap:12px;
-
 }
-
 
 .feature{
 
     background:#080808;
 
-    border:
-    1px solid #222;
+    border:1px solid #222;
 
     border-radius:15px;
 
     padding:18px;
-
 }
-
 
 .feature-icon{
-
     font-size:25px;
-
 }
-
 
 .feature h3{
-
     font-size:13px;
-
 }
-
 
 .feature p{
 
@@ -640,9 +537,7 @@ nav a:hover{
     font-size:9px;
 
     line-height:1.9;
-
 }
-
 
 /* =========================
    FOOTER
@@ -654,15 +549,12 @@ footer{
 
     padding:30px 15px;
 
-    border-top:
-    1px solid #181818;
+    border-top:1px solid #181818;
 
     color:#555;
 
     font-size:9px;
-
 }
-
 
 .footer-rgb{
 
@@ -672,9 +564,7 @@ footer{
 
     animation:
     logoRGB 4s linear infinite;
-
 }
-
 
 /* =========================
    MOBILE
@@ -683,8 +573,6 @@ footer{
 @media(max-width:600px){
 
     header{
-
-        height:auto;
 
         min-height:65px;
 
@@ -737,7 +625,6 @@ Ghost Code Academy
 
 </div>
 
-
 <nav>
 
 <a href="index.html">
@@ -757,7 +644,6 @@ Ghost Code Academy
 </header>
 
 
-
 <main class="container">
 
 
@@ -774,16 +660,13 @@ Ghost Code Academy
 </h1>
 
 <p>
-
 آکادمی آموزش برنامه‌نویسی؛
 از اولین خط کد تا ساخت پروژه‌های واقعی.
-
 </p>
-
 
 <a
 class="main-button"
-href="projects.html">
+href="#programming">
 
 🚀 شروع یادگیری
 
@@ -792,10 +675,11 @@ href="projects.html">
 </section>
 
 
+<!-- MAIN PROJECT -->
 
-<!-- PROJECT -->
-
-<div class="section-title">
+<div
+id="programming"
+class="section-title">
 
 <h2>
 💻 پروژه جامع برنامه‌نویسی
@@ -808,11 +692,10 @@ href="projects.html">
 </div>
 
 
-
 <section class="cards">
 
 
-<!-- PYTHON -->
+<!-- 1 PYTHON -->
 
 <div class="card">
 
@@ -833,11 +716,10 @@ Python
 </h3>
 
 <p>
-یادگیری Python از پایه تا ساخت پروژه‌های ساده.
+آموزش Python از پایه تا ساخت پروژه‌های ساده.
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -852,8 +734,46 @@ href="python.html">
 </div>
 
 
+<!-- 2 AI -->
 
-<!-- JAVA -->
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🤖
+</div>
+
+<div class="card-number">
+بخش ۲
+</div>
+
+<h3>
+هوش مصنوعی
+</h3>
+
+<p>
+آشنایی با مفاهیم هوش مصنوعی و یادگیری ماشین.
+</p>
+
+</div>
+
+<a
+class="card-button"
+href="ai.html">
+
+مشاهده بخش
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- 3 JAVA -->
 
 <div class="card">
 
@@ -866,7 +786,7 @@ href="python.html">
 </div>
 
 <div class="card-number">
-بخش ۲
+بخش ۳
 </div>
 
 <h3>
@@ -874,11 +794,10 @@ Java
 </h3>
 
 <p>
-یادگیری زبان Java و مفاهیم برنامه‌نویسی شیءگرا.
+یادگیری Java و مفاهیم برنامه‌نویسی شیءگرا.
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -893,8 +812,7 @@ href="java.html">
 </div>
 
 
-
-<!-- JAVASCRIPT -->
+<!-- 4 JAVASCRIPT -->
 
 <div class="card">
 
@@ -907,7 +825,7 @@ href="java.html">
 </div>
 
 <div class="card-number">
-بخش ۳
+بخش ۴
 </div>
 
 <h3>
@@ -915,11 +833,10 @@ JavaScript
 </h3>
 
 <p>
-ساخت صفحات تعاملی و برنامه‌های وب با JavaScript.
+ساخت صفحات تعاملی و برنامه‌های وب.
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -934,8 +851,7 @@ href="javascript.html">
 </div>
 
 
-
-<!-- HTML -->
+<!-- 5 HTML -->
 
 <div class="card">
 
@@ -948,7 +864,7 @@ href="javascript.html">
 </div>
 
 <div class="card-number">
-بخش ۴
+بخش ۵
 </div>
 
 <h3>
@@ -960,7 +876,6 @@ HTML
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -975,8 +890,7 @@ href="html.html">
 </div>
 
 
-
-<!-- CSS -->
+<!-- 6 CSS -->
 
 <div class="card">
 
@@ -989,7 +903,7 @@ href="html.html">
 </div>
 
 <div class="card-number">
-بخش ۵
+بخش ۶
 </div>
 
 <h3>
@@ -997,11 +911,10 @@ CSS
 </h3>
 
 <p>
-طراحی ظاهر سایت، رنگ‌ها، انیمیشن و چیدمان.
+طراحی ظاهر سایت، رنگ‌ها و انیمیشن‌ها.
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -1016,8 +929,7 @@ href="css.html">
 </div>
 
 
-
-<!-- C -->
+<!-- 7 C -->
 
 <div class="card">
 
@@ -1030,7 +942,7 @@ href="css.html">
 </div>
 
 <div class="card-number">
-بخش ۶
+بخش ۷
 </div>
 
 <h3>
@@ -1038,11 +950,10 @@ C
 </h3>
 
 <p>
-آشنایی با زبان C و مفاهیم پایه برنامه‌نویسی.
+آشنایی با زبان C و مفاهیم پایه.
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -1057,8 +968,7 @@ href="c.html">
 </div>
 
 
-
-<!-- C++ -->
+<!-- 8 C++ -->
 
 <div class="card">
 
@@ -1071,7 +981,7 @@ href="c.html">
 </div>
 
 <div class="card-number">
-بخش ۷
+بخش ۸
 </div>
 
 <h3>
@@ -1083,7 +993,6 @@ C++
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -1098,8 +1007,7 @@ href="cpp.html">
 </div>
 
 
-
-<!-- C# -->
+<!-- 9 C# -->
 
 <div class="card">
 
@@ -1112,7 +1020,7 @@ href="cpp.html">
 </div>
 
 <div class="card-number">
-بخش ۸
+بخش ۹
 </div>
 
 <h3>
@@ -1124,7 +1032,6 @@ C#
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -1139,8 +1046,7 @@ href="csharp.html">
 </div>
 
 
-
-<!-- PHP -->
+<!-- 10 PHP -->
 
 <div class="card">
 
@@ -1153,7 +1059,7 @@ href="csharp.html">
 </div>
 
 <div class="card-number">
-بخش ۹
+بخش ۱۰
 </div>
 
 <h3>
@@ -1165,7 +1071,6 @@ PHP
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -1180,8 +1085,7 @@ href="php.html">
 </div>
 
 
-
-<!-- GO -->
+<!-- 11 GO -->
 
 <div class="card">
 
@@ -1194,7 +1098,7 @@ href="php.html">
 </div>
 
 <div class="card-number">
-بخش ۱۰
+بخش ۱۱
 </div>
 
 <h3>
@@ -1202,11 +1106,10 @@ Go
 </h3>
 
 <p>
-آشنایی با زبان Go و برنامه‌نویسی سریع و ساده.
+آشنایی با زبان Go و برنامه‌نویسی سریع.
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -1221,8 +1124,7 @@ href="go.html">
 </div>
 
 
-
-<!-- RUST -->
+<!-- 12 RUST -->
 
 <div class="card">
 
@@ -1235,7 +1137,7 @@ href="go.html">
 </div>
 
 <div class="card-number">
-بخش ۱۱
+بخش ۱۲
 </div>
 
 <h3>
@@ -1243,11 +1145,10 @@ Rust
 </h3>
 
 <p>
-آشنایی با Rust و برنامه‌نویسی امن و سریع.
+آشنایی با Rust و برنامه‌نویسی سریع و امن.
 </p>
 
 </div>
-
 
 <a
 class="card-button"
@@ -1262,10 +1163,30 @@ href="rust.html">
 </div>
 
 
+</section>
+
+
+<!-- COMING SOON -->
+
+<div class="section-title soon-title">
+
+<h2>
+🔒 بزودی در آکادمی
+</h2>
+
+<span>
+COMING SOON
+</span>
+
+</div>
+
+
+<section class="cards">
+
 
 <!-- KOTLIN -->
 
-<div class="card">
+<div class="card soon-card">
 
 <div class="card-inner">
 
@@ -1276,7 +1197,7 @@ href="rust.html">
 </div>
 
 <div class="card-number">
-بخش ۱۲
+بزودی
 </div>
 
 <h3>
@@ -1284,19 +1205,189 @@ Kotlin
 </h3>
 
 <p>
-یادگیری Kotlin و آشنایی با ساخت برنامه‌های مدرن.
+آموزش Kotlin برای برنامه‌نویسی مدرن.
 </p>
 
 </div>
 
+<div class="card-button soon-button">
+🔒 بزودی
+</div>
 
-<a
-class="card-button"
-href="kotlin.html">
+</div>
 
-مشاهده بخش
+</div>
 
-</a>
+
+<!-- SWIFT -->
+
+<div class="card soon-card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🦅
+</div>
+
+<div class="card-number">
+بزودی
+</div>
+
+<h3>
+Swift
+</h3>
+
+<p>
+آموزش زبان Swift و آشنایی با توسعه برنامه.
+</p>
+
+</div>
+
+<div class="card-button soon-button">
+🔒 بزودی
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TYPESCRIPT -->
+
+<div class="card soon-card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🔷
+</div>
+
+<div class="card-number">
+بزودی
+</div>
+
+<h3>
+TypeScript
+</h3>
+
+<p>
+نسخه قدرتمندتر JavaScript برای پروژه‌های بزرگ.
+</p>
+
+</div>
+
+<div class="card-button soon-button">
+🔒 بزودی
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DART -->
+
+<div class="card soon-card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+💙
+</div>
+
+<div class="card-number">
+بزودی
+</div>
+
+<h3>
+Dart
+</h3>
+
+<p>
+آشنایی با Dart و پایه‌های Flutter.
+</p>
+
+</div>
+
+<div class="card-button soon-button">
+🔒 بزودی
+</div>
+
+</div>
+
+</div>
+
+
+<!-- RUBY -->
+
+<div class="card soon-card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+💜
+</div>
+
+<div class="card-number">
+بزودی
+</div>
+
+<h3>
+Ruby
+</h3>
+
+<p>
+آشنایی با زبان Ruby و برنامه‌نویسی ساده.
+</p>
+
+</div>
+
+<div class="card-button soon-button">
+🔒 بزودی
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SCALA -->
+
+<div class="card soon-card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🟠
+</div>
+
+<div class="card-number">
+بزودی
+</div>
+
+<h3>
+Scala
+</h3>
+
+<p>
+آشنایی با زبان Scala و برنامه‌نویسی کاربردی.
+</p>
+
+</div>
+
+<div class="card-button soon-button">
+🔒 بزودی
+</div>
 
 </div>
 
@@ -1304,7 +1395,6 @@ href="kotlin.html">
 
 
 </section>
-
 
 
 <!-- FEATURES -->
@@ -1332,7 +1422,7 @@ href="kotlin.html">
 </h3>
 
 <p>
-بعد از آموزش هر زبان می‌توانی در آزمون آن شرکت کنی.
+بعد از آموزش هر بخش می‌توانی در آزمون همان بخش شرکت کنی.
 </p>
 
 </div>
@@ -1349,7 +1439,7 @@ href="kotlin.html">
 </h3>
 
 <p>
-پس از قبولی، گواهی آموزشی مخصوص همان زبان نمایش داده می‌شود.
+پس از قبولی، گواهی آموزشی مخصوص دوره نمایش داده می‌شود.
 </p>
 
 </div>
@@ -1366,7 +1456,7 @@ XP و پیشرفت
 </h3>
 
 <p>
-با کامل کردن بخش‌های آموزشی XP دریافت کن و پیشرفتت را ببین.
+با کامل کردن آموزش‌ها XP دریافت کن و پیشرفتت را ببین.
 </p>
 
 </div>
@@ -1383,7 +1473,7 @@ XP و پیشرفت
 </h3>
 
 <p>
-طراحی شده تا روی گوشی هم راحت و سریع استفاده شود.
+طراحی شده تا روی گوشی سریع و راحت استفاده شود.
 </p>
 
 </div>
@@ -1393,7 +1483,6 @@ XP و پیشرفت
 
 
 </main>
-
 
 
 <footer>
