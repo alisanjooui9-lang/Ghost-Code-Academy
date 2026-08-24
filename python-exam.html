@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>آزمون Python | Ghost Code Academy</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080808;
+    color:white;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.logo{
+    font-weight:bold;
+    font-size:16px;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+
+    background:#222;
+    border:1px solid #444;
+
+    padding:9px 13px;
+    border-radius:10px;
+
+    font-size:11px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.title{
+    background:#141414;
+    border:1px solid #333;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:18px;
+}
+
+.title .icon{
+    font-size:48px;
+}
+
+h1{
+    margin:10px 0;
+    font-size:27px;
+}
+
+h2{
+    font-size:16px;
+}
+
+p{
+    color:#aaa;
+    font-size:12px;
+    line-height:2;
+}
+
+.question{
+    background:#141414;
+
+    border:1px solid #333;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    margin-bottom:14px;
+}
+
+.q-number{
+    color:#aaa;
+    font-size:11px;
+}
+
+.q-text{
+    font-size:14px;
+    margin:10px 0 15px;
+}
+
+.option{
+    display:block;
+
+    width:100%;
+
+    background:#222;
+
+    color:#fff;
+
+    border:1px solid #444;
+
+    border-radius:9px;
+
+    padding:12px;
+
+    margin-top:8px;
+
+    text-align:right;
+
+    font-family:tahoma;
+
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#303030;
+}
+
+.option.selected{
+    border-color:#fff;
+    background:#333;
+}
+
+.submit{
+    width:100%;
+
+    border:0;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    background:white;
+
+    color:#000;
+
+    font-family:tahoma;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:8px;
+}
+
+#result{
+    display:none;
+
+    background:#141414;
+
+    border:1px solid #444;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    text-align:center;
+}
+
+.score{
+    font-size:38px;
+    font-weight:bold;
+}
+
+.success{
+    color:#66e68a;
+}
+
+.fail{
+    color:#ff7777;
+}
+
+.retry{
+    display:block;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    background:#222;
+
+    border:1px solid #444;
+
+    border-radius:10px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:11px;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<a href="python.html" class="back">
+← مسیر Python
+</a>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="title">
+
+<div class="icon">
+🎓
+</div>
+
+<h1>
+آزمون Python
+</h1>
+
+<p>
+۲۰ سؤال از درس‌های دوره پایه Python.
+</p>
+
+<p>
+برای قبولی حداقل باید <b>60%</b> پاسخ‌ها درست باشد.
+</p>
+
+</section>
+
+
+<form id="exam">
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱</div>
+
+<div class="q-text">
+برای نمایش متن در Python از کدام تابع استفاده می‌کنیم؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(1,0,this)">
+A) input()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(1,1,this)">
+B) print()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(1,2,this)">
+C) text()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(1,3,this)">
+D) show()
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۲</div>
+
+<div class="q-text">
+کدام نوع داده برای عدد صحیح استفاده می‌شود؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(2,0,this)">
+A) str
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(2,1,this)">
+B) float
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(2,2,this)">
+C) int
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(2,3,this)">
+D) bool
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۳</div>
+
+<div class="q-text">
+کدام مقدار Boolean است؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(3,0,this)">
+A) "True"
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(3,1,this)">
+B) 10
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(3,2,this)">
+C) True
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(3,3,this)">
+D) "10"
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۴</div>
+
+<div class="q-text">
+برای بررسی برابر بودن دو مقدار از کدام عملگر استفاده می‌شود؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(4,0,this)">
+A) =
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(4,1,this)">
+B) ==
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(4,2,this)">
+C) !=
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(4,3,this)">
+D) ===
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۵</div>
+
+<div class="q-text">
+کدام کلمه برای تعریف تابع استفاده می‌شود؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(5,0,this)">
+A) function
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(5,1,this)">
+B) def
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(5,2,this)">
+C) func
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(5,3,this)">
+D) make
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۶</div>
+
+<div class="q-text">
+کدام دستور مقدار را از تابع برمی‌گرداند؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(6,0,this)">
+A) print
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(6,1,this)">
+B) return
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(6,2,this)">
+C) send
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(6,3,this)">
+D) output
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۷</div>
+
+<div class="q-text">
+برای ساخت List از کدام علامت استفاده می‌کنیم؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(7,0,this)">
+A) ()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(7,1,this)">
+B) {}
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(7,2,this)">
+C) []
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(7,3,this)">
+D) &lt;&gt;
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۸</div>
+
+<div class="q-text">
+شماره اولین عنصر List چیست؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(8,0,this)">
+A) 0
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(8,1,this)">
+B) 1
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(8,2,this)">
+C) -1
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(8,3,this)">
+D) 2
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۹</div>
+
+<div class="q-text">
+برای اضافه کردن مقدار به انتهای List از چه تابعی استفاده می‌شود؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(9,0,this)">
+A) add()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(9,1,this)">
+B) append()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(9,2,this)">
+C) push()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(9,3,this)">
+D) insertEnd()
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۰</div>
+
+<div class="q-text">
+برای تعداد عناصر یک List معمولاً از چه تابعی استفاده می‌کنیم؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(10,0,this)">
+A) countAll()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(10,1,this)">
+B) size()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(10,2,this)">
+C) len()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(10,3,this)">
+D) length()
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۱</div>
+
+<div class="q-text">
+کدام حلقه برای پیمایش روی عناصر List مناسب است؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(11,0,this)">
+A) for
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(11,1,this)">
+B) if
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(11,2,this)">
+C) def
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(11,3,this)">
+D) try
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۲</div>
+
+<div class="q-text">
+کدام حلقه تا زمانی که شرط درست باشد ادامه پیدا می‌کند؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(12,0,this)">
+A) for
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(12,1,this)">
+B) while
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(12,2,this)">
+C) if
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(12,3,this)">
+D) def
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۳</div>
+
+<div class="q-text">
+کدام دستور یک حلقه را متوقف می‌کند؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(13,0,this)">
+A) stop
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(13,1,this)">
+B) break
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(13,2,this)">
+C) exitLoop
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(13,3,this)">
+D) end
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۴</div>
+
+<div class="q-text">
+Dictionary اطلاعات را به چه شکل ذخیره می‌کند؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(14,0,this)">
+A) فقط عدد
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(14,1,this)">
+B) Key و Value
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(14,2,this)">
+C) فقط متن
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(14,3,this)">
+D) index و loop
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۵</div>
+
+<div class="q-text">
+برای حذف یک Key از Dictionary کدام تابع مناسب است؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(15,0,this)">
+A) removeKey()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(15,1,this)">
+B) delete()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(15,2,this)">
+C) pop()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(15,3,this)">
+D) erase()
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۶</div>
+
+<div class="q-text">
+برای باز کردن فایل در حالت خواندن از کدام حالت استفاده می‌شود؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(16,0,this)">
+A) w
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(16,1,this)">
+B) a
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(16,2,this)">
+C) r
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(16,3,this)">
+D) x
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۷</div>
+
+<div class="q-text">
+برای نوشتن در فایل از کدام حالت استفاده می‌شود؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(17,0,this)">
+A) r
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(17,1,this)">
+B) w
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(17,2,this)">
+C) read
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(17,3,this)">
+D) open
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۸</div>
+
+<div class="q-text">
+برای مدیریت Exception معمولاً از کدام ساختار استفاده می‌کنیم؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(18,0,this)">
+A) for / while
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(18,1,this)">
+B) try / except
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(18,2,this)">
+C) if / elif
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(18,3,this)">
+D) def / return
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۱۹</div>
+
+<div class="q-text">
+کدام Exception هنگام تقسیم بر صفر رخ می‌دهد؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(19,0,this)">
+A) ValueError
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(19,1,this)">
+B) TypeError
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(19,2,this)">
+C) ZeroDivisionError
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(19,3,this)">
+D) NameError
+</button>
+
+</div>
+
+
+<div class="question">
+
+<div class="q-number">سؤال ۲۰</div>
+
+<div class="q-text">
+کدام تابع نوع یک مقدار را مشخص می‌کند؟
+</div>
+
+<button type="button" class="option" onclick="selectAnswer(20,0,this)">
+A) type()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(20,1,this)">
+B) typeof()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(20,2,this)">
+C) kind()
+</button>
+
+<button type="button" class="option" onclick="selectAnswer(20,3,this)">
+D) dataType()
+</button>
+
+</div>
+
+
+<button
+type="button"
+class="submit"
+onclick="finishExam()">
+
+🎯 پایان آزمون و مشاهده نتیجه
+
+</button>
+
+</form>
+
+
+<section id="result">
+
+<h2>
+📊 نتیجه آزمون
+</h2>
+
+<div
+id="score"
+class="score">
+</div>
+
+<div id="message"></div>
+
+<div id="xp"></div>
+
+<a
+href="python.html"
+class="retry">
+
+← بازگشت به مسیر Python
+
+</a>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+const answers = [
+
+1, //1
+2, //2
+2, //3
+1, //4
+1, //5
+1, //6
+2, //7
+0, //8
+1, //9
+2, //10
+0, //11
+1, //12
+1, //13
+1, //14
+2, //15
+2, //16
+1, //17
+1, //18
+2, //19
+0  //20
+
+];
+
+
+let selected = {};
+
+
+function selectAnswer(question, answer, button){
+
+    selected[question] = answer;
+
+
+    const parent =
+    button.parentElement;
+
+
+    const buttons =
+    parent.querySelectorAll(".option");
+
+
+    buttons.forEach(function(btn){
+
+        btn.classList.remove("selected");
+
+    });
+
+
+    button.classList.add("selected");
+
+}
+
+
+function finishExam(){
+
+    let score = 0;
+
+
+    for(let i = 1; i <= 20; i++){
+
+        if(selected[i] === answers[i - 1]){
+
+            score++;
+
+        }
+
+    }
+
+
+    const percent =
+    Math.round((score / 20) * 100);
+
+
+    let earnedXP = 0;
+
+
+    if(percent >= 60){
+
+        earnedXP = percent;
+
+
+        let oldXP =
+        Number(
+            localStorage.getItem(
+                "ghost_xp"
+            ) || 0
+        );
+
+
+        localStorage.setItem(
+            "ghost_xp",
+            oldXP + earnedXP
+        );
+
+
+        localStorage.setItem(
+            "python_exam_passed",
+            "true"
+        );
+
+    }
+
+
+    document.getElementById(
+        "result"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "score"
+    ).innerText =
+    score + " / 20";
+
+
+    const message =
+    document.getElementById(
+        "message"
+    );
+
+
+    if(percent >= 60){
+
+        message.className =
+        "success";
+
+        message.innerText =
+        "🎉 تبریک! آزمون را با موفقیت قبول شدی.";
+
+    }else{
+
+        message.className =
+        "fail";
+
+        message.innerText =
+        "❌ هنوز قبول نشدی. دوباره درس‌ها را مرور کن.";
+
+    }
+
+
+    document.getElementById(
+        "xp"
+    ).innerText =
+    "⭐ درصد: " + percent +
+    "% | XP دریافتی: " + earnedXP;
+
+
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+
+</body>
+  </html>
