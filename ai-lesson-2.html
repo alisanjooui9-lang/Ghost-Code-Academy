@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درس ۲ | Machine Learning</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    min-height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+    background:rgba(0,0,0,.9);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    font-size:14px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:6px;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:9px;
+    padding:8px 10px;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:9px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.rgb{
+    padding:2px;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        red,#ff00ff,blue,cyan,lime,yellow,red
+    );
+    background-size:500% 500%;
+    animation:rgb 5s linear infinite;
+}
+
+@keyframes rgb{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.hero{
+    background:#080808;
+    border-radius:18px;
+    padding:30px 20px;
+    text-align:center;
+}
+
+.icon{font-size:55px}
+
+.hero h1{
+    font-size:25px;
+    margin:8px 0;
+}
+
+.hero p{
+    color:#888;
+    font-size:10px;
+    line-height:2;
+}
+
+.content{
+    margin-top:18px;
+    background:#0a0a0a;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:22px;
+}
+
+h2{font-size:18px}
+h3{
+    font-size:14px;
+    margin-top:25px;
+}
+
+p,li{
+    color:#aaa;
+    font-size:11px;
+    line-height:2.1;
+}
+
+ul{padding-right:20px}
+
+.example{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:13px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.example-title{
+    color:#fff;
+    font-size:11px;
+    margin-bottom:8px;
+}
+
+.example span{
+    color:#00ffff;
+    font-size:10px;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(
+        auto-fit,minmax(150px,1fr)
+    );
+    gap:10px;
+    margin-top:15px;
+}
+
+.step{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:13px;
+    padding:15px;
+}
+
+.step b{
+    display:block;
+    font-size:12px;
+    margin-bottom:7px;
+}
+
+.step p{
+    font-size:9px;
+    margin:0;
+}
+
+.complete{
+    margin-top:20px;
+    text-align:center;
+    background:#080808;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:22px;
+}
+
+.complete h2{font-size:17px}
+
+.complete p{color:#777}
+
+button{
+    width:100%;
+    border:0;
+    padding:13px;
+    border-radius:11px;
+    background:#fff;
+    color:#000;
+    font-family:tahoma;
+    font-size:11px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.status{
+    margin-top:12px;
+    color:#6cff91;
+    font-size:10px;
+    display:none;
+}
+
+footer{
+    text-align:center;
+    color:#444;
+    font-size:8px;
+    padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<nav>
+<a href="index.html">خانه</a>
+<a href="ai.html">دوره AI</a>
+<a href="ai-lesson-1.html">قبلی</a>
+</nav>
+
+</header>
+
+<main class="container">
+
+<div class="rgb">
+<section class="hero">
+
+<div class="icon">🧠</div>
+
+<h1>
+درس ۲: Machine Learning چیست؟
+</h1>
+
+<p>
+آشنایی با یادگیری ماشین و نحوه یادگیری مدل‌ها از داده
+</p>
+
+</section>
+</div>
+
+<section class="content">
+
+<h2>
+🧠 Machine Learning چیست؟
+</h2>
+
+<p>
+Machine Learning یا <strong>یادگیری ماشین</strong> یکی از شاخه‌های هوش مصنوعی است که در آن کامپیوتر با استفاده از داده‌ها و الگوریتم‌ها الگوهایی را یاد می‌گیرد و از آن‌ها برای انجام پیش‌بینی یا تصمیم‌گیری استفاده می‌کند.
+</p>
+
+<h3>
+🤔 یک مثال ساده
+</h3>
+
+<p>
+فرض کن می‌خواهیم برنامه‌ای بسازیم که قیمت تقریبی خانه را پیش‌بینی کند. به جای اینکه برای همه حالت‌ها قانون جداگانه بنویسیم، می‌توانیم اطلاعات خانه‌های قبلی را به مدل بدهیم.
+</p>
+
+<div class="example">
+
+<div class="example-title">
+داده‌های آموزشی:
+</div>
+
+<span>
+متراژ + تعداد اتاق + موقعیت → قیمت خانه
+</span>
+
+</div>
+
+<p>
+مدل از نمونه‌های موجود الگوهایی پیدا می‌کند و بعد می‌تواند برای یک خانه جدید، قیمت را پیش‌بینی کند.
+</p>
+
+<h3>
+⚙️ روند ساده یادگیری ماشین
+</h3>
+
+<div class="steps">
+
+<div class="step">
+<b>۱️⃣ جمع‌آوری داده</b>
+<p>اطلاعات موردنیاز برای آموزش مدل آماده می‌شود.</p>
+</div>
+
+<div class="step">
+<b>۲️⃣ آموزش</b>
+<p>مدل داده‌ها را بررسی می‌کند و الگوها را یاد می‌گیرد.</p>
+</div>
+
+<div class="step">
+<b>۳️⃣ آزمایش</b>
+<p>مدل با داده‌های جدید آزمایش می‌شود.</p>
+</div>
+
+<div class="step">
+<b>۴️⃣ پیش‌بینی</b>
+<p>مدل از چیزهایی که یاد گرفته برای ورودی جدید استفاده می‌کند.</p>
+</div>
+
+</div>
+
+<h3>
+📚 انواع معروف یادگیری ماشین
+</h3>
+
+<ul>
+
+<li>
+<strong>Supervised Learning:</strong>
+مدل با داده‌هایی آموزش می‌بیند که پاسخ درست آن‌ها مشخص است.
+</li>
+
+<li>
+<strong>Unsupervised Learning:</strong>
+مدل تلاش می‌کند الگوها و گروه‌های موجود در داده را بدون پاسخ مشخص پیدا کند.
+</li>
+
+<li>
+<strong>Reinforcement Learning:</strong>
+مدل با دریافت پاداش یا جریمه، به‌مرور برای انتخاب رفتار مناسب یاد می‌گیرد.
+</li>
+
+</ul>
+
+<h3>
+🎮 مثال در بازی‌ها
+</h3>
+
+<p>
+در بعضی بازی‌ها می‌توان از روش‌های یادگیری ماشین برای تحلیل رفتار بازیکن یا ایجاد سیستم‌هایی استفاده کرد که بر اساس اطلاعات قبلی، رفتار یا نتیجه‌ای را پیش‌بینی می‌کنند.
+</p>
+
+<div class="example">
+
+<div class="example-title">
+خلاصه:
+</div>
+
+<span>
+داده → آموزش مدل → یادگیری الگو → پیش‌بینی
+</span>
+
+</div>
+
+<h3>
+📌 نکته مهم
+</h3>
+
+<p>
+یادگیری ماشین به این معنی نیست که کامپیوتر دقیقاً مثل انسان فکر می‌کند. مدل بر اساس داده‌ها و روش ریاضی مشخص، الگوهایی را پیدا می‌کند و نتیجه تولید می‌کند.
+</p>
+
+</section>
+
+<section class="complete">
+
+<h2>
+✅ تکمیل درس
+</h2>
+
+<p>
+بعد از مطالعه درس، برای دریافت ۱۰ XP روی دکمه زیر بزن.
+</p>
+
+<button id="completeButton" onclick="completeLesson()">
+تکمیل درس + دریافت ۱۰ XP
+</button>
+
+<div id="status" class="status">
+✅ درس دوم با موفقیت تکمیل شد!
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 Ghost Code Academy
+</footer>
+
+<script>
+
+const registered =
+localStorage.getItem("ghost_registered");
+
+if(registered !== "true"){
+    window.location.href="register.html";
+}
+
+
+/* تعداد درس‌های تکمیل‌شده */
+
+let completed =
+Number(
+    localStorage.getItem("ai_completed") || 0
+);
+
+
+/*
+درس دوم فقط وقتی ثبت می‌شود
+که درس اول تکمیل شده باشد.
+*/
+
+if(completed < 1){
+
+    document.getElementById("completeButton").disabled=true;
+
+    document.getElementById("completeButton").innerText=
+    "🔒 ابتدا درس اول را کامل کن";
+}
+
+
+/* تکمیل درس دوم */
+
+function completeLesson(){
+
+    let current =
+    Number(
+        localStorage.getItem("ai_completed") || 0
+    );
+
+    if(current < 2){
+
+        localStorage.setItem(
+            "ai_completed",
+            2
+        );
+
+        let xp =
+        Number(
+            localStorage.getItem("ai_xp") || 0
+        );
+
+        xp += 10;
+
+        localStorage.setItem(
+            "ai_xp",
+            xp
+        );
+    }
+
+    document.getElementById(
+        "completeButton"
+    ).innerText="✅ درس تکمیل شد";
+
+    document.getElementById(
+        "completeButton"
+    ).disabled=true;
+
+    document.getElementById(
+        "status"
+    ).style.display="block";
+}
+
+
+/* اگر قبلاً تکمیل شده */
+
+if(completed >= 2){
+
+    document.getElementById(
+        "completeButton"
+    ).innerText="✅ درس تکمیل شده";
+
+    document.getElementById(
+        "completeButton"
+    ).disabled=true;
+
+    document.getElementById(
+        "status"
+    ).style.display="block";
+}
+
+</script>
+
+</body>
+  </html>
