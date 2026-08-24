@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>درس ۱ پایتون | Ghost Code Academy</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080808;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.logo{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+
+    background:#222;
+    border:1px solid #444;
+
+    padding:9px 13px;
+    border-radius:10px;
+
+    font-size:11px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.lesson-head{
+    background:#141414;
+    border:1px solid #333;
+    border-radius:18px;
+
+    padding:25px;
+    margin-bottom:18px;
+}
+
+.icon{
+    font-size:50px;
+}
+
+h1{
+    font-size:27px;
+    margin:10px 0;
+}
+
+.subtitle{
+    color:#888;
+    font-size:12px;
+    line-height:2;
+}
+
+.box{
+    background:#121212;
+    border:1px solid #303030;
+
+    border-radius:16px;
+
+    padding:22px;
+    margin-top:15px;
+}
+
+.box h2{
+    font-size:18px;
+}
+
+.box p,
+.box li{
+    color:#aaa;
+
+    font-size:12px;
+    line-height:2;
+}
+
+.code{
+    direction:ltr;
+    text-align:left;
+
+    background:#050505;
+
+    border:1px solid #292929;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    overflow:auto;
+
+    color:#e6e6e6;
+
+    font-family:monospace;
+
+    line-height:1.7;
+}
+
+.tip{
+    border-right:4px solid #7d8cff;
+
+    background:#15171f;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    color:#aaa;
+
+    font-size:11px;
+
+    line-height:2;
+}
+
+.question{
+    margin-top:15px;
+
+    padding:16px;
+
+    background:#171717;
+
+    border:1px solid #333;
+
+    border-radius:13px;
+}
+
+.option{
+    display:block;
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:11px;
+
+    background:#222;
+
+    color:#fff;
+
+    border:1px solid #444;
+
+    border-radius:9px;
+
+    font-family:tahoma;
+
+    cursor:pointer;
+
+    text-align:right;
+}
+
+.option:hover{
+    background:#303030;
+}
+
+.result{
+    margin-top:12px;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    display:none;
+
+    font-size:11px;
+}
+
+.complete{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:#fff;
+
+    color:#000;
+
+    font-family:tahoma;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.complete:hover{
+    background:#7d8cff;
+    color:white;
+}
+
+.next{
+    display:none;
+
+    margin-top:12px;
+
+    text-align:center;
+
+    padding:13px;
+
+    background:#222;
+
+    border:1px solid #555;
+
+    border-radius:11px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:11px;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<a
+href="python.html"
+class="back">
+
+← Python
+
+</a>
+
+</header>
+
+
+
+<main class="container">
+
+
+<section class="lesson-head">
+
+<div class="icon">
+🐍
+</div>
+
+<h1>
+درس ۱: آشنایی با Python
+</h1>
+
+<p class="subtitle">
+در این درس با Python آشنا می‌شویم و اولین برنامه خودمان را اجرا می‌کنیم.
+</p>
+
+</section>
+
+
+
+<section class="box">
+
+<h2>
+🐍 Python چیست؟
+</h2>
+
+<p>
+Python یک زبان برنامه‌نویسی ساده و قدرتمند است که
+برای ساخت برنامه، وب‌سایت، ابزارهای مختلف،
+تحلیل داده و پروژه‌های هوش مصنوعی استفاده می‌شود.
+</p>
+
+<p>
+یکی از ویژگی‌های مهم Python، خوانایی نسبتاً ساده کدهای آن است.
+</p>
+
+</section>
+
+
+
+<section class="box">
+
+<h2>
+🚀 اولین برنامه
+</h2>
+
+<p>
+برای نمایش یک متن در Python می‌توانیم از
+دستور <b>print()</b> استفاده کنیم.
+</p>
+
+
+<pre class="code">print("Hello World!")</pre>
+
+
+<p>
+با اجرای این برنامه، عبارت زیر نمایش داده می‌شود:
+</p>
+
+
+<pre class="code">Hello World!</pre>
+
+</section>
+
+
+
+<section class="box">
+
+<h2>
+💡 یک مثال فارسی
+</h2>
+
+<pre class="code">print("سلام دنیا!")</pre>
+
+</section>
+
+
+
+<section class="box">
+
+<h2>
+🧠 نکته مهم
+</h2>
+
+<div class="tip">
+
+در Python، حروف بزرگ و کوچک متفاوت هستند.
+
+مثلاً:
+
+<pre class="code">print()</pre>
+
+با:
+
+<pre class="code">Print()</pre>
+
+یکی نیستند.
+
+</div>
+
+</section>
+
+
+
+<section class="box">
+
+<h2>
+📝 تمرین درس
+</h2>
+
+<p>
+کدام گزینه برای نمایش متن در Python استفاده می‌شود؟
+</p>
+
+
+<div class="question">
+
+<button
+class="option"
+onclick="answer(false)">
+
+A) input()
+
+</button>
+
+
+<button
+class="option"
+onclick="answer(true)">
+
+B) print()
+
+</button>
+
+
+<button
+class="option"
+onclick="answer(false)">
+
+C) text()
+
+</button>
+
+
+<button
+class="option"
+onclick="answer(false)">
+
+D) show()
+
+</button>
+
+
+<div
+id="result"
+class="result">
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="box">
+
+<h2>
+🏆 تکمیل درس
+</h2>
+
+<p>
+بعد از اینکه درس را یاد گرفتی و تمرین را حل کردی،
+می‌توانی درس را کامل کنی و XP بگیری.
+</p>
+
+
+<button
+class="complete"
+onclick="completeLesson()">
+
+✅ تکمیل درس و دریافت +10 XP
+
+</button>
+
+
+<a
+id="next"
+href="python-lesson-2.html"
+class="next">
+
+➡️ رفتن به درس دوم
+
+</a>
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+let correct = false;
+
+
+/* جواب سؤال */
+
+function answer(isCorrect){
+
+    const result =
+    document.getElementById(
+        "result"
+    );
+
+    result.style.display =
+    "block";
+
+
+    if(isCorrect){
+
+        correct = true;
+
+        result.style.background =
+        "#102b17";
+
+        result.style.color =
+        "#66e68a";
+
+        result.innerText =
+        "✅ درست جواب دادی!";
+
+    }else{
+
+        result.style.background =
+        "#301414";
+
+        result.style.color =
+        "#ff7777";
+
+        result.innerText =
+        "❌ جواب درست نیست. دوباره تلاش کن.";
+
+    }
+
+}
+
+
+/* تکمیل درس */
+
+function completeLesson(){
+
+    if(!correct){
+
+        alert(
+            "📝 اول تمرین درس را درست حل کن."
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "python_completed",
+        "2"
+    );
+
+
+    let xp =
+    Number(
+        localStorage.getItem(
+            "ghost_xp"
+        ) || 0
+    );
+
+
+    xp += 10;
+
+
+    localStorage.setItem(
+        "ghost_xp",
+        xp
+    );
+
+
+    alert(
+        "🎉 درس با موفقیت تکمیل شد!\n+10 XP"
+    );
+
+
+    document.getElementById(
+        "next"
+    ).style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
