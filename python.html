@@ -8,6 +8,7 @@
 <title>دوره Python | Ghost Code Academy</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -32,36 +33,130 @@ header{
 
     position:sticky;
     top:0;
-    z-index:20;
+    z-index:50;
 }
 
 .logo{
+    font-size:16px;
     font-weight:bold;
-    font-size:18px;
 }
 
-.back{
-    color:white;
+.menu{
+    display:flex;
+    gap:7px;
+}
+
+.menu a{
     text-decoration:none;
+    color:#fff;
 
     background:#222;
     border:1px solid #444;
 
-    padding:9px 13px;
-    border-radius:10px;
+    padding:8px 11px;
 
-    font-size:11px;
+    border-radius:9px;
+
+    font-size:10px;
 }
 
 .container{
     max-width:950px;
     margin:auto;
-    padding:25px 15px 60px;
+
+    padding:20px 15px 60px;
 }
 
+
+/* PROFILE */
+
+.profile{
+    background:#141414;
+
+    border:1px solid #333;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.avatar{
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:#222;
+
+    border:1px solid #555;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+}
+
+.profile-info{
+    flex:1;
+    min-width:180px;
+}
+
+.name{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.student-code{
+    color:#777;
+    font-size:9px;
+    margin-top:5px;
+}
+
+.stats{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    background:#0b0b0b;
+
+    border:1px solid #292929;
+
+    border-radius:10px;
+
+    padding:10px 13px;
+
+    text-align:center;
+}
+
+.stat b{
+    display:block;
+    font-size:15px;
+}
+
+.stat span{
+    color:#777;
+    font-size:8px;
+}
+
+
+/* TITLE */
+
 .hero{
-    background:
-    linear-gradient(145deg,#151515,#101010);
+    background:#141414;
 
     border:1px solid #333;
 
@@ -69,7 +164,9 @@ header{
 
     padding:25px;
 
-    margin-bottom:25px;
+    margin-bottom:15px;
+
+    text-align:center;
 }
 
 .hero-icon{
@@ -77,32 +174,45 @@ header{
 }
 
 .hero h1{
-    margin:10px 0;
-    font-size:28px;
+    font-size:27px;
+    margin:8px 0;
 }
 
 .hero p{
     color:#888;
-    font-size:12px;
+    font-size:11px;
     line-height:2;
 }
 
-.progress{
-    margin-top:20px;
+
+/* PROGRESS */
+
+.progress-box{
+    background:#141414;
+
+    border:1px solid #333;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:15px;
 }
 
-.progress-info{
+.progress-top{
     display:flex;
+
     justify-content:space-between;
 
-    color:#888;
     font-size:10px;
+
+    color:#aaa;
+
+    margin-bottom:9px;
 }
 
-.bar{
-    height:9px;
-
-    margin-top:8px;
+.progress{
+    height:10px;
 
     background:#292929;
 
@@ -111,156 +221,173 @@ header{
     overflow:hidden;
 }
 
-.bar-inner{
-    width:10%;
+.progress-bar{
     height:100%;
 
-    background:#7d8cff;
+    width:0%;
 
-    border-radius:20px;
+    background:#fff;
 
-    transition:.3s;
+    transition:.4s;
+}
+
+
+/* LESSONS */
+
+.section-title{
+    font-size:17px;
+
+    margin:20px 5px 12px;
 }
 
 .lessons{
     display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
     gap:12px;
 }
 
 .lesson{
     background:#141414;
 
-    border:1px solid #303030;
+    border:1px solid #333;
 
-    border-radius:16px;
+    border-radius:17px;
 
     padding:18px;
-
-    display:flex;
-    align-items:center;
-
-    gap:15px;
 
     transition:.2s;
 }
 
 .lesson:hover{
-    border-color:#6876ff;
-    transform:translateX(-3px);
+    transform:translateY(-2px);
+
+    border-color:#666;
 }
 
 .lesson-icon{
-    width:48px;
-    height:48px;
-
-    border-radius:13px;
-
-    background:#222;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:23px;
+    font-size:30px;
 }
 
-.lesson-info{
-    flex:1;
-}
-
-.lesson-info h3{
-    margin:0 0 6px;
-
-    font-size:14px;
-}
-
-.lesson-info p{
-    margin:0;
-
+.lesson-number{
     color:#777;
 
-    font-size:10px;
+    font-size:9px;
+
+    margin-top:8px;
 }
 
-.lesson-btn{
+.lesson h3{
+    font-size:14px;
+
+    margin:7px 0;
+}
+
+.lesson p{
+    color:#888;
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    min-height:35px;
+}
+
+.lesson a{
+    display:block;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    padding:11px;
+
+    border-radius:9px;
+
     background:#222;
 
     border:1px solid #444;
 
     color:#fff;
 
-    text-decoration:none;
-
-    padding:9px 13px;
-
-    border-radius:9px;
-
     font-size:10px;
 }
 
-.lesson-btn:hover{
-    background:#fff;
-    color:#000;
+.lesson.done{
+    border-color:#3d7650;
 }
 
+.lesson.done a{
+    background:#15321e;
+    border-color:#376a47;
+}
+
+.locked{
+    opacity:.45;
+}
+
+.locked a{
+    cursor:not-allowed;
+}
+
+
+/* EXAM */
+
 .exam{
-    margin-top:30px;
+    margin-top:20px;
 
-    background:
-    linear-gradient(145deg,#1d1700,#111);
+    background:#141414;
 
-    border:1px solid #856900;
+    border:1px solid #333;
 
     border-radius:18px;
 
-    padding:22px;
+    padding:20px;
+
+    text-align:center;
 }
 
 .exam h2{
-    color:#ffd700;
+    font-size:18px;
 }
 
 .exam p{
-    color:#999;
-
-    font-size:11px;
-
+    color:#888;
+    font-size:10px;
     line-height:2;
 }
 
-.exam-btn{
+.exam a{
     display:inline-block;
 
-    padding:12px 20px;
+    background:#fff;
 
-    background:#ffd700;
-
-    color:#111;
-
-    border-radius:10px;
+    color:#000;
 
     text-decoration:none;
 
-    font-weight:bold;
+    padding:12px 25px;
+
+    border-radius:10px;
 
     font-size:11px;
+
+    font-weight:bold;
 }
 
-@media(max-width:600px){
-
-    .lesson{
-        align-items:flex-start;
-    }
-
-    .lesson-btn{
-        padding:8px;
-    }
-
+.exam.locked{
+    opacity:.5;
 }
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -268,9 +395,17 @@ header{
 👻 Ghost Code Academy
 </div>
 
-<a href="courses.html" class="back">
-← دوره‌ها
+<div class="menu">
+
+<a href="index.html">
+خانه
 </a>
+
+<a href="register.html">
+ثبت‌نام
+</a>
+
+</div>
 
 </header>
 
@@ -278,41 +413,68 @@ header{
 <main class="container">
 
 
-<section class="hero">
+<!-- PROFILE -->
 
-<div class="hero-icon">
+<section class="profile">
+
+<div class="avatar">
 🐍
 </div>
 
-<h1>
-Python مقدماتی
-</h1>
-
-<p>
-پایتون را از صفر شروع کن و قدم‌به‌قدم
-با مفاهیم اصلی برنامه‌نویسی آشنا شو.
-</p>
-
-<div class="progress">
-
-<div class="progress-info">
-
-<span>
-پیشرفت دوره
-</span>
-
-<span id="progressText">
-1 / 10
-</span>
-
-</div>
-
-<div class="bar">
+<div class="profile-info">
 
 <div
-class="bar-inner"
-id="progressBar">
+id="studentName"
+class="name">
+هنرجو
 </div>
+
+<div
+id="studentCode"
+class="student-code">
+کد هنرجو
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<b id="xp">
+0
+</b>
+
+<span>
+XP
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b id="lessonCount">
+0/10
+</b>
+
+<span>
+درس
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b id="percent">
+0%
+</b>
+
+<span>
+پیشرفت
+</span>
 
 </div>
 
@@ -321,108 +483,154 @@ id="progressBar">
 </section>
 
 
-<h2>
-📚 مسیر یادگیری
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-icon">
+🐍
+</div>
+
+<h1>
+دوره آموزش Python
+</h1>
+
+<p>
+از مفاهیم پایه تا ساخت برنامه‌های ساده Python
+را قدم‌به‌قدم یاد بگیر.
+</p>
+
+</section>
+
+
+<!-- PROGRESS -->
+
+<section class="progress-box">
+
+<div class="progress-top">
+
+<span>
+پیشرفت دوره
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div
+id="progressBar"
+class="progress-bar">
+</div>
+
+</div>
+
+</section>
+
+
+<h2 class="section-title">
+📚 درس‌های دوره
 </h2>
 
 
 <section class="lessons">
 
 
-<div class="lesson">
+<!-- 1 -->
+
+<div class="lesson" id="lesson1">
 
 <div class="lesson-icon">
-1️⃣
+🐍
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۱
+</div>
 
 <h3>
 آشنایی با Python
 </h3>
 
 <p>
-Python چیست و اولین برنامه خود را اجرا کن.
+Python چیست و چرا یکی از زبان‌های محبوب دنیاست؟
 </p>
 
-</div>
-
-<a
-href="python-lesson-1.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-1.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 2 -->
+
+<div class="lesson" id="lesson2">
 
 <div class="lesson-icon">
-2️⃣
+📦
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۲
+</div>
 
 <h3>
-متغیرها
+متغیرها و انواع داده
 </h3>
 
 <p>
-ساخت و استفاده از متغیرها در Python.
+متغیر، String، Integer، Float و Boolean.
 </p>
 
-</div>
-
-<a
-href="python-lesson-2.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-2.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 3 -->
+
+<div class="lesson" id="lesson3">
 
 <div class="lesson-icon">
-3️⃣
+➕
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۳
+</div>
 
 <h3>
-انواع داده
+عملگرها
 </h3>
 
 <p>
-String، Integer، Float و Boolean.
+عملگرهای ریاضی، مقایسه‌ای و منطقی.
 </p>
 
-</div>
-
-<a
-href="python-lesson-3.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-3.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 4 -->
+
+<div class="lesson" id="lesson4">
 
 <div class="lesson-icon">
-4️⃣
+🔀
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۴
+</div>
 
 <h3>
 شرط‌ها
@@ -432,188 +640,170 @@ class="lesson-btn">
 کار با if، elif و else.
 </p>
 
-</div>
-
-<a
-href="python-lesson-4.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-4.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 5 -->
+
+<div class="lesson" id="lesson5">
 
 <div class="lesson-icon">
-5️⃣
+🔁
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۵
+</div>
 
 <h3>
 حلقه‌ها
 </h3>
 
 <p>
-آموزش for و while.
+آموزش for، while، break و continue.
 </p>
 
-</div>
-
-<a
-href="python-lesson-5.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-5.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 6 -->
+
+<div class="lesson" id="lesson6">
 
 <div class="lesson-icon">
-6️⃣
+📋
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۶
+</div>
 
 <h3>
-لیست‌ها
+List در Python
 </h3>
 
 <p>
-ساخت، تغییر و استفاده از List.
+ساخت و مدیریت لیست‌ها و عناصر آن‌ها.
 </p>
 
-</div>
-
-<a
-href="python-lesson-6.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-6.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 7 -->
+
+<div class="lesson" id="lesson7">
 
 <div class="lesson-icon">
-7️⃣
+⚙️
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۷
+</div>
 
 <h3>
 توابع
 </h3>
 
 <p>
-ساخت تابع و استفاده از def.
+آموزش def، پارامترها و return.
 </p>
 
-</div>
-
-<a
-href="python-lesson-7.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-7.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 8 -->
+
+<div class="lesson" id="lesson8">
 
 <div class="lesson-icon">
-8️⃣
+🗂️
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۸
+</div>
 
 <h3>
-دیکشنری‌ها
+Dictionary
 </h3>
 
 <p>
-کار با Dictionary و داده‌های کلیدی.
+کار با Key و Value در دیکشنری.
 </p>
 
-</div>
-
-<a
-href="python-lesson-8.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-8.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 9 -->
+
+<div class="lesson" id="lesson9">
 
 <div class="lesson-icon">
-9️⃣
+📁
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۹
+</div>
 
 <h3>
 کار با فایل‌ها
 </h3>
 
 <p>
-خواندن و نوشتن اطلاعات در فایل.
+خواندن و نوشتن فایل‌ها در Python.
 </p>
 
-</div>
-
-<a
-href="python-lesson-9.html"
-class="lesson-btn">
-
-شروع درس
-
+<a href="python-lesson-9.html">
+مشاهده درس
 </a>
 
 </div>
 
 
-<div class="lesson">
+<!-- 10 -->
+
+<div class="lesson" id="lesson10">
 
 <div class="lesson-icon">
-🔟
+🛡️
 </div>
 
-<div class="lesson-info">
+<div class="lesson-number">
+درس ۱۰
+</div>
 
 <h3>
-پروژه کوچک Python
+مدیریت خطاها
 </h3>
 
 <p>
-ساخت یک پروژه ساده برای جمع‌بندی آموخته‌ها.
+آشنایی با try، except و finally.
 </p>
 
-</div>
-
-<a
-href="python-lesson-10.html"
-class="lesson-btn">
-
-شروع پروژه
-
+<a href="python-lesson-10.html">
+مشاهده درس
 </a>
 
 </div>
@@ -622,22 +812,25 @@ class="lesson-btn">
 </section>
 
 
-<section class="exam">
+<!-- EXAM -->
+
+<section
+id="examBox"
+class="exam">
 
 <h2>
-📝 امتحان نهایی Python
+🎓 آزمون پایان دوره
 </h2>
 
 <p>
-بعد از یادگیری درس‌ها، در آزمون نهایی شرکت کن.
-این آزمون شامل ۲۰ سؤال است و نمره و XP دریافت می‌کنی.
+بعد از تکمیل ۱۰ درس می‌توانی در آزمون ۲۰ سؤالی شرکت کنی.
 </p>
 
 <a
-href="python-exam.html"
-class="exam-btn">
+id="examButton"
+href="python-exam.html">
 
-🚀 شروع امتحان
+رفتن به آزمون
 
 </a>
 
@@ -649,38 +842,235 @@ class="exam-btn">
 
 <script>
 
-function updateProgress(){
 
-    let completed =
-    Number(
-        localStorage.getItem(
-            "python_completed"
-        ) || 1
-    );
+/* -------------------------
+   CHECK REGISTER
+------------------------- */
 
-    if(completed < 1){
-        completed = 1;
-    }
-
-    if(completed > 10){
-        completed = 10;
-    }
-
-    document.getElementById(
-        "progressText"
-    ).innerText =
-    completed + " / 10";
+const registered =
+localStorage.getItem(
+    "ghost_registered"
+);
 
 
-    document.getElementById(
-        "progressBar"
-    ).style.width =
-    (completed * 10) + "%";
+if(registered !== "true"){
+
+    window.location.href =
+    "register.html";
+
 }
 
-updateProgress();
+
+/* -------------------------
+   STUDENT
+------------------------- */
+
+let student = null;
+
+
+try{
+
+    student =
+    JSON.parse(
+        localStorage.getItem(
+            "ghost_student"
+        )
+    );
+
+}catch(e){
+
+    student = null;
+
+}
+
+
+if(student){
+
+    document.getElementById(
+        "studentName"
+    ).innerText =
+    student.fullName;
+
+
+    document.getElementById(
+        "studentCode"
+    ).innerText =
+    "کد هنرجو: " +
+    student.studentCode;
+
+}
+
+
+/* -------------------------
+   XP
+------------------------- */
+
+const xp =
+Number(
+    localStorage.getItem(
+        "ghost_xp"
+    ) || 0
+);
+
+
+document.getElementById(
+    "xp"
+).innerText = xp;
+
+
+/* -------------------------
+   PROGRESS
+------------------------- */
+
+let completed =
+Number(
+    localStorage.getItem(
+        "python_completed"
+    ) || 0
+);
+
+
+/*
+   اگر مقدار قدیمی بیشتر از ۱۰ باشد
+   آن را محدود می‌کنیم.
+*/
+
+if(completed > 10){
+
+    completed = 10;
+
+}
+
+
+const percentage =
+Math.round(
+    (completed / 10) * 100
+);
+
+
+document.getElementById(
+    "lessonCount"
+).innerText =
+completed + "/10";
+
+
+document.getElementById(
+    "percent"
+).innerText =
+percentage + "%";
+
+
+document.getElementById(
+    "progressText"
+).innerText =
+percentage + "%";
+
+
+document.getElementById(
+    "progressBar"
+).style.width =
+percentage + "%";
+
+
+/* -------------------------
+   LESSON STATUS
+------------------------- */
+
+for(
+    let i = 1;
+    i <= completed;
+    i++
+){
+
+    const lesson =
+    document.getElementById(
+        "lesson" + i
+    );
+
+
+    if(lesson){
+
+        lesson.classList.add(
+            "done"
+        );
+
+    }
+
+}
+
+
+/* -------------------------
+   EXAM
+------------------------- */
+
+const examBox =
+document.getElementById(
+    "examBox"
+);
+
+
+const examButton =
+document.getElementById(
+    "examButton"
+);
+
+
+if(completed < 10){
+
+    examBox.classList.add(
+        "locked"
+    );
+
+
+    examButton.onclick =
+    function(event){
+
+        event.preventDefault();
+
+        alert(
+            "🔒 ابتدا باید هر ۱۰ درس دوره را کامل کنی."
+        );
+
+    };
+
+}
+
+
+/* -------------------------
+   EXAM PASSED
+------------------------- */
+
+const passed =
+localStorage.getItem(
+    "python_exam_passed"
+);
+
+
+if(passed === "true"){
+
+    examBox.innerHTML = `
+
+    <h2>
+    🏆 دوره را با موفقیت تمام کردی!
+    </h2>
+
+    <p>
+    آزمون پایان دوره را قبول شده‌ای.
+    </p>
+
+    <a href="certificate.html">
+
+    📜 مشاهده گواهی پایان دوره
+
+    </a>
+
+    `;
+
+}
 
 </script>
 
+
 </body>
-</html>
+
+    </html>
