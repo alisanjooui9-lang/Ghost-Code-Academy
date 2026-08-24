@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>درس ۲ پایتون | Ghost Code Academy</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080808;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.logo{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.back{
+    color:#fff;
+    text-decoration:none;
+    background:#222;
+    border:1px solid #444;
+    padding:9px 13px;
+    border-radius:10px;
+    font-size:11px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.lesson-head,
+.box{
+    background:#141414;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:15px;
+}
+
+.icon{
+    font-size:50px;
+}
+
+h1{
+    font-size:27px;
+    margin:10px 0;
+}
+
+h2{
+    font-size:18px;
+}
+
+p,
+li{
+    color:#aaa;
+    font-size:12px;
+    line-height:2;
+}
+
+.code{
+    direction:ltr;
+    text-align:left;
+
+    background:#050505;
+    border:1px solid #292929;
+    border-radius:12px;
+
+    padding:17px;
+
+    overflow:auto;
+
+    color:#e6e6e6;
+    font-family:monospace;
+    line-height:1.7;
+}
+
+.tip{
+    background:#15171f;
+    border-right:4px solid #7d8cff;
+    border-radius:10px;
+
+    padding:15px;
+
+    color:#aaa;
+    font-size:11px;
+    line-height:2;
+}
+
+.question{
+    margin-top:15px;
+}
+
+.option{
+    display:block;
+
+    width:100%;
+
+    margin-top:8px;
+    padding:12px;
+
+    background:#222;
+    color:#fff;
+
+    border:1px solid #444;
+    border-radius:9px;
+
+    font-family:tahoma;
+    text-align:right;
+
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#303030;
+}
+
+.result{
+    display:none;
+
+    margin-top:12px;
+    padding:12px;
+
+    border-radius:9px;
+
+    font-size:11px;
+}
+
+.complete{
+    width:100%;
+
+    margin-top:15px;
+    padding:14px;
+
+    border:0;
+    border-radius:11px;
+
+    background:#fff;
+    color:#000;
+
+    font-family:tahoma;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.next{
+    display:none;
+
+    margin-top:12px;
+    padding:13px;
+
+    background:#222;
+    border:1px solid #555;
+
+    border-radius:11px;
+
+    color:#fff;
+    text-decoration:none;
+
+    text-align:center;
+
+    font-size:11px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<a href="python.html" class="back">
+← مسیر Python
+</a>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="lesson-head">
+
+<div class="icon">
+📦
+</div>
+
+<h1>
+درس ۲: متغیرها در Python
+</h1>
+
+<p>
+در این درس یاد می‌گیریم اطلاعات را داخل متغیرها ذخیره کنیم.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+📦 متغیر چیست؟
+</h2>
+
+<p>
+متغیر را می‌توان مثل یک جعبه در نظر گرفت که
+می‌توانیم یک مقدار را داخل آن قرار دهیم و بعداً
+از آن مقدار استفاده کنیم.
+</p>
+
+<pre class="code">name = "Ali"
+age = 13</pre>
+
+<p>
+در این مثال مقدار <b>Ali</b> داخل متغیر
+<b>name</b> و مقدار <b>13</b> داخل متغیر
+<b>age</b> قرار گرفته است.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🐍 نمایش مقدار متغیر
+</h2>
+
+<pre class="code">name = "Ali"
+
+print(name)</pre>
+
+<p>
+خروجی:
+</p>
+
+<pre class="code">Ali</pre>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🔢 متغیر عددی
+</h2>
+
+<pre class="code">age = 13
+
+print(age)</pre>
+
+<p>
+خروجی:
+</p>
+
+<pre class="code">13</pre>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+➕ تغییر مقدار متغیر
+</h2>
+
+<pre class="code">score = 10
+
+score = 20
+
+print(score)</pre>
+
+<p>
+خروجی برنامه:
+</p>
+
+<pre class="code">20</pre>
+
+<div class="tip">
+آخرین مقداری که به متغیر اختصاص داده شده،
+مقدار فعلی آن متغیر است.
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🧠 چند متغیر با هم
+</h2>
+
+<pre class="code">name = "Ali"
+age = 13
+score = 100
+
+print(name)
+print(age)
+print(score)</pre>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+📝 تمرین درس
+</h2>
+
+<p>
+کدام گزینه مقدار 20 را داخل متغیر
+<b>score</b> قرار می‌دهد؟
+</p>
+
+<div class="question">
+
+<button
+class="option"
+onclick="answer(false)">
+A) 20 = score
+</button>
+
+<button
+class="option"
+onclick="answer(true)">
+B) score = 20
+</button>
+
+<button
+class="option"
+onclick="answer(false)">
+C) score == 20
+</button>
+
+<button
+class="option"
+onclick="answer(false)">
+D) score : 20
+</button>
+
+<div
+id="result"
+class="result">
+</div>
+
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🏆 تکمیل درس
+</h2>
+
+<p>
+تمرین را درست جواب بده و درس را کامل کن
+تا 10 XP دریافت کنی.
+</p>
+
+<button
+class="complete"
+onclick="completeLesson()">
+
+✅ تکمیل درس و دریافت +10 XP
+
+</button>
+
+<a
+id="next"
+href="python-lesson-3.html"
+class="next">
+
+➡️ رفتن به درس سوم
+
+</a>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+let correct = false;
+
+
+function answer(isCorrect){
+
+    const result =
+    document.getElementById("result");
+
+    result.style.display = "block";
+
+
+    if(isCorrect){
+
+        correct = true;
+
+        result.style.background = "#102b17";
+        result.style.color = "#66e68a";
+
+        result.innerText =
+        "✅ درست جواب دادی!";
+
+    }else{
+
+        result.style.background = "#301414";
+        result.style.color = "#ff7777";
+
+        result.innerText =
+        "❌ اشتباهه، دوباره تلاش کن.";
+
+    }
+
+}
+
+
+function completeLesson(){
+
+    if(!correct){
+
+        alert(
+            "📝 اول تمرین را درست حل کن."
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "python_completed",
+        "3"
+    );
+
+
+    let xp =
+    Number(
+        localStorage.getItem(
+            "ghost_xp"
+        ) || 0
+    );
+
+
+    xp += 10;
+
+
+    localStorage.setItem(
+        "ghost_xp",
+        xp
+    );
+
+
+    alert(
+        "🎉 درس دوم کامل شد!\n+10 XP"
+    );
+
+
+    document.getElementById(
+        "next"
+    ).style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
