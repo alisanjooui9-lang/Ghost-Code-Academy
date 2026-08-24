@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ghost Code Academy</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080808;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:19px;
+    font-weight:bold;
+}
+
+.menu-btn{
+    width:44px;
+    height:44px;
+
+    border:1px solid #444;
+    border-radius:11px;
+
+    background:#222;
+    color:white;
+
+    font-size:22px;
+    cursor:pointer;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.hero{
+    text-align:center;
+    padding:45px 10px 35px;
+}
+
+.ghost{
+    font-size:70px;
+}
+
+.hero h1{
+    font-size:35px;
+    margin:15px 0 10px;
+}
+
+.hero h1 span{
+    color:#7d8cff;
+}
+
+.hero p{
+    color:#999;
+    line-height:2;
+    font-size:13px;
+}
+
+.start-btn{
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:13px 24px;
+
+    background:#fff;
+    color:#000;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+
+/* پروفایل */
+
+.profile{
+    background:#121212;
+
+    border:1px solid #303030;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:#222;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+}
+
+.profile-info{
+    flex:1;
+}
+
+.profile-info h3{
+    margin:0 0 6px;
+}
+
+.xp-text{
+    color:#888;
+    font-size:11px;
+}
+
+.xp-bar{
+    height:8px;
+
+    background:#292929;
+
+    border-radius:20px;
+
+    margin-top:9px;
+
+    overflow:hidden;
+}
+
+.xp-progress{
+    width:35%;
+
+    height:100%;
+
+    background:#7d8cff;
+
+    border-radius:20px;
+}
+
+
+/* عنوان بخش */
+
+.section-title{
+    margin-top:35px;
+    margin-bottom:18px;
+
+    font-size:21px;
+}
+
+
+/* دوره‌ها */
+
+.courses{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:13px;
+}
+
+.course{
+    background:#141414;
+
+    border:1px solid #303030;
+
+    border-radius:17px;
+
+    padding:20px;
+
+    transition:.2s;
+}
+
+.course:hover{
+    transform:translateY(-4px);
+
+    border-color:#6876ff;
+}
+
+.course-icon{
+    font-size:34px;
+
+    margin-bottom:10px;
+}
+
+.course h3{
+    font-size:15px;
+
+    margin:6px 0;
+}
+
+.course p{
+    color:#888;
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+.course-btn{
+    display:block;
+
+    margin-top:15px;
+
+    padding:10px;
+
+    text-align:center;
+
+    background:#222;
+
+    border:1px solid #444;
+
+    border-radius:9px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:11px;
+}
+
+
+/* بزودی */
+
+.coming{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:13px;
+}
+
+.coming-card{
+    background:
+    linear-gradient(
+        145deg,
+        #151515,
+        #0d0d0d
+    );
+
+    border:1px dashed #555;
+
+    border-radius:17px;
+
+    padding:20px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.coming-card::after{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:3px;
+
+    background:#555;
+}
+
+.coming-card h3{
+    font-size:14px;
+}
+
+.coming-card p{
+    color:#777;
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+.soon{
+    display:inline-block;
+
+    padding:5px 8px;
+
+    border-radius:7px;
+
+    background:#222;
+
+    color:#aaa;
+
+    font-size:9px;
+}
+
+
+/* امکانات */
+
+.features{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:10px;
+}
+
+.feature{
+    text-align:center;
+
+    padding:20px 10px;
+
+    background:#121212;
+
+    border:1px solid #292929;
+
+    border-radius:14px;
+}
+
+.feature-icon{
+    font-size:28px;
+}
+
+.feature strong{
+    display:block;
+
+    margin-top:8px;
+
+    font-size:12px;
+}
+
+.feature small{
+    display:block;
+
+    margin-top:5px;
+
+    color:#777;
+
+    font-size:9px;
+}
+
+
+/* منو */
+
+.side-menu{
+    position:fixed;
+
+    top:0;
+    right:-310px;
+
+    width:290px;
+    height:100vh;
+
+    background:#111;
+
+    border-left:1px solid #333;
+
+    z-index:300;
+
+    padding:25px 15px;
+
+    transition:.3s;
+
+    overflow-y:auto;
+}
+
+.side-menu.active{
+    right:0;
+}
+
+.close{
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    width:38px;
+    height:38px;
+
+    border:1px solid #444;
+
+    border-radius:9px;
+
+    background:#222;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+.menu-title{
+    font-size:20px;
+    font-weight:bold;
+
+    margin-bottom:25px;
+}
+
+.menu-item{
+    display:block;
+
+    padding:14px;
+
+    margin-bottom:9px;
+
+    background:#1b1b1b;
+
+    border:1px solid #303030;
+
+    border-radius:11px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:13px;
+}
+
+.overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    z-index:250;
+
+    display:none;
+}
+
+.overlay.active{
+    display:block;
+}
+
+
+/* موبایل */
+
+@media(max-width:800px){
+
+    .courses{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .coming{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .courses,
+    .coming{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<button
+class="menu-btn"
+onclick="openMenu()">
+
+☰
+
+</button>
+
+</header>
+
+
+
+<!-- منوی کناری -->
+
+<div
+class="side-menu"
+id="sideMenu">
+
+<button
+class="close"
+onclick="closeMenu()">
+
+×
+
+</button>
+
+
+<div class="menu-title">
+
+👻 منوی آکادمی
+
+</div>
+
+
+<a
+href="index.html"
+class="menu-item">
+
+🏠 صفحه اصلی
+
+</a>
+
+
+<a
+href="courses.html"
+class="menu-item">
+
+📚 دوره‌ها
+
+</a>
+
+
+<a
+href="exams.html"
+class="menu-item">
+
+📝 امتحانات
+
+</a>
+
+
+<a
+href="practice.html"
+class="menu-item">
+
+🧩 تمرین‌ها
+
+</a>
+
+
+<a
+href="profile.html"
+class="menu-item">
+
+👤 پروفایل من
+
+</a>
+
+
+<a
+href="leaderboard.html"
+class="menu-item">
+
+🏆 جدول برترین‌ها
+
+</a>
+
+
+<a
+href="certificates.html"
+class="menu-item">
+
+🎓 گواهینامه‌ها
+
+</a>
+
+
+<a
+href="settings.html"
+class="menu-item">
+
+⚙️ تنظیمات
+
+</a>
+
+</div>
+
+
+<div
+class="overlay"
+id="overlay"
+onclick="closeMenu()">
+</div>
+
+
+
+<main class="container">
+
+
+<!-- معرفی -->
+
+<section class="hero">
+
+<div class="ghost">
+👻
+</div>
+
+<h1>
+Ghost <span>Code Academy</span>
+</h1>
+
+<p>
+
+آموزش برنامه‌نویسی از صفر تا حرفه‌ای،
+<br>
+همراه با تمرین، آزمون، امتیاز و مسیر یادگیری.
+
+</p>
+
+
+<a
+href="courses.html"
+class="start-btn">
+
+🚀 شروع یادگیری
+
+</a>
+
+</section>
+
+
+
+<!-- پروفایل -->
+
+<section class="profile">
+
+<div class="avatar">
+👨‍💻
+</div>
+
+<div class="profile-info">
+
+<h3>
+برنامه‌نویس تازه‌کار
+</h3>
+
+<div class="xp-text">
+
+350 / 1000 XP
+
+</div>
+
+<div class="xp-bar">
+
+<div class="xp-progress"></div>
+
+</div>
+
+</div>
+
+<div>
+⭐ Level 3
+</div>
+
+</section>
+
+
+
+<!-- دوره‌ها -->
+
+<h2 class="section-title">
+📚 دوره‌های برنامه‌نویسی
+</h2>
+
+
+<section class="courses">
+
+
+<div class="course">
+
+<div class="course-icon">
+🐍
+</div>
+
+<h3>
+Python
+</h3>
+
+<p>
+یادگیری پایتون از صفر تا پیشرفته.
+</p>
+
+<a
+href="python.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+🌐
+</div>
+
+<h3>
+HTML
+</h3>
+
+<p>
+ساختار صفحات وب را یاد بگیر.
+</p>
+
+<a
+href="html.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+🎨
+</div>
+
+<h3>
+CSS
+</h3>
+
+<p>
+طراحی و زیباسازی سایت‌ها.
+</p>
+
+<a
+href="css.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+⚡
+</div>
+
+<h3>
+JavaScript
+</h3>
+
+<p>
+ساخت صفحات وب تعاملی.
+</p>
+
+<a
+href="javascript.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+🟦
+</div>
+
+<h3>
+C
+</h3>
+
+<p>
+آشنایی با برنامه‌نویسی سطح پایین‌تر.
+</p>
+
+<a
+href="c.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+💠
+</div>
+
+<h3>
+C++
+</h3>
+
+<p>
+برنامه‌نویسی قدرتمند و شیءگرا.
+</p>
+
+<a
+href="cpp.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+#️⃣
+</div>
+
+<h3>
+C#
+</h3>
+
+<p>
+آموزش C# برای برنامه و بازی‌سازی.
+</p>
+
+<a
+href="csharp.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+☕
+</div>
+
+<h3>
+Java
+</h3>
+
+<p>
+یادگیری جاوا از پایه.
+</p>
+
+<a
+href="java.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+🟪
+</div>
+
+<h3>
+PHP
+</h3>
+
+<p>
+برنامه‌نویسی سمت سرور.
+</p>
+
+<a
+href="php.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+🟨
+</div>
+
+<h3>
+TypeScript
+</h3>
+
+<p>
+JavaScript قدرتمندتر و ساختاریافته‌تر.
+</p>
+
+<a
+href="typescript.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+🗄️
+</div>
+
+<h3>
+SQL
+</h3>
+
+<p>
+کار با دیتابیس و اطلاعات.
+</p>
+
+<a
+href="sql.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+
+<div class="course">
+
+<div class="course-icon">
+🦀
+</div>
+
+<h3>
+Rust
+</h3>
+
+<p>
+آشنایی با زبان Rust.
+</p>
+
+<a
+href="rust.html"
+class="course-btn">
+
+مشاهده دوره
+
+</a>
+
+</div>
+
+
+</section>
+
+
+
+<!-- بزودی -->
+
+<h2 class="section-title">
+🚀 به‌زودی در آکادمی
+</h2>
+
+
+<section class="coming">
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+🤖 هوش مصنوعی
+</h3>
+
+<p>
+آشنایی با AI و ساخت پروژه‌های هوشمند.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+🧠 یادگیری ماشین
+</h3>
+
+<p>
+مفاهیم Machine Learning و مدل‌های هوشمند.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+🌐 سایت‌سازی حرفه‌ای
+</h3>
+
+<p>
+ساخت سایت‌های حرفه‌ای و پروژه‌های واقعی.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+🔐 امنیت سایبری
+</h3>
+
+<p>
+امنیت، دفاع سایبری و هک اخلاقی در محیط‌های مجاز.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+🎮 بازی‌سازی
+</h3>
+
+<p>
+ساخت بازی برای موبایل و کامپیوتر.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+📱 اپلیکیشن‌سازی
+</h3>
+
+<p>
+ساخت برنامه‌های موبایل.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+🐧 Linux
+</h3>
+
+<p>
+آموزش لینوکس و کار با ترمینال.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+☁️ Cloud
+</h3>
+
+<p>
+آشنایی با سرورها و سرویس‌های ابری.
+</p>
+
+</div>
+
+
+
+<div class="coming-card">
+
+<span class="soon">
+COMING SOON
+</span>
+
+<h3>
+🔧 Git & GitHub
+</h3>
+
+<p>
+مدیریت پروژه و کار تیمی.
+</p>
+
+</div>
+
+
+</section>
+
+
+
+<!-- امکانات -->
+
+<h2 class="section-title">
+⭐ امکانات Ghost Code Academy
+</h2>
+
+
+<section class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📖
+</div>
+
+<strong>
+آموزش
+</strong>
+
+<small>
+درس‌های مرحله‌ای
+</small>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🧩
+</div>
+
+<strong>
+تمرین
+</strong>
+
+<small>
+تمرین‌های برنامه‌نویسی
+</small>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📝
+</div>
+
+<strong>
+امتحان
+</strong>
+
+<small>
+آزمون و نمره
+</small>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🏆
+</div>
+
+<strong>
+XP
+</strong>
+
+<small>
+سیستم امتیازدهی
+</small>
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+const sideMenu =
+document.getElementById(
+    "sideMenu"
+);
+
+const overlay =
+document.getElementById(
+    "overlay"
+);
+
+
+function openMenu(){
+
+    sideMenu.classList.add(
+        "active"
+    );
+
+    overlay.classList.add(
+        "active"
+    );
+
+}
+
+
+function closeMenu(){
+
+    sideMenu.classList.remove(
+        "active"
+    );
+
+    overlay.classList.remove(
+        "active"
+    );
+
+}
+
+</script>
+
+
+</body>
+  </html> 
