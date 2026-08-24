@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>درس ۹ پایتون | Ghost Code Academy</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080808;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.logo{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.back{
+    color:#fff;
+    text-decoration:none;
+
+    background:#222;
+    border:1px solid #444;
+
+    padding:9px 13px;
+    border-radius:10px;
+
+    font-size:11px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.lesson-head,
+.box{
+    background:#141414;
+    border:1px solid #333;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    margin-bottom:15px;
+}
+
+.icon{
+    font-size:50px;
+}
+
+h1{
+    font-size:27px;
+    margin:10px 0;
+}
+
+h2{
+    font-size:18px;
+}
+
+p,
+li{
+    color:#aaa;
+    font-size:12px;
+    line-height:2;
+}
+
+.code{
+    direction:ltr;
+    text-align:left;
+
+    background:#050505;
+
+    border:1px solid #292929;
+
+    border-radius:12px;
+
+    padding:17px;
+
+    overflow:auto;
+
+    color:#e6e6e6;
+
+    font-family:monospace;
+
+    line-height:1.7;
+}
+
+.tip{
+    background:#15171f;
+
+    border-right:4px solid #7d8cff;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    color:#aaa;
+
+    font-size:11px;
+
+    line-height:2;
+}
+
+.question{
+    margin-top:15px;
+}
+
+.option{
+    display:block;
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:12px;
+
+    background:#222;
+
+    color:#fff;
+
+    border:1px solid #444;
+
+    border-radius:9px;
+
+    font-family:tahoma;
+
+    text-align:right;
+
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#303030;
+}
+
+.result{
+    display:none;
+
+    margin-top:12px;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    font-size:11px;
+}
+
+.complete{
+    width:100%;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:#fff;
+
+    color:#000;
+
+    font-family:tahoma;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.next{
+    display:none;
+
+    margin-top:12px;
+
+    padding:13px;
+
+    background:#222;
+
+    border:1px solid #555;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    font-size:11px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<a
+href="python.html"
+class="back">
+
+← مسیر Python
+
+</a>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="lesson-head">
+
+<div class="icon">
+📁
+</div>
+
+<h1>
+درس ۹: کار با فایل‌ها در Python
+</h1>
+
+<p>
+در این درس یاد می‌گیریم چگونه فایل‌ها را باز کنیم،
+اطلاعات داخل آن‌ها را بخوانیم و اطلاعات جدید بنویسیم.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+📂 باز کردن فایل
+</h2>
+
+<p>
+برای کار با فایل‌ها می‌توانیم از تابع <b>open()</b> استفاده کنیم.
+</p>
+
+<pre class="code">file = open("data.txt", "r")</pre>
+
+<p>
+حرف <b>r</b> یعنی فایل برای خواندن باز شده است.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+📖 خواندن فایل
+</h2>
+
+<pre class="code">file = open("data.txt", "r")
+
+content = file.read()
+
+print(content)
+
+file.close()</pre>
+
+<p>
+تابع <b>read()</b> محتوای فایل را می‌خواند.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+✍️ نوشتن داخل فایل
+</h2>
+
+<p>
+برای نوشتن اطلاعات می‌توانیم از حالت <b>w</b> استفاده کنیم.
+</p>
+
+<pre class="code">file = open("data.txt", "w")
+
+file.write("Hello Python!")
+
+file.close()</pre>
+
+<div class="tip">
+حالت <b>w</b> می‌تواند محتوای قبلی فایل را جایگزین کند؛
+پس هنگام استفاده از آن باید دقت کنیم.
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+➕ اضافه کردن اطلاعات
+</h2>
+
+<p>
+با حالت <b>a</b> می‌توانیم اطلاعات را به انتهای فایل اضافه کنیم.
+</p>
+
+<pre class="code">file = open("data.txt", "a")
+
+file.write("\nNew line")
+
+file.close()</pre>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🔒 روش بهتر با with
+</h2>
+
+<p>
+استفاده از <b>with</b> باعث می‌شود مدیریت فایل ساده‌تر شود.
+</p>
+
+<pre class="code">with open("data.txt", "r") as file:
+
+    content = file.read()
+
+    print(content)</pre>
+
+<div class="tip">
+با پایان یافتن بلوک <b>with</b>، فایل به شکل مناسب مدیریت می‌شود.
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🧠 حالت‌های مهم فایل
+</h2>
+
+<ul>
+<li><b>r</b> → خواندن</li>
+<li><b>w</b> → نوشتن</li>
+<li><b>a</b> → اضافه کردن</li>
+</ul>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+💡 مثال کاربردی
+</h2>
+
+<pre class="code">with open("score.txt", "w") as file:
+
+    file.write("Ali: 100")</pre>
+
+<p>
+این برنامه متن موردنظر را داخل فایل ذخیره می‌کند.
+</p>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+📝 تمرین درس
+</h2>
+
+<p>
+برای باز کردن فایل در حالت خواندن از کدام حالت استفاده می‌کنیم؟
+</p>
+
+<div class="question">
+
+<button
+class="option"
+onclick="answer(true)">
+
+A) r
+
+</button>
+
+<button
+class="option"
+onclick="answer(false)">
+
+B) w
+
+</button>
+
+<button
+class="option"
+onclick="answer(false)">
+
+C) a
+
+</button>
+
+<button
+class="option"
+onclick="answer(false)">
+
+D) x
+
+</button>
+
+<div
+id="result"
+class="result">
+</div>
+
+</div>
+
+</section>
+
+
+<section class="box">
+
+<h2>
+🏆 تکمیل درس
+</h2>
+
+<p>
+تمرین را درست حل کن و درس را کامل کن تا 10 XP دریافت کنی.
+</p>
+
+<button
+class="complete"
+onclick="completeLesson()">
+
+✅ تکمیل درس و دریافت +10 XP
+
+</button>
+
+<a
+id="next"
+href="python-lesson-10.html"
+class="next">
+
+➡️ رفتن به درس دهم
+
+</a>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+let correct = false;
+
+
+function answer(isCorrect){
+
+    const result =
+    document.getElementById("result");
+
+    result.style.display = "block";
+
+
+    if(isCorrect){
+
+        correct = true;
+
+        result.style.background =
+        "#102b17";
+
+        result.style.color =
+        "#66e68a";
+
+        result.innerText =
+        "✅ درست جواب دادی!";
+
+    }else{
+
+        result.style.background =
+        "#301414";
+
+        result.style.color =
+        "#ff7777";
+
+        result.innerText =
+        "❌ اشتباهه، دوباره تلاش کن.";
+
+    }
+
+}
+
+
+function completeLesson(){
+
+    if(!correct){
+
+        alert(
+            "📝 اول تمرین را درست حل کن."
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "python_completed",
+        "10"
+    );
+
+
+    let xp =
+    Number(
+        localStorage.getItem(
+            "ghost_xp"
+        ) || 0
+    );
+
+
+    xp += 10;
+
+
+    localStorage.setItem(
+        "ghost_xp",
+        xp
+    );
+
+
+    alert(
+        "🎉 درس نهم کامل شد!\n+10 XP"
+    );
+
+
+    document.getElementById(
+        "next"
+    ).style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
