@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>دوره هوش مصنوعی | Ghost Code Academy</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080808;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+.logo{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    gap:7px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#fff;
+
+    background:#222;
+    border:1px solid #444;
+
+    padding:8px 11px;
+    border-radius:9px;
+
+    font-size:10px;
+}
+
+.container{
+    max-width:950px;
+    margin:auto;
+    padding:20px 15px 60px;
+}
+
+
+/* PROFILE */
+
+.profile{
+    background:#141414;
+    border:1px solid #333;
+
+    border-radius:20px;
+    padding:20px;
+
+    margin-bottom:15px;
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.avatar{
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:#222;
+    border:1px solid #555;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+}
+
+.profile-info{
+    flex:1;
+    min-width:180px;
+}
+
+.name{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.student-code{
+    color:#777;
+    font-size:9px;
+    margin-top:5px;
+}
+
+.stats{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    background:#0b0b0b;
+
+    border:1px solid #292929;
+
+    border-radius:10px;
+
+    padding:10px 13px;
+
+    text-align:center;
+}
+
+.stat b{
+    display:block;
+    font-size:15px;
+}
+
+.stat span{
+    color:#777;
+    font-size:8px;
+}
+
+
+/* HERO */
+
+.hero{
+    background:#141414;
+    border:1px solid #333;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:15px;
+
+    text-align:center;
+}
+
+.hero-icon{
+    font-size:55px;
+}
+
+.hero h1{
+    font-size:27px;
+    margin:8px 0;
+}
+
+.hero p{
+    color:#888;
+    font-size:11px;
+    line-height:2;
+}
+
+
+/* PROGRESS */
+
+.progress-box{
+    background:#141414;
+
+    border:1px solid #333;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+}
+
+.progress-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:10px;
+
+    color:#aaa;
+
+    margin-bottom:9px;
+}
+
+.progress{
+    height:10px;
+
+    background:#292929;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+
+    width:0%;
+
+    background:#fff;
+
+    transition:.4s;
+}
+
+
+/* LESSONS */
+
+.section-title{
+    font-size:17px;
+
+    margin:20px 5px 12px;
+}
+
+.lessons{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:12px;
+}
+
+.lesson{
+    background:#141414;
+
+    border:1px solid #333;
+
+    border-radius:17px;
+
+    padding:18px;
+
+    transition:.2s;
+}
+
+.lesson:hover{
+    transform:translateY(-2px);
+    border-color:#666;
+}
+
+.lesson-icon{
+    font-size:30px;
+}
+
+.lesson-number{
+    color:#777;
+
+    font-size:9px;
+
+    margin-top:8px;
+}
+
+.lesson h3{
+    font-size:14px;
+
+    margin:7px 0;
+}
+
+.lesson p{
+    color:#888;
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    min-height:35px;
+}
+
+.lesson a{
+    display:block;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    padding:11px;
+
+    border-radius:9px;
+
+    background:#222;
+
+    border:1px solid #444;
+
+    color:#fff;
+
+    font-size:10px;
+}
+
+.lesson.done{
+    border-color:#3d7650;
+}
+
+.lesson.done a{
+    background:#15321e;
+    border-color:#376a47;
+}
+
+
+/* EXAM */
+
+.exam{
+    margin-top:20px;
+
+    background:#141414;
+
+    border:1px solid #333;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+}
+
+.exam h2{
+    font-size:18px;
+}
+
+.exam p{
+    color:#888;
+
+    font-size:10px;
+
+    line-height:2;
+}
+
+.exam a{
+    display:inline-block;
+
+    background:#fff;
+
+    color:#000;
+
+    text-decoration:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<div class="menu">
+
+<a href="index.html">
+خانه
+</a>
+
+<a href="python.html">
+Python
+</a>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- PROFILE -->
+
+<section class="profile">
+
+<div class="avatar">
+🤖
+</div>
+
+<div class="profile-info">
+
+<div
+id="studentName"
+class="name">
+هنرجو
+</div>
+
+<div
+id="studentCode"
+class="student-code">
+کد هنرجو
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<b id="xp">
+0
+</b>
+
+<span>
+XP
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b id="lessonCount">
+0/12
+</b>
+
+<span>
+درس
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b id="percent">
+0%
+</b>
+
+<span>
+پیشرفت
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-icon">
+🤖
+</div>
+
+<h1>
+دوره آموزش هوش مصنوعی
+</h1>
+
+<p>
+از مفاهیم پایه هوش مصنوعی تا ساخت پروژه‌های ساده،
+مرحله‌به‌مرحله یاد بگیر.
+</p>
+
+</section>
+
+
+<!-- PROGRESS -->
+
+<section class="progress-box">
+
+<div class="progress-top">
+
+<span>
+پیشرفت دوره
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div
+id="progressBar"
+class="progress-bar">
+</div>
+
+</div>
+
+</section>
+
+
+<h2 class="section-title">
+🤖 درس‌های هوش مصنوعی
+</h2>
+
+
+<section class="lessons">
+
+
+<div class="lesson" id="lesson1">
+
+<div class="lesson-icon">🤖</div>
+
+<div class="lesson-number">
+درس ۱
+</div>
+
+<h3>
+هوش مصنوعی چیست؟
+</h3>
+
+<p>
+آشنایی با مفهوم AI و کاربردهای آن.
+</p>
+
+<a href="ai-lesson-1.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson2">
+
+<div class="lesson-icon">🧠</div>
+
+<div class="lesson-number">
+درس ۲
+</div>
+
+<h3>
+Machine Learning چیست؟
+</h3>
+
+<p>
+آشنایی با یادگیری ماشین و تفاوت آن با AI.
+</p>
+
+<a href="ai-lesson-2.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson3">
+
+<div class="lesson-icon">📊</div>
+
+<div class="lesson-number">
+درس ۳
+</div>
+
+<h3>
+داده و Dataset
+</h3>
+
+<p>
+داده چیست و چرا برای آموزش مدل اهمیت دارد؟
+</p>
+
+<a href="ai-lesson-3.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson4">
+
+<div class="lesson-icon">🎯</div>
+
+<div class="lesson-number">
+درس ۴
+</div>
+
+<h3>
+آموزش مدل
+</h3>
+
+<p>
+مدل چگونه از داده‌ها یاد می‌گیرد؟
+</p>
+
+<a href="ai-lesson-4.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson5">
+
+<div class="lesson-icon">🧪</div>
+
+<div class="lesson-number">
+درس ۵
+</div>
+
+<h3>
+تست و ارزیابی مدل
+</h3>
+
+<p>
+چگونه عملکرد یک مدل AI را بررسی کنیم؟
+</p>
+
+<a href="ai-lesson-5.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson6">
+
+<div class="lesson-icon">🕸️</div>
+
+<div class="lesson-number">
+درس ۶
+</div>
+
+<h3>
+Neural Network
+</h3>
+
+<p>
+آشنایی ساده با شبکه‌های عصبی مصنوعی.
+</p>
+
+<a href="ai-lesson-6.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson7">
+
+<div class="lesson-icon">🔥</div>
+
+<div class="lesson-number">
+درس ۷
+</div>
+
+<h3>
+Deep Learning
+</h3>
+
+<p>
+یادگیری عمیق و شبکه‌های عصبی چندلایه.
+</p>
+
+<a href="ai-lesson-7.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson8">
+
+<div class="lesson-icon">💬</div>
+
+<div class="lesson-number">
+درس ۸
+</div>
+
+<h3>
+پردازش زبان طبیعی NLP
+</h3>
+
+<p>
+آشنایی با روش‌های پردازش متن توسط AI.
+</p>
+
+<a href="ai-lesson-8.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson9">
+
+<div class="lesson-icon">👁️</div>
+
+<div class="lesson-number">
+درس ۹
+</div>
+
+<h3>
+Computer Vision
+</h3>
+
+<p>
+آشنایی با تشخیص و تحلیل تصاویر توسط AI.
+</p>
+
+<a href="ai-lesson-9.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson10">
+
+<div class="lesson-icon">🛠️</div>
+
+<div class="lesson-number">
+درس ۱۰
+</div>
+
+<h3>
+ساخت پروژه ساده AI
+</h3>
+
+<p>
+یک پروژه ساده هوش مصنوعی را بررسی می‌کنیم.
+</p>
+
+<a href="ai-lesson-10.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson11">
+
+<div class="lesson-icon">🔌</div>
+
+<div class="lesson-number">
+درس ۱۱
+</div>
+
+<h3>
+API و هوش مصنوعی
+</h3>
+
+<p>
+آشنایی با API و نحوه ارتباط برنامه با سرویس‌های AI.
+</p>
+
+<a href="ai-lesson-11.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+<div class="lesson" id="lesson12">
+
+<div class="lesson-icon">🏆</div>
+
+<div class="lesson-number">
+درس ۱۲
+</div>
+
+<h3>
+پروژه نهایی AI
+</h3>
+
+<p>
+جمع‌بندی دوره و آماده‌سازی برای آزمون نهایی.
+</p>
+
+<a href="ai-lesson-12.html">
+مشاهده درس
+</a>
+
+</div>
+
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="exam">
+
+<h2>
+🎓 آزمون پایان دوره
+</h2>
+
+<p>
+بعد از تکمیل هر ۱۲ درس می‌توانی در آزمون پایان دوره شرکت کنی.
+</p>
+
+<a
+id="examButton"
+href="ai-exam.html">
+
+رفتن به آزمون
+
+</a>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+
+/* =========================
+   CHECK REGISTER
+========================= */
+
+const registered =
+localStorage.getItem(
+    "ghost_registered"
+);
+
+if(registered !== "true"){
+
+    window.location.href =
+    "register.html";
+
+}
+
+
+/* =========================
+   STUDENT
+========================= */
+
+let student = null;
+
+try{
+
+    student =
+    JSON.parse(
+        localStorage.getItem(
+            "ghost_student"
+        )
+    );
+
+}catch(error){
+
+    student = null;
+
+}
+
+
+if(student){
+
+    document.getElementById(
+        "studentName"
+    ).innerText =
+    student.fullName;
+
+    document.getElementById(
+        "studentCode"
+    ).innerText =
+    "کد هنرجو: " +
+    student.studentCode;
+
+}
+
+
+/* =========================
+   AI XP
+========================= */
+
+const xp =
+Number(
+    localStorage.getItem(
+        "ai_xp"
+    ) || 0
+);
+
+document.getElementById(
+    "xp"
+).innerText = xp;
+
+
+/* =========================
+   AI PROGRESS
+========================= */
+
+let completed =
+Number(
+    localStorage.getItem(
+        "ai_completed"
+    ) || 0
+);
+
+
+if(completed > 12){
+
+    completed = 12;
+
+}
+
+
+const percentage =
+Math.round(
+    (completed / 12) * 100
+);
+
+
+document.getElementById(
+    "lessonCount"
+).innerText =
+completed + "/12";
+
+
+document.getElementById(
+    "percent"
+).innerText =
+percentage + "%";
+
+
+document.getElementById(
+    "progressText"
+).innerText =
+percentage + "%";
+
+
+document.getElementById(
+    "progressBar"
+).style.width =
+percentage + "%";
+
+
+/* =========================
+   DONE LESSONS
+========================= */
+
+for(
+    let i = 1;
+    i <= completed;
+    i++
+){
+
+    const lesson =
+    document.getElementById(
+        "lesson" + i
+    );
+
+    if(lesson){
+
+        lesson.classList.add(
+            "done"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   EXAM LOCK
+========================= */
+
+const examButton =
+document.getElementById(
+    "examButton"
+);
+
+
+if(completed < 12){
+
+    examButton.onclick =
+    function(event){
+
+        event.preventDefault();
+
+        alert(
+            "🔒 ابتدا هر ۱۲ درس را کامل کن."
+        );
+
+    };
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
