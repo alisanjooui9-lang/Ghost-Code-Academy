@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,487 +14,704 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
-    background:#080808;
+
+    background:#000;
+
     color:#fff;
-    font-family:tahoma,Arial,sans-serif;
+
+    font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
 }
+
+
+/* =========================
+   RGB BACKGROUND
+========================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:-50%;
+
+    z-index:-2;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,0,0,.08),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(0,255,255,.08),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(0,0,255,.08),
+            transparent 25%
+        );
+
+    animation:
+    backgroundMove 10s linear infinite;
+
+}
+
+@keyframes backgroundMove{
+
+    0%{
+        transform:rotate(0deg) scale(1);
+    }
+
+    50%{
+        transform:rotate(180deg) scale(1.15);
+    }
+
+    100%{
+        transform:rotate(360deg) scale(1);
+    }
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-    height:70px;
-    background:#111;
-    border-bottom:1px solid #292929;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 15px;
 
     position:sticky;
+
     top:0;
+
     z-index:100;
+
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 18px;
+
+    background:
+    rgba(0,0,0,.85);
+
+    backdrop-filter:
+    blur(15px);
+
+    border-bottom:
+    1px solid #222;
+
 }
+
 
 .logo{
-    font-size:19px;
+
+    font-size:16px;
+
     font-weight:bold;
+
+    white-space:nowrap;
+
 }
 
-.menu-btn{
-    width:44px;
-    height:44px;
 
-    border:1px solid #444;
-    border-radius:11px;
+.logo span{
 
-    background:#222;
-    color:white;
+    animation:
+    logoRGB 4s linear infinite;
 
-    font-size:22px;
-    cursor:pointer;
 }
 
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:25px 15px 60px;
+
+@keyframes logoRGB{
+
+    0%{
+        color:red;
+    }
+
+    33%{
+        color:#00ffff;
+    }
+
+    66%{
+        color:#7b00ff;
+    }
+
+    100%{
+        color:red;
+    }
+
 }
 
-.hero{
-    text-align:center;
-    padding:45px 10px 35px;
+
+nav{
+
+    display:flex;
+
+    gap:7px;
+
 }
 
-.ghost{
-    font-size:70px;
-}
 
-.hero h1{
-    font-size:35px;
-    margin:15px 0 10px;
-}
+nav a{
 
-.hero h1 span{
-    color:#7d8cff;
-}
-
-.hero p{
-    color:#999;
-    line-height:2;
-    font-size:13px;
-}
-
-.start-btn{
-    display:inline-block;
-
-    margin-top:18px;
-
-    padding:13px 24px;
-
-    background:#fff;
-    color:#000;
-
-    border-radius:12px;
+    color:#aaa;
 
     text-decoration:none;
 
-    font-weight:bold;
-}
+    font-size:10px;
 
+    padding:
+    9px 11px;
 
-/* پروفایل */
-
-.profile{
-    background:#121212;
-
-    border:1px solid #303030;
-
-    border-radius:18px;
-
-    padding:20px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin-bottom:30px;
-}
-
-.avatar{
-    width:55px;
-    height:55px;
-
-    border-radius:50%;
-
-    background:#222;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:28px;
-}
-
-.profile-info{
-    flex:1;
-}
-
-.profile-info h3{
-    margin:0 0 6px;
-}
-
-.xp-text{
-    color:#888;
-    font-size:11px;
-}
-
-.xp-bar{
-    height:8px;
-
-    background:#292929;
-
-    border-radius:20px;
-
-    margin-top:9px;
-
-    overflow:hidden;
-}
-
-.xp-progress{
-    width:35%;
-
-    height:100%;
-
-    background:#7d8cff;
-
-    border-radius:20px;
-}
-
-
-/* عنوان بخش */
-
-.section-title{
-    margin-top:35px;
-    margin-bottom:18px;
-
-    font-size:21px;
-}
-
-
-/* دوره‌ها */
-
-.courses{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:13px;
-}
-
-.course{
-    background:#141414;
-
-    border:1px solid #303030;
-
-    border-radius:17px;
-
-    padding:20px;
-
-    transition:.2s;
-}
-
-.course:hover{
-    transform:translateY(-4px);
-
-    border-color:#6876ff;
-}
-
-.course-icon{
-    font-size:34px;
-
-    margin-bottom:10px;
-}
-
-.course h3{
-    font-size:15px;
-
-    margin:6px 0;
-}
-
-.course p{
-    color:#888;
-
-    font-size:11px;
-
-    line-height:1.8;
-}
-
-.course-btn{
-    display:block;
-
-    margin-top:15px;
-
-    padding:10px;
-
-    text-align:center;
-
-    background:#222;
-
-    border:1px solid #444;
+    border:
+    1px solid #292929;
 
     border-radius:9px;
 
-    color:white;
+    transition:.2s;
 
-    text-decoration:none;
-
-    font-size:11px;
 }
 
 
-/* بزودی */
+nav a:hover{
 
-.coming{
-    display:grid;
+    color:#fff;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    border-color:#777;
 
-    gap:13px;
 }
 
-.coming-card{
-    background:
-    linear-gradient(
-        145deg,
-        #151515,
-        #0d0d0d
-    );
 
-    border:1px dashed #555;
+/* =========================
+   MAIN
+========================= */
 
-    border-radius:17px;
+.container{
 
-    padding:20px;
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:
+    30px 15px 70px;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
 
     position:relative;
 
+    text-align:center;
+
+    padding:
+    55px 20px;
+
+    margin-bottom:25px;
+
+    border-radius:25px;
+
+    background:#080808;
+
+    border:1px solid #222;
+
     overflow:hidden;
+
 }
 
-.coming-card::after{
+
+.hero::before{
+
     content:"";
 
     position:absolute;
 
-    top:0;
-    left:0;
+    inset:-3px;
 
-    width:100%;
-    height:3px;
+    border-radius:28px;
 
-    background:#555;
+    padding:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        red,
+        #ff00ff,
+        blue,
+        cyan,
+        lime,
+        yellow,
+        red
+    );
+
+    background-size:
+    400% 400%;
+
+    animation:
+    rgbBorder 6s linear infinite;
+
+    -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+    -webkit-mask-composite:
+    xor;
+
+    mask-composite:
+    exclude;
+
+    pointer-events:none;
+
 }
 
-.coming-card h3{
-    font-size:14px;
+
+@keyframes rgbBorder{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
 }
 
-.coming-card p{
-    color:#777;
+
+.hero-icon{
+
+    font-size:65px;
+
+    margin-bottom:5px;
+
+}
+
+
+.hero h1{
+
+    font-size:
+    clamp(25px,6vw,40px);
+
+    margin:
+    5px 0 10px;
+
+}
+
+
+.hero p{
+
+    color:#888;
 
     font-size:11px;
 
-    line-height:1.8;
+    line-height:2;
+
+    max-width:600px;
+
+    margin:auto;
+
 }
 
-.soon{
+
+/* =========================
+   BUTTON
+========================= */
+
+.main-button{
+
     display:inline-block;
 
-    padding:5px 8px;
+    margin-top:22px;
 
-    border-radius:7px;
+    padding:
+    13px 25px;
 
-    background:#222;
+    color:#fff;
 
-    color:#aaa;
+    text-decoration:none;
 
-    font-size:9px;
+    background:#111;
+
+    border:
+    1px solid #444;
+
+    border-radius:11px;
+
+    font-size:11px;
+
+    transition:.25s;
+
 }
 
 
-/* امکانات */
+.main-button:hover{
 
-.features{
+    transform:
+    translateY(-3px);
+
+    border-color:#fff;
+
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:
+    30px 5px 15px;
+
+}
+
+
+.section-title h2{
+
+    font-size:18px;
+
+    margin:0;
+
+}
+
+
+.section-title span{
+
+    color:#555;
+
+    font-size:9px;
+
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+    repeat(
+        auto-fit,
+        minmax(230px,1fr)
+    );
 
-    gap:10px;
+    gap:18px;
+
 }
 
-.feature{
+
+/* RGB CARD */
+
+.card{
+
+    position:relative;
+
+    padding:2px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        red,
+        #ff00ff,
+        blue,
+        cyan,
+        lime,
+        yellow,
+        red
+    );
+
+    background-size:
+    500% 500%;
+
+    animation:
+    rgbBorder 5s linear infinite;
+
+    transition:
+    transform .25s,
+    filter .25s;
+
+}
+
+
+/* رنگ داخلی کاملاً مشکی */
+
+.card-inner{
+
+    min-height:250px;
+
+    background:#080808;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+
+.card:hover{
+
+    transform:
+    translateY(-7px)
+    scale(1.015);
+
+    filter:
+    drop-shadow(
+        0 0 15px
+        rgba(0,255,255,.25)
+    );
+
+}
+
+
+.card-icon{
+
+    font-size:42px;
+
+}
+
+
+.card-number{
+
+    color:#555;
+
+    font-size:9px;
+
+    margin-top:7px;
+
+}
+
+
+.card h3{
+
+    font-size:17px;
+
+    margin:
+    8px 0;
+
+}
+
+
+.card p{
+
+    color:#888;
+
+    font-size:10px;
+
+    line-height:1.9;
+
+}
+
+
+.card-button{
+
+    display:block;
+
     text-align:center;
 
-    padding:20px 10px;
+    padding:11px;
 
-    background:#121212;
+    margin-top:15px;
 
-    border:1px solid #292929;
+    color:#fff;
 
-    border-radius:14px;
+    text-decoration:none;
+
+    background:#151515;
+
+    border:
+    1px solid #333;
+
+    border-radius:10px;
+
+    font-size:10px;
+
+    transition:.2s;
+
 }
+
+
+.card-button:hover{
+
+    background:#222;
+
+    border-color:#777;
+
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(200px,1fr)
+    );
+
+    gap:12px;
+
+}
+
+
+.feature{
+
+    background:#080808;
+
+    border:
+    1px solid #222;
+
+    border-radius:15px;
+
+    padding:18px;
+
+}
+
 
 .feature-icon{
-    font-size:28px;
+
+    font-size:25px;
+
 }
 
-.feature strong{
-    display:block;
 
-    margin-top:8px;
+.feature h3{
 
-    font-size:12px;
+    font-size:13px;
+
 }
 
-.feature small{
-    display:block;
 
-    margin-top:5px;
+.feature p{
 
     color:#777;
 
     font-size:9px;
+
+    line-height:1.9;
+
 }
 
 
-/* منو */
+/* =========================
+   FOOTER
+========================= */
 
-.side-menu{
-    position:fixed;
+footer{
 
-    top:0;
-    right:-310px;
+    text-align:center;
 
-    width:290px;
-    height:100vh;
+    padding:30px 15px;
 
-    background:#111;
+    border-top:
+    1px solid #181818;
 
-    border-left:1px solid #333;
+    color:#555;
 
-    z-index:300;
+    font-size:9px;
 
-    padding:25px 15px;
-
-    transition:.3s;
-
-    overflow-y:auto;
-}
-
-.side-menu.active{
-    right:0;
-}
-
-.close{
-    position:absolute;
-
-    top:15px;
-    left:15px;
-
-    width:38px;
-    height:38px;
-
-    border:1px solid #444;
-
-    border-radius:9px;
-
-    background:#222;
-
-    color:white;
-
-    font-size:20px;
-
-    cursor:pointer;
-}
-
-.menu-title{
-    font-size:20px;
-    font-weight:bold;
-
-    margin-bottom:25px;
-}
-
-.menu-item{
-    display:block;
-
-    padding:14px;
-
-    margin-bottom:9px;
-
-    background:#1b1b1b;
-
-    border:1px solid #303030;
-
-    border-radius:11px;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:13px;
-}
-
-.overlay{
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.65);
-
-    z-index:250;
-
-    display:none;
-}
-
-.overlay.active{
-    display:block;
 }
 
 
-/* موبایل */
+.footer-rgb{
 
-@media(max-width:800px){
+    margin-top:7px;
 
-    .courses{
-        grid-template-columns:1fr 1fr;
+    font-size:8px;
+
+    animation:
+    logoRGB 4s linear infinite;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    header{
+
+        height:auto;
+
+        min-height:65px;
+
+        gap:10px;
+
     }
 
-    .coming{
-        grid-template-columns:1fr 1fr;
+    nav a{
+
+        padding:
+        7px 8px;
+
+        font-size:8px;
+
     }
 
-    .features{
-        grid-template-columns:1fr 1fr;
+    .hero{
+
+        padding:
+        40px 15px;
+
     }
 
-}
+    .card-inner{
 
-@media(max-width:500px){
+        min-height:230px;
 
-    .courses,
-    .coming{
-        grid-template-columns:1fr;
-    }
-
-    .hero h1{
-        font-size:29px;
     }
 
 }
@@ -506,155 +724,66 @@ header{
 <body>
 
 
+<!-- HEADER -->
+
 <header>
 
 <div class="logo">
-👻 Ghost Code Academy
+
+👻
+<span>
+Ghost Code Academy
+</span>
+
 </div>
 
-<button
-class="menu-btn"
-onclick="openMenu()">
 
-☰
+<nav>
 
-</button>
+<a href="index.html">
+خانه
+</a>
+
+<a href="register.html">
+ثبت‌نام
+</a>
+
+<a href="projects.html">
+پروژه‌ها
+</a>
+
+</nav>
 
 </header>
-
-
-
-<!-- منوی کناری -->
-
-<div
-class="side-menu"
-id="sideMenu">
-
-<button
-class="close"
-onclick="closeMenu()">
-
-×
-
-</button>
-
-
-<div class="menu-title">
-
-👻 منوی آکادمی
-
-</div>
-
-
-<a
-href="index.html"
-class="menu-item">
-
-🏠 صفحه اصلی
-
-</a>
-
-
-<a
-href="courses.html"
-class="menu-item">
-
-📚 دوره‌ها
-
-</a>
-
-
-<a
-href="exams.html"
-class="menu-item">
-
-📝 امتحانات
-
-</a>
-
-
-<a
-href="practice.html"
-class="menu-item">
-
-🧩 تمرین‌ها
-
-</a>
-
-
-<a
-href="profile.html"
-class="menu-item">
-
-👤 پروفایل من
-
-</a>
-
-
-<a
-href="leaderboard.html"
-class="menu-item">
-
-🏆 جدول برترین‌ها
-
-</a>
-
-
-<a
-href="certificates.html"
-class="menu-item">
-
-🎓 گواهینامه‌ها
-
-</a>
-
-
-<a
-href="settings.html"
-class="menu-item">
-
-⚙️ تنظیمات
-
-</a>
-
-</div>
-
-
-<div
-class="overlay"
-id="overlay"
-onclick="closeMenu()">
-</div>
 
 
 
 <main class="container">
 
 
-<!-- معرفی -->
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="ghost">
+<div class="hero-icon">
 👻
 </div>
 
 <h1>
-Ghost <span>Code Academy</span>
+Ghost Code Academy
 </h1>
 
 <p>
 
-آموزش برنامه‌نویسی از صفر تا حرفه‌ای،
-<br>
-همراه با تمرین، آزمون، امتیاز و مسیر یادگیری.
+آکادمی آموزش برنامه‌نویسی؛
+از اولین خط کد تا ساخت پروژه‌های واقعی.
 
 </p>
 
 
 <a
-href="courses.html"
-class="start-btn">
+class="main-button"
+href="projects.html">
 
 🚀 شروع یادگیری
 
@@ -664,56 +793,39 @@ class="start-btn">
 
 
 
-<!-- پروفایل -->
+<!-- PROJECT -->
 
-<section class="profile">
+<div class="section-title">
 
-<div class="avatar">
-👨‍💻
-</div>
-
-<div class="profile-info">
-
-<h3>
-برنامه‌نویس تازه‌کار
-</h3>
-
-<div class="xp-text">
-
-350 / 1000 XP
-
-</div>
-
-<div class="xp-bar">
-
-<div class="xp-progress"></div>
-
-</div>
-
-</div>
-
-<div>
-⭐ Level 3
-</div>
-
-</section>
-
-
-
-<!-- دوره‌ها -->
-
-<h2 class="section-title">
-📚 دوره‌های برنامه‌نویسی
+<h2>
+💻 پروژه جامع برنامه‌نویسی
 </h2>
 
+<span>
+۱۲ بخش
+</span>
 
-<section class="courses">
+</div>
 
 
-<div class="course">
 
-<div class="course-icon">
+<section class="cards">
+
+
+<!-- PYTHON -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
 🐍
+</div>
+
+<div class="card-number">
+بخش ۱
 </div>
 
 <h3>
@@ -721,181 +833,40 @@ Python
 </h3>
 
 <p>
-یادگیری پایتون از صفر تا پیشرفته.
+یادگیری Python از پایه تا ساخت پروژه‌های ساده.
 </p>
 
-<a
-href="python.html"
-class="course-btn">
+</div>
 
-مشاهده دوره
+
+<a
+class="card-button"
+href="python.html">
+
+مشاهده بخش
 
 </a>
 
 </div>
 
-
-
-<div class="course">
-
-<div class="course-icon">
-🌐
-</div>
-
-<h3>
-HTML
-</h3>
-
-<p>
-ساختار صفحات وب را یاد بگیر.
-</p>
-
-<a
-href="html.html"
-class="course-btn">
-
-مشاهده دوره
-
-</a>
-
 </div>
 
 
 
-<div class="course">
+<!-- JAVA -->
 
-<div class="course-icon">
-🎨
-</div>
+<div class="card">
 
-<h3>
-CSS
-</h3>
+<div class="card-inner">
 
-<p>
-طراحی و زیباسازی سایت‌ها.
-</p>
+<div>
 
-<a
-href="css.html"
-class="course-btn">
-
-مشاهده دوره
-
-</a>
-
-</div>
-
-
-
-<div class="course">
-
-<div class="course-icon">
-⚡
-</div>
-
-<h3>
-JavaScript
-</h3>
-
-<p>
-ساخت صفحات وب تعاملی.
-</p>
-
-<a
-href="javascript.html"
-class="course-btn">
-
-مشاهده دوره
-
-</a>
-
-</div>
-
-
-
-<div class="course">
-
-<div class="course-icon">
-🟦
-</div>
-
-<h3>
-C
-</h3>
-
-<p>
-آشنایی با برنامه‌نویسی سطح پایین‌تر.
-</p>
-
-<a
-href="c.html"
-class="course-btn">
-
-مشاهده دوره
-
-</a>
-
-</div>
-
-
-
-<div class="course">
-
-<div class="course-icon">
-💠
-</div>
-
-<h3>
-C++
-</h3>
-
-<p>
-برنامه‌نویسی قدرتمند و شیءگرا.
-</p>
-
-<a
-href="cpp.html"
-class="course-btn">
-
-مشاهده دوره
-
-</a>
-
-</div>
-
-
-
-<div class="course">
-
-<div class="course-icon">
-#️⃣
-</div>
-
-<h3>
-C#
-</h3>
-
-<p>
-آموزش C# برای برنامه و بازی‌سازی.
-</p>
-
-<a
-href="csharp.html"
-class="course-btn">
-
-مشاهده دوره
-
-</a>
-
-</div>
-
-
-
-<div class="course">
-
-<div class="course-icon">
+<div class="card-icon">
 ☕
+</div>
+
+<div class="card-number">
+بخش ۲
 </div>
 
 <h3>
@@ -903,25 +874,286 @@ Java
 </h3>
 
 <p>
-یادگیری جاوا از پایه.
+یادگیری زبان Java و مفاهیم برنامه‌نویسی شیءگرا.
 </p>
 
-<a
-href="java.html"
-class="course-btn">
+</div>
 
-مشاهده دوره
+
+<a
+class="card-button"
+href="java.html">
+
+مشاهده بخش
 
 </a>
 
 </div>
 
+</div>
 
 
-<div class="course">
 
-<div class="course-icon">
-🟪
+<!-- JAVASCRIPT -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+⚡
+</div>
+
+<div class="card-number">
+بخش ۳
+</div>
+
+<h3>
+JavaScript
+</h3>
+
+<p>
+ساخت صفحات تعاملی و برنامه‌های وب با JavaScript.
+</p>
+
+</div>
+
+
+<a
+class="card-button"
+href="javascript.html">
+
+مشاهده بخش
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- HTML -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🌐
+</div>
+
+<div class="card-number">
+بخش ۴
+</div>
+
+<h3>
+HTML
+</h3>
+
+<p>
+ساختار صفحات وب و ساخت اولین سایت.
+</p>
+
+</div>
+
+
+<a
+class="card-button"
+href="html.html">
+
+مشاهده بخش
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- CSS -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🎨
+</div>
+
+<div class="card-number">
+بخش ۵
+</div>
+
+<h3>
+CSS
+</h3>
+
+<p>
+طراحی ظاهر سایت، رنگ‌ها، انیمیشن و چیدمان.
+</p>
+
+</div>
+
+
+<a
+class="card-button"
+href="css.html">
+
+مشاهده بخش
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- C -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+💻
+</div>
+
+<div class="card-number">
+بخش ۶
+</div>
+
+<h3>
+C
+</h3>
+
+<p>
+آشنایی با زبان C و مفاهیم پایه برنامه‌نویسی.
+</p>
+
+</div>
+
+
+<a
+class="card-button"
+href="c.html">
+
+مشاهده بخش
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- C++ -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🚀
+</div>
+
+<div class="card-number">
+بخش ۷
+</div>
+
+<h3>
+C++
+</h3>
+
+<p>
+یادگیری C++ و مفاهیم شیءگرایی.
+</p>
+
+</div>
+
+
+<a
+class="card-button"
+href="cpp.html">
+
+مشاهده بخش
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- C# -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🧠
+</div>
+
+<div class="card-number">
+بخش ۸
+</div>
+
+<h3>
+C#
+</h3>
+
+<p>
+آشنایی با C# و ساخت برنامه‌های کاربردی.
+</p>
+
+</div>
+
+
+<a
+class="card-button"
+href="csharp.html">
+
+مشاهده بخش
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- PHP -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🐘
+</div>
+
+<div class="card-number">
+بخش ۹
 </div>
 
 <h3>
@@ -929,77 +1161,81 @@ PHP
 </h3>
 
 <p>
-برنامه‌نویسی سمت سرور.
+برنامه‌نویسی سمت سرور و ساخت سایت‌های پویا.
 </p>
 
-<a
-href="php.html"
-class="course-btn">
+</div>
 
-مشاهده دوره
+
+<a
+class="card-button"
+href="php.html">
+
+مشاهده بخش
 
 </a>
 
 </div>
 
+</div>
 
 
-<div class="course">
 
-<div class="course-icon">
-🟨
+<!-- GO -->
+
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
+🦫
+</div>
+
+<div class="card-number">
+بخش ۱۰
 </div>
 
 <h3>
-TypeScript
+Go
 </h3>
 
 <p>
-JavaScript قدرتمندتر و ساختاریافته‌تر.
+آشنایی با زبان Go و برنامه‌نویسی سریع و ساده.
 </p>
 
-<a
-href="typescript.html"
-class="course-btn">
+</div>
 
-مشاهده دوره
+
+<a
+class="card-button"
+href="go.html">
+
+مشاهده بخش
 
 </a>
 
 </div>
 
-
-
-<div class="course">
-
-<div class="course-icon">
-🗄️
-</div>
-
-<h3>
-SQL
-</h3>
-
-<p>
-کار با دیتابیس و اطلاعات.
-</p>
-
-<a
-href="sql.html"
-class="course-btn">
-
-مشاهده دوره
-
-</a>
-
 </div>
 
 
 
-<div class="course">
+<!-- RUST -->
 
-<div class="course-icon">
+<div class="card">
+
+<div class="card-inner">
+
+<div>
+
+<div class="card-icon">
 🦀
+</div>
+
+<div class="card-number">
+بخش ۱۱
 </div>
 
 <h3>
@@ -1007,191 +1243,62 @@ Rust
 </h3>
 
 <p>
-آشنایی با زبان Rust.
+آشنایی با Rust و برنامه‌نویسی امن و سریع.
 </p>
 
-<a
-href="rust.html"
-class="course-btn">
+</div>
 
-مشاهده دوره
+
+<a
+class="card-button"
+href="rust.html">
+
+مشاهده بخش
 
 </a>
 
 </div>
 
-
-</section>
-
+</div>
 
 
-<!-- بزودی -->
 
-<h2 class="section-title">
-🚀 به‌زودی در آکادمی
-</h2>
+<!-- KOTLIN -->
 
+<div class="card">
 
-<section class="coming">
+<div class="card-inner">
 
+<div>
 
-<div class="coming-card">
+<div class="card-icon">
+💎
+</div>
 
-<span class="soon">
-COMING SOON
-</span>
+<div class="card-number">
+بخش ۱۲
+</div>
 
 <h3>
-🤖 هوش مصنوعی
+Kotlin
 </h3>
 
 <p>
-آشنایی با AI و ساخت پروژه‌های هوشمند.
+یادگیری Kotlin و آشنایی با ساخت برنامه‌های مدرن.
 </p>
 
 </div>
 
 
+<a
+class="card-button"
+href="kotlin.html">
 
-<div class="coming-card">
+مشاهده بخش
 
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-🧠 یادگیری ماشین
-</h3>
-
-<p>
-مفاهیم Machine Learning و مدل‌های هوشمند.
-</p>
+</a>
 
 </div>
-
-
-
-<div class="coming-card">
-
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-🌐 سایت‌سازی حرفه‌ای
-</h3>
-
-<p>
-ساخت سایت‌های حرفه‌ای و پروژه‌های واقعی.
-</p>
-
-</div>
-
-
-
-<div class="coming-card">
-
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-🔐 امنیت سایبری
-</h3>
-
-<p>
-امنیت، دفاع سایبری و هک اخلاقی در محیط‌های مجاز.
-</p>
-
-</div>
-
-
-
-<div class="coming-card">
-
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-🎮 بازی‌سازی
-</h3>
-
-<p>
-ساخت بازی برای موبایل و کامپیوتر.
-</p>
-
-</div>
-
-
-
-<div class="coming-card">
-
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-📱 اپلیکیشن‌سازی
-</h3>
-
-<p>
-ساخت برنامه‌های موبایل.
-</p>
-
-</div>
-
-
-
-<div class="coming-card">
-
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-🐧 Linux
-</h3>
-
-<p>
-آموزش لینوکس و کار با ترمینال.
-</p>
-
-</div>
-
-
-
-<div class="coming-card">
-
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-☁️ Cloud
-</h3>
-
-<p>
-آشنایی با سرورها و سرویس‌های ابری.
-</p>
-
-</div>
-
-
-
-<div class="coming-card">
-
-<span class="soon">
-COMING SOON
-</span>
-
-<h3>
-🔧 Git & GitHub
-</h3>
-
-<p>
-مدیریت پروژه و کار تیمی.
-</p>
 
 </div>
 
@@ -1200,11 +1307,15 @@ COMING SOON
 
 
 
-<!-- امکانات -->
+<!-- FEATURES -->
 
-<h2 class="section-title">
-⭐ امکانات Ghost Code Academy
+<div class="section-title">
+
+<h2>
+✨ امکانات آکادمی
 </h2>
+
+</div>
 
 
 <section class="features">
@@ -1213,50 +1324,16 @@ COMING SOON
 <div class="feature">
 
 <div class="feature-icon">
-📖
+🎓
 </div>
 
-<strong>
-آموزش
-</strong>
+<h3>
+آزمون
+</h3>
 
-<small>
-درس‌های مرحله‌ای
-</small>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🧩
-</div>
-
-<strong>
-تمرین
-</strong>
-
-<small>
-تمرین‌های برنامه‌نویسی
-</small>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-📝
-</div>
-
-<strong>
-امتحان
-</strong>
-
-<small>
-آزمون و نمره
-</small>
+<p>
+بعد از آموزش هر زبان می‌توانی در آزمون آن شرکت کنی.
+</p>
 
 </div>
 
@@ -1267,13 +1344,47 @@ COMING SOON
 🏆
 </div>
 
-<strong>
-XP
-</strong>
+<h3>
+گواهی پایان دوره
+</h3>
 
-<small>
-سیستم امتیازدهی
-</small>
+<p>
+پس از قبولی، گواهی آموزشی مخصوص همان زبان نمایش داده می‌شود.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⭐
+</div>
+
+<h3>
+XP و پیشرفت
+</h3>
+
+<p>
+با کامل کردن بخش‌های آموزشی XP دریافت کن و پیشرفتت را ببین.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📱
+</div>
+
+<h3>
+مناسب موبایل
+</h3>
+
+<p>
+طراحی شده تا روی گوشی هم راحت و سریع استفاده شود.
+</p>
 
 </div>
 
@@ -1285,46 +1396,17 @@ XP
 
 
 
-<script>
+<footer>
 
-const sideMenu =
-document.getElementById(
-    "sideMenu"
-);
+© 2026 Ghost Code Academy
 
-const overlay =
-document.getElementById(
-    "overlay"
-);
+<div class="footer-rgb">
+Learn • Code • Create
+</div>
 
-
-function openMenu(){
-
-    sideMenu.classList.add(
-        "active"
-    );
-
-    overlay.classList.add(
-        "active"
-    );
-
-}
-
-
-function closeMenu(){
-
-    sideMenu.classList.remove(
-        "active"
-    );
-
-    overlay.classList.remove(
-        "active"
-    );
-
-}
-
-</script>
+</footer>
 
 
 </body>
-  </html> 
+
+</html>
