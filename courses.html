@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>دوره‌ها | Ghost Code Academy</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080808;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    height:70px;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.logo{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.back{
+    color:#fff;
+    text-decoration:none;
+
+    background:#222;
+    border:1px solid #444;
+
+    padding:9px 13px;
+    border-radius:10px;
+
+    font-size:12px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.title{
+    text-align:center;
+    margin:25px 0 35px;
+}
+
+.title h1{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:#888;
+    font-size:12px;
+    line-height:2;
+}
+
+.section-title{
+    margin-top:35px;
+    margin-bottom:18px;
+    font-size:20px;
+}
+
+.courses{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.course{
+    background:#141414;
+    border:1px solid #303030;
+    border-radius:17px;
+
+    padding:20px;
+
+    transition:.2s;
+}
+
+.course:hover{
+    transform:translateY(-4px);
+    border-color:#707cff;
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.course h2{
+    font-size:16px;
+    margin:5px 0;
+}
+
+.course p{
+    color:#888;
+    font-size:11px;
+    line-height:1.9;
+    min-height:45px;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+
+    color:#777;
+    font-size:10px;
+
+    margin-top:12px;
+}
+
+.btn{
+    display:block;
+
+    margin-top:15px;
+    padding:11px;
+
+    text-align:center;
+
+    background:#222;
+    border:1px solid #444;
+
+    border-radius:10px;
+
+    color:#fff;
+    text-decoration:none;
+
+    font-size:11px;
+}
+
+.btn:hover{
+    background:#fff;
+    color:#000;
+}
+
+.soon-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.soon{
+    background:#101010;
+
+    border:1px dashed #555;
+    border-radius:17px;
+
+    padding:20px;
+
+    opacity:.8;
+}
+
+.badge{
+    display:inline-block;
+
+    background:#222;
+    color:#999;
+
+    padding:5px 8px;
+
+    border-radius:7px;
+
+    font-size:9px;
+}
+
+.soon h2{
+    font-size:15px;
+    color:#ccc;
+}
+
+.soon p{
+    color:#666;
+    font-size:11px;
+    line-height:1.8;
+}
+
+@media(max-width:800px){
+
+    .courses,
+    .soon-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .courses,
+    .soon-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<a href="index.html" class="back">
+← صفحه اصلی
+</a>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="title">
+
+<h1>
+📚 دوره‌های برنامه‌نویسی
+</h1>
+
+<p>
+یک مسیر آموزشی را انتخاب کن و قدم‌به‌قدم یاد بگیر.
+</p>
+
+</section>
+
+
+<h2 class="section-title">
+💻 دوره‌های فعال
+</h2>
+
+
+<section class="courses">
+
+
+<div class="course">
+
+<div class="icon">🐍</div>
+
+<h2>Python</h2>
+
+<p>
+آموزش پایتون از صفر، متغیرها،
+شرط‌ها، حلقه‌ها، لیست‌ها و توابع.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="python.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">🌐</div>
+
+<h2>HTML</h2>
+
+<p>
+ساختار صفحات وب و ساخت اولین سایت
+با HTML.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="html.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">🎨</div>
+
+<h2>CSS</h2>
+
+<p>
+رنگ، فونت، کارت، دکمه، چیدمان
+و طراحی واکنش‌گرا.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="css.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">⚡</div>
+
+<h2>JavaScript</h2>
+
+<p>
+متغیرها، شرط‌ها، توابع، رویدادها
+و ساخت سایت‌های تعاملی.
+</p>
+
+<div class="info">
+<span>📖 12 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="javascript.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">🟦</div>
+
+<h2>C</h2>
+
+<p>
+آشنایی با اصول برنامه‌نویسی و
+ساختار زبان C.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="c.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">💠</div>
+
+<h2>C++</h2>
+
+<p>
+آموزش C++ و مفاهیم برنامه‌نویسی
+شیءگرا.
+</p>
+
+<div class="info">
+<span>📖 12 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="cpp.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">#️⃣</div>
+
+<h2>C#</h2>
+
+<p>
+آموزش C# برای برنامه‌سازی و
+بازی‌سازی.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="csharp.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">☕</div>
+
+<h2>Java</h2>
+
+<p>
+آموزش Java از پایه تا مفاهیم
+پیشرفته‌تر.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="java.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">🟪</div>
+
+<h2>PHP</h2>
+
+<p>
+آشنایی با برنامه‌نویسی سمت سرور
+و ساخت صفحات پویا.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="php.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">🟨</div>
+
+<h2>TypeScript</h2>
+
+<p>
+یادگیری TypeScript و نوشتن کد
+ساختاریافته‌تر.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="typescript.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">🗄️</div>
+
+<h2>SQL</h2>
+
+<p>
+دیتابیس، جدول‌ها، جست‌وجو و
+مدیریت اطلاعات.
+</p>
+
+<div class="info">
+<span>📖 10 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="sql.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div class="icon">🦀</div>
+
+<h2>Rust</h2>
+
+<p>
+آشنایی با Rust و مفاهیم پایه
+این زبان مدرن.
+</p>
+
+<div class="info">
+<span>📖 8 درس</span>
+<span>📝 آزمون</span>
+</div>
+
+<a href="rust.html" class="btn">
+شروع دوره →
+</a>
+
+</div>
+
+
+</section>
+
+
+
+<h2 class="section-title">
+🚀 دوره‌های آینده
+</h2>
+
+
+<section class="soon-grid">
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>🤖 هوش مصنوعی</h2>
+
+<p>
+مفاهیم هوش مصنوعی و ساخت پروژه‌های
+هوشمند.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>🧠 Machine Learning</h2>
+
+<p>
+آشنایی با یادگیری ماشین و مدل‌های
+پیش‌بینی.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>🌐 سایت‌سازی حرفه‌ای</h2>
+
+<p>
+ساخت سایت‌های حرفه‌ای و پروژه‌های
+واقعی.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>🔐 امنیت سایبری</h2>
+
+<p>
+امنیت سایبری، دفاع و هک اخلاقی
+در محیط‌های مجاز.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>🎮 بازی‌سازی</h2>
+
+<p>
+ساخت بازی برای موبایل و کامپیوتر.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>📱 اپلیکیشن‌سازی</h2>
+
+<p>
+ساخت اپلیکیشن‌های موبایل.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>🐧 Linux</h2>
+
+<p>
+آموزش لینوکس و کار با ترمینال.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>☁️ Cloud</h2>
+
+<p>
+آشنایی با سرورها و سرویس‌های ابری.
+</p>
+
+</div>
+
+
+<div class="soon">
+
+<span class="badge">
+COMING SOON
+</span>
+
+<h2>🔧 Git & GitHub</h2>
+
+<p>
+مدیریت پروژه و همکاری در پروژه‌های
+برنامه‌نویسی.
+</p>
+
+</div>
+
+
+</section>
+
+</main>
+
+</body>
+</html>
