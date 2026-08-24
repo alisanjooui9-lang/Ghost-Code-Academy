@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>گواهی پایان دوره | Ghost Code Academy</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+
+    background:#080808;
+    color:#fff;
+
+    font-family:tahoma,Arial,sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+}
+
+.top{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.top h1{
+    font-size:22px;
+    margin:5px;
+}
+
+.top p{
+    color:#777;
+    font-size:10px;
+}
+
+
+/* CERTIFICATE */
+
+.certificate{
+
+    position:relative;
+
+    background:#f8f1dc;
+
+    color:#1b1b1b;
+
+    border:10px solid #b8860b;
+
+    border-radius:8px;
+
+    padding:45px 35px;
+
+    min-height:560px;
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.6);
+
+    overflow:hidden;
+
+    text-align:center;
+}
+
+
+/* decorative border */
+
+.certificate::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border:2px solid #b8860b;
+
+    pointer-events:none;
+
+}
+
+
+/* corners */
+
+.corner{
+
+    position:absolute;
+
+    font-size:35px;
+
+    color:#b8860b;
+
+}
+
+.c1{
+    top:18px;
+    right:25px;
+}
+
+.c2{
+    top:18px;
+    left:25px;
+}
+
+.c3{
+    bottom:18px;
+    right:25px;
+}
+
+.c4{
+    bottom:18px;
+    left:25px;
+}
+
+
+.logo{
+    font-size:15px;
+
+    font-weight:bold;
+
+    color:#8a6500;
+
+    margin-top:5px;
+}
+
+.icon{
+    font-size:55px;
+
+    margin-top:15px;
+}
+
+.title{
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:#8a6500;
+
+    margin:10px 0;
+
+}
+
+.subtitle{
+
+    font-size:13px;
+
+    color:#555;
+
+    margin-bottom:25px;
+
+}
+
+.text{
+
+    font-size:13px;
+
+    color:#444;
+
+    line-height:2;
+
+}
+
+.student-name{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#111;
+
+    margin:18px 0;
+
+    border-bottom:2px solid #b8860b;
+
+    display:inline-block;
+
+    padding:0 30px 8px;
+
+}
+
+.course{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#333;
+
+    margin:15px 0;
+
+}
+
+.details{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.detail{
+
+    min-width:140px;
+
+}
+
+.detail span{
+
+    display:block;
+
+    color:#777;
+
+    font-size:9px;
+
+    margin-bottom:5px;
+
+}
+
+.detail b{
+
+    font-size:13px;
+
+    color:#222;
+
+}
+
+
+/* seal */
+
+.seal{
+
+    position:absolute;
+
+    bottom:55px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90px;
+
+    height:90px;
+
+    border:4px solid #b8860b;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#8a6500;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+}
+
+
+/* buttons */
+
+.buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:18px;
+
+}
+
+button,
+a{
+
+    flex:1;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    font-family:tahoma;
+
+    font-size:11px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    text-align:center;
+
+}
+
+button{
+
+    border:0;
+
+    background:#fff;
+
+    color:#000;
+
+}
+
+a{
+
+    background:#222;
+
+    color:#fff;
+
+    border:1px solid #444;
+
+}
+
+.warning{
+
+    display:none;
+
+    background:#301414;
+
+    color:#ff7777;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+}
+
+@media(max-width:600px){
+
+    .certificate{
+
+        padding:35px 20px;
+
+        min-height:500px;
+
+    }
+
+    .title{
+
+        font-size:25px;
+
+    }
+
+    .student-name{
+
+        font-size:23px;
+
+    }
+
+    .course{
+
+        font-size:17px;
+
+    }
+
+    .details{
+
+        gap:20px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="top">
+
+<h1>
+👻 Ghost Code Academy
+</h1>
+
+<p>
+گواهی آموزشی دوره Python
+</p>
+
+</div>
+
+
+<!-- WARNING -->
+
+<div
+id="warning"
+class="warning">
+
+<h2>
+🔒 دسترسی محدود
+</h2>
+
+<p>
+برای مشاهده گواهی ابتدا باید آزمون پایان دوره را با موفقیت قبول کنید.
+</p>
+
+<a href="python.html">
+بازگشت به دوره
+</a>
+
+</div>
+
+
+<!-- CERTIFICATE -->
+
+<div
+id="certificate"
+class="certificate">
+
+
+<div class="corner c1">
+✦
+</div>
+
+<div class="corner c2">
+✦
+</div>
+
+<div class="corner c3">
+✦
+</div>
+
+<div class="corner c4">
+✦
+</div>
+
+
+<div class="logo">
+👻 GHOST CODE ACADEMY
+</div>
+
+
+<div class="icon">
+🏆
+</div>
+
+
+<div class="title">
+گواهی پایان دوره
+</div>
+
+
+<div class="subtitle">
+Certificate of Completion
+</div>
+
+
+<div class="text">
+
+بدین‌وسیله گواهی می‌شود که
+
+</div>
+
+
+<div
+id="studentName"
+class="student-name">
+
+نام هنرجو
+
+</div>
+
+
+<div class="text">
+
+با موفقیت دوره آموزشی زیر را به پایان رسانده است:
+
+</div>
+
+
+<div class="course">
+🐍 آموزش Python
+</div>
+
+
+<div class="text">
+
+و در آزمون پایان دوره شرکت کرده و موفق به کسب شرایط قبولی شده است.
+
+</div>
+
+
+<div class="details">
+
+
+<div class="detail">
+
+<span>
+نام و نام خانوادگی
+</span>
+
+<b id="fullName">
+-
+</b>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+کد هنرجو
+</span>
+
+<b id="studentCode">
+-
+</b>
+
+</div>
+
+
+<div class="detail">
+
+<span>
+تاریخ دریافت
+</span>
+
+<b id="date">
+-
+</b>
+
+</div>
+
+
+</div>
+
+
+<div class="seal">
+
+GHOST<br>
+ACADEMY
+
+</div>
+
+
+</div>
+
+
+<div class="buttons">
+
+<button onclick="downloadCertificate()">
+
+📥 ذخیره گواهی
+
+</button>
+
+
+<a href="python.html">
+
+← بازگشت به دوره
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   CHECK EXAM
+========================= */
+
+
+const passed =
+localStorage.getItem(
+    "python_exam_passed"
+);
+
+
+const certificate =
+document.getElementById(
+    "certificate"
+);
+
+
+const warning =
+document.getElementById(
+    "warning"
+);
+
+
+if(passed !== "true"){
+
+    certificate.style.display =
+    "none";
+
+    warning.style.display =
+    "block";
+
+}
+
+
+/* =========================
+   GET STUDENT
+========================= */
+
+
+let student = null;
+
+
+try{
+
+    student =
+    JSON.parse(
+        localStorage.getItem(
+            "ghost_student"
+        )
+    );
+
+}catch(error){
+
+    student = null;
+
+}
+
+
+if(
+    passed === "true" &&
+    student
+){
+
+    document.getElementById(
+        "studentName"
+    ).innerText =
+    student.fullName;
+
+
+    document.getElementById(
+        "fullName"
+    ).innerText =
+    student.fullName;
+
+
+    document.getElementById(
+        "studentCode"
+    ).innerText =
+    student.studentCode;
+
+
+    document.getElementById(
+        "date"
+    ).innerText =
+    new Date()
+    .toLocaleDateString(
+        "fa-IR"
+    );
+
+}
+
+
+/* =========================
+   SAVE CERTIFICATE
+========================= */
+
+
+function downloadCertificate(){
+
+    /*
+       نسخه ساده برای گوشی:
+       پنجره چاپ/ذخیره باز می‌شود.
+       از آنجا می‌توانی Save as PDF را انتخاب کنی.
+    */
+
+    window.print();
+
+}
+
+</script>
+
+
+</body>
+
+</html>
