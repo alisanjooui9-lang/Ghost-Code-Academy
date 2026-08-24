@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ثبت نام | Ghost Code Academy</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+
+    background:#080808;
+    color:#fff;
+
+    font-family:tahoma,Arial,sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:500px;
+}
+
+.logo{
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#888;
+    font-size:11px;
+    margin-bottom:20px;
+}
+
+.card{
+    background:#141414;
+
+    border:1px solid #333;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.4);
+}
+
+.icon{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:5px;
+}
+
+h1{
+    text-align:center;
+    font-size:21px;
+    margin:8px 0 20px;
+}
+
+label{
+    display:block;
+
+    margin-top:13px;
+    margin-bottom:6px;
+
+    color:#aaa;
+
+    font-size:11px;
+}
+
+input,
+select{
+    width:100%;
+
+    padding:13px;
+
+    background:#090909;
+
+    color:#fff;
+
+    border:1px solid #444;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-family:tahoma;
+
+    font-size:12px;
+}
+
+input:focus,
+select:focus{
+    border-color:#888;
+}
+
+.info{
+    margin-top:16px;
+
+    padding:12px;
+
+    background:#10151d;
+
+    border-right:3px solid #7180ff;
+
+    border-radius:9px;
+
+    color:#999;
+
+    font-size:10px;
+
+    line-height:2;
+}
+
+.checkbox{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:8px;
+
+    margin-top:17px;
+
+    color:#999;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+.checkbox input{
+    width:auto;
+    margin-top:3px;
+}
+
+button{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:#fff;
+
+    color:#000;
+
+    font-family:tahoma;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    font-size:12px;
+}
+
+button:hover{
+    background:#ddd;
+}
+
+.error{
+    display:none;
+
+    margin-top:12px;
+
+    padding:11px;
+
+    background:#301414;
+
+    color:#ff7777;
+
+    border-radius:9px;
+
+    font-size:10px;
+
+    text-align:center;
+}
+
+.footer{
+    text-align:center;
+
+    color:#555;
+
+    font-size:9px;
+
+    margin-top:15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<div class="subtitle">
+آکادمی آموزش برنامه‌نویسی
+</div>
+
+
+<div class="card">
+
+
+<div class="icon">
+🎓
+</div>
+
+
+<h1>
+ثبت نام هنرجو
+</h1>
+
+
+<form id="registerForm">
+
+
+<label>
+نام
+</label>
+
+<input
+id="firstName"
+type="text"
+placeholder="مثلاً علیسان"
+maxlength="30"
+required
+>
+
+
+<label>
+نام خانوادگی
+</label>
+
+<input
+id="lastName"
+type="text"
+placeholder="مثلاً جویی"
+maxlength="40"
+required
+>
+
+
+<label>
+نام کاربری
+</label>
+
+<input
+id="username"
+type="text"
+placeholder="مثلاً Alisan"
+maxlength="20"
+required
+>
+
+
+<label>
+سن
+</label>
+
+<input
+id="age"
+type="number"
+placeholder="سن"
+min="7"
+max="100"
+required
+>
+
+
+<label>
+سطح برنامه‌نویسی
+</label>
+
+<select id="level" required>
+
+<option value="">
+انتخاب کنید
+</option>
+
+<option value="beginner">
+مبتدی
+</option>
+
+<option value="intermediate">
+متوسط
+</option>
+
+<option value="advanced">
+پیشرفته
+</option>
+
+</select>
+
+
+<div class="info">
+
+🔐 برای حفظ حریم خصوصی، این نسخه کد ملی واقعی
+را دریافت نمی‌کند.
+
+برای گواهی پایان دوره یک «کد هنرجو»
+به‌صورت خودکار ساخته می‌شود.
+
+</div>
+
+
+<label class="checkbox">
+
+<input
+id="agree"
+type="checkbox"
+required
+>
+
+<span>
+با ثبت‌نام موافقم که اطلاعات این فرم برای
+استفاده در همین دستگاه ذخیره شود.
+</span>
+
+</label>
+
+
+<div
+id="error"
+class="error">
+</div>
+
+
+<button type="submit">
+
+🚀 ثبت نام و ورود به دوره
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+<div class="footer">
+
+© Ghost Code Academy
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+function generateStudentCode(){
+
+    const random =
+    Math.floor(
+        10000 +
+        Math.random() * 90000
+    );
+
+    return "GC-" + random;
+
+}
+
+
+function cleanText(text){
+
+    return text
+        .trim()
+        .replace(/\s+/g," ");
+
+}
+
+
+document
+.getElementById("registerForm")
+.addEventListener(
+"submit",
+function(event){
+
+    event.preventDefault();
+
+
+    const firstName =
+    cleanText(
+        document.getElementById(
+            "firstName"
+        ).value
+    );
+
+
+    const lastName =
+    cleanText(
+        document.getElementById(
+            "lastName"
+        ).value
+    );
+
+
+    const username =
+    cleanText(
+        document.getElementById(
+            "username"
+        ).value
+    );
+
+
+    const age =
+    Number(
+        document.getElementById(
+            "age"
+        ).value
+    );
+
+
+    const level =
+    document.getElementById(
+        "level"
+    ).value;
+
+
+    const error =
+    document.getElementById(
+        "error"
+    );
+
+
+    if(
+        !firstName ||
+        !lastName ||
+        !username ||
+        !age ||
+        !level
+    ){
+
+        error.style.display =
+        "block";
+
+        error.innerText =
+        "لطفاً همه قسمت‌ها را کامل کنید.";
+
+        return;
+
+    }
+
+
+    if(age < 7 || age > 100){
+
+        error.style.display =
+        "block";
+
+        error.innerText =
+        "سن وارد شده معتبر نیست.";
+
+        return;
+
+    }
+
+
+    const studentCode =
+    generateStudentCode();
+
+
+    const student = {
+
+        firstName:firstName,
+
+        lastName:lastName,
+
+        fullName:
+        firstName +
+        " " +
+        lastName,
+
+        username:username,
+
+        age:age,
+
+        level:level,
+
+        studentCode:studentCode,
+
+        registeredAt:
+        new Date()
+        .toLocaleDateString("fa-IR")
+
+    };
+
+
+    localStorage.setItem(
+        "ghost_student",
+        JSON.stringify(student)
+    );
+
+
+    localStorage.setItem(
+        "ghost_registered",
+        "true"
+    );
+
+
+    /*
+      وضعیت دوره را از اول تنظیم می‌کنیم
+    */
+
+    localStorage.setItem(
+        "python_completed",
+        "0"
+    );
+
+
+    localStorage.setItem(
+        "python_exam_passed",
+        "false"
+    );
+
+
+    localStorage.setItem(
+        "ghost_xp",
+        "0"
+    );
+
+
+    alert(
+        "🎉 ثبت نام با موفقیت انجام شد!\n\n" +
+        "کد هنرجو: " +
+        studentCode
+    );
+
+
+    window.location.href =
+    "python.html";
+
+});
+
+</script>
+
+
+</body>
+
+</html>
