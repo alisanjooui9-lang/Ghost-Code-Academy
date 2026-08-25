@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>درس ۳ | Dataset | Ghost Code Academy</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    min-height:65px;
+    padding:0 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(0,0,0,.9);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    font-size:14px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:6px;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:9px;
+    padding:8px 10px;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:9px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:25px 15px 60px;
+}
+
+.rgb{
+    padding:2px;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        red,#ff00ff,blue,cyan,lime,yellow,red
+    );
+    background-size:500% 500%;
+    animation:rgb 5s linear infinite;
+}
+
+@keyframes rgb{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.hero{
+    background:#080808;
+    border-radius:18px;
+    padding:30px 20px;
+    text-align:center;
+}
+
+.icon{
+    font-size:55px;
+}
+
+.hero h1{
+    font-size:25px;
+    margin:8px 0;
+}
+
+.hero p{
+    color:#888;
+    font-size:10px;
+    line-height:2;
+}
+
+.content{
+    margin-top:18px;
+    background:#0a0a0a;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:22px;
+}
+
+h2{
+    font-size:18px;
+}
+
+h3{
+    font-size:14px;
+    margin-top:25px;
+}
+
+p,li{
+    color:#aaa;
+    font-size:11px;
+    line-height:2.1;
+}
+
+ul{
+    padding-right:20px;
+}
+
+.example{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:13px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.example-title{
+    color:#fff;
+    font-size:11px;
+    margin-bottom:8px;
+}
+
+.example span{
+    color:#00ffff;
+    font-size:10px;
+}
+
+.table-box{
+    overflow-x:auto;
+    margin:18px 0;
+}
+
+table{
+    width:100%;
+    min-width:500px;
+    border-collapse:collapse;
+    background:#111;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #292929;
+    text-align:center;
+    font-size:10px;
+}
+
+th{
+    color:#00ffff;
+    background:#151515;
+}
+
+td{
+    color:#aaa;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(160px,1fr));
+    gap:10px;
+}
+
+.step{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:13px;
+    padding:15px;
+}
+
+.step b{
+    display:block;
+    font-size:12px;
+    margin-bottom:7px;
+}
+
+.step p{
+    font-size:9px;
+    margin:0;
+}
+
+.complete{
+    margin-top:20px;
+    text-align:center;
+    background:#080808;
+    border:1px solid #333;
+    border-radius:18px;
+    padding:22px;
+}
+
+.complete h2{
+    font-size:17px;
+}
+
+.complete p{
+    color:#777;
+}
+
+button{
+    width:100%;
+    border:0;
+    padding:13px;
+    border-radius:11px;
+    background:#fff;
+    color:#000;
+    font-family:tahoma;
+    font-size:11px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.status{
+    margin-top:12px;
+    color:#6cff91;
+    font-size:10px;
+    display:none;
+}
+
+footer{
+    text-align:center;
+    color:#444;
+    font-size:8px;
+    padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+👻 Ghost Code Academy
+</div>
+
+<nav>
+<a href="index.html">خانه</a>
+<a href="ai.html">دوره AI</a>
+<a href="ai-lesson-2.html">قبلی</a>
+</nav>
+
+</header>
+
+<main class="container">
+
+<div class="rgb">
+<section class="hero">
+
+<div class="icon">📊</div>
+
+<h1>
+درس ۳: Dataset چیست؟
+</h1>
+
+<p>
+آشنایی با داده‌های آموزشی و نقش آن‌ها در هوش مصنوعی
+</p>
+
+</section>
+</div>
+
+<section class="content">
+
+<h2>
+📊 Dataset چیست؟
+</h2>
+
+<p>
+Dataset یا <strong>مجموعه‌داده</strong> مجموعه‌ای از اطلاعات است که برای تحلیل، آموزش یا آزمایش یک سیستم هوش مصنوعی و یادگیری ماشین استفاده می‌شود.
+</p>
+
+<h3>
+🤖 چرا Dataset مهم است؟
+</h3>
+
+<p>
+مدل‌های یادگیری ماشین برای پیدا کردن الگو به داده نیاز دارند. کیفیت، مقدار و مناسب بودن داده‌ها می‌تواند روی عملکرد مدل تأثیر زیادی داشته باشد.
+</p>
+
+<div class="example">
+
+<div class="example-title">
+مثال ساده:
+</div>
+
+<span>
+عکس‌های گربه و سگ → Dataset → آموزش مدل → تشخیص عکس جدید
+</span>
+
+</div>
+
+<h3>
+🧩 اجزای یک Dataset
+</h3>
+
+<div class="steps">
+
+<div class="step">
+<b>📥 داده</b>
+<p>
+اطلاعاتی که برای آموزش یا تحلیل جمع‌آوری شده‌اند.
+</p>
+</div>
+
+<div class="step">
+<b>🏷️ Label</b>
+<p>
+در بعضی Datasetها پاسخ یا دسته درست هر نمونه مشخص است.
+</p>
+</div>
+
+<div class="step">
+<b>🔢 Feature</b>
+<p>
+ویژگی‌هایی از داده که مدل می‌تواند از آن‌ها استفاده کند.
+</p>
+</div>
+
+<div class="step">
+<b>🧪 نمونه</b>
+<p>
+هر ردیف یا مورد موجود در مجموعه‌داده می‌تواند یک نمونه باشد.
+</p>
+</div>
+
+</div>
+
+<h3>
+📋 یک Dataset ساده
+</h3>
+
+<div class="table-box">
+
+<table>
+
+<tr>
+<th>سن</th>
+<th>ساعت مطالعه</th>
+<th>قبولی</th>
+</tr>
+
+<tr>
+<td>13</td>
+<td>2</td>
+<td>بله</td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>4</td>
+<td>بله</td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>1</td>
+<td>خیر</td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>5</td>
+<td>بله</td>
+</tr>
+
+</table>
+
+</div>
+
+<p>
+در این مثال، سن و ساعت مطالعه می‌توانند ویژگی‌های ورودی باشند و ستون «قبولی» می‌تواند برچسب باشد.
+</p>
+
+<h3>
+✂️ تقسیم Dataset
+</h3>
+
+<p>
+در بسیاری از پروژه‌های یادگیری ماشین، داده‌ها به قسمت‌هایی برای آموزش و ارزیابی مدل تقسیم می‌شوند.
+</p>
+
+<div class="steps">
+
+<div class="step">
+<b>🎓 Training Data</b>
+<p>
+برای آموزش مدل استفاده می‌شود.
+</p>
+</div>
+
+<div class="step">
+<b>🧪 Test Data</b>
+<p>
+برای بررسی عملکرد مدل روی داده‌های دیده‌نشده استفاده می‌شود.
+</p>
+</div>
+
+</div>
+
+<h3>
+⚠️ کیفیت داده
+</h3>
+
+<p>
+اگر Dataset دارای اطلاعات اشتباه، ناقص، تکراری یا نامناسب باشد، مدل ممکن است نتیجه خوبی نداشته باشد.
+</p>
+
+<ul>
+<li>داده‌ها باید تا حد امکان مرتبط باشند.</li>
+<li>خطاهای داده باید بررسی شوند.</li>
+<li>اطلاعات حساس افراد نباید بدون دلیل مناسب جمع‌آوری یا منتشر شود.</li>
+<li>داده آموزشی باید تا حد امکان نماینده مسئله واقعی باشد.</li>
+</ul>
+
+<div class="example">
+
+<div class="example-title">
+خلاصه درس:
+</div>
+
+<span>
+Dataset = مجموعه‌ای از داده‌ها برای آموزش، آزمایش یا تحلیل مدل
+</span>
+
+</div>
+
+</section>
+
+<section class="complete">
+
+<h2>
+✅ تکمیل درس
+</h2>
+
+<p>
+بعد از مطالعه درس، برای دریافت ۱۰ XP روی دکمه زیر بزن.
+</p>
+
+<button id="completeButton" onclick="completeLesson()">
+تکمیل درس + دریافت ۱۰ XP
+</button>
+
+<div id="status" class="status">
+✅ درس سوم با موفقیت تکمیل شد!
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 Ghost Code Academy
+</footer>
+
+<script>
+
+const registered =
+localStorage.getItem("ghost_registered");
+
+if(registered !== "true"){
+    window.location.href="register.html";
+}
+
+
+/* بررسی درس‌های قبلی */
+
+let completed =
+Number(
+    localStorage.getItem("ai_completed") || 0
+);
+
+
+/* درس سوم فقط بعد از درس دوم */
+
+if(completed < 2){
+
+    document.getElementById(
+        "completeButton"
+    ).disabled = true;
+
+    document.getElementById(
+        "completeButton"
+    ).innerText =
+    "🔒 ابتدا درس دوم را کامل کن";
+}
+
+
+/* تکمیل درس سوم */
+
+function completeLesson(){
+
+    let current =
+    Number(
+        localStorage.getItem("ai_completed") || 0
+    );
+
+    if(current < 3){
+
+        localStorage.setItem(
+            "ai_completed",
+            3
+        );
+
+        let xp =
+        Number(
+            localStorage.getItem("ai_xp") || 0
+        );
+
+        xp += 10;
+
+        localStorage.setItem(
+            "ai_xp",
+            xp
+        );
+    }
+
+    document.getElementById(
+        "completeButton"
+    ).innerText =
+    "✅ درس تکمیل شد";
+
+    document.getElementById(
+        "completeButton"
+    ).disabled = true;
+
+    document.getElementById(
+        "status"
+    ).style.display = "block";
+}
+
+
+/* اگر قبلاً تکمیل شده */
+
+if(completed >= 3){
+
+    document.getElementById(
+        "completeButton"
+    ).innerText =
+    "✅ درس تکمیل شده";
+
+    document.getElementById(
+        "completeButton"
+    ).disabled = true;
+
+    document.getElementById(
+        "status"
+    ).style.display = "block";
+}
+
+</script>
+
+</body>
+  </html>
