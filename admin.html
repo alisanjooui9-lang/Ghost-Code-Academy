@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>پنل مدیریت | Ghost Code Academy</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+@keyframes rgb{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+header{
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    background:#070707;
+    border-bottom:1px solid #222;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:15px;
+    font-weight:bold;
+}
+
+.logo span{
+    background:linear-gradient(
+        90deg,
+        red,
+        #ff00ff,
+        blue,
+        cyan,
+        lime,
+        yellow,
+        red
+    );
+    background-size:400%;
+    animation:rgb 4s linear infinite;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.layout{
+    display:flex;
+    min-height:calc(100vh - 65px);
+}
+
+.sidebar{
+    width:230px;
+    flex-shrink:0;
+    background:#070707;
+    border-left:1px solid #222;
+    padding:18px 12px;
+}
+
+.sidebar-title{
+    color:#555;
+    font-size:9px;
+    margin:8px 10px 12px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.menu button{
+    width:100%;
+    border:1px solid #222;
+    background:#0d0d0d;
+    color:#999;
+    border-radius:11px;
+    padding:12px;
+    text-align:right;
+    font-family:tahoma;
+    font-size:10px;
+    cursor:pointer;
+}
+
+.menu button:hover,
+.menu button.active{
+    color:#fff;
+    background:#151515;
+    border-color:#555;
+}
+
+.content{
+    flex:1;
+    padding:25px;
+    max-width:1200px;
+}
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
+}
+
+.topbar h1{
+    margin:0;
+    font-size:22px;
+}
+
+.topbar p{
+    margin:6px 0 0;
+    color:#666;
+    font-size:9px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(180px,1fr)
+    );
+    gap:14px;
+    margin-bottom:25px;
+}
+
+.stat{
+    background:#090909;
+    border:1px solid #222;
+    border-radius:15px;
+    padding:18px;
+}
+
+.stat-icon{
+    font-size:24px;
+}
+
+.stat-title{
+    color:#777;
+    font-size:9px;
+    margin-top:8px;
+}
+
+.stat-number{
+    font-size:24px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.panel{
+    background:#080808;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.panel-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.panel-title h2{
+    font-size:15px;
+    margin:0;
+}
+
+.primary,
+.secondary,
+.danger{
+    border-radius:10px;
+    padding:10px 14px;
+    font-family:tahoma;
+    font-size:9px;
+    cursor:pointer;
+}
+
+.primary{
+    border:0;
+    background:#fff;
+    color:#000;
+    font-weight:bold;
+}
+
+.secondary{
+    border:1px solid #333;
+    background:#111;
+    color:#aaa;
+}
+
+.danger{
+    border:1px solid #492020;
+    background:#130909;
+    color:#ff7777;
+}
+
+.form{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+    gap:12px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.field label{
+    color:#777;
+    font-size:9px;
+}
+
+.field input,
+.field select{
+    width:100%;
+    padding:12px;
+    border:1px solid #292929;
+    border-radius:10px;
+    outline:none;
+    background:#111;
+    color:#fff;
+    font-family:tahoma;
+    font-size:10px;
+}
+
+.students{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:12px;
+}
+
+.student{
+    background:#0d0d0d;
+    border:1px solid #252525;
+    border-radius:15px;
+    padding:16px;
+}
+
+.student-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#171717;
+    font-size:20px;
+}
+
+.student-name{
+    font-size:12px;
+    font-weight:bold;
+}
+
+.student-code{
+    color:#00ffff;
+    font-size:8px;
+    margin-top:4px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    color:#777;
+    font-size:8px;
+    margin-top:15px;
+}
+
+.progress{
+    height:7px;
+    background:#1a1a1a;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:7px;
+}
+
+.progress-bar{
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        red,
+        #ff00ff,
+        blue,
+        cyan,
+        lime
+    );
+    background-size:300%;
+    animation:rgb 3s linear infinite;
+}
+
+.student-actions{
+    display:flex;
+    gap:7px;
+    margin-top:14px;
+}
+
+.empty{
+    text-align:center;
+    padding:35px 10px;
+    color:#555;
+    font-size:10px;
+}
+
+.toast{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    z-index:500;
+    padding:13px 18px;
+    border:1px solid #333;
+    border-radius:11px;
+    background:#111;
+    color:#fff;
+    font-size:9px;
+    opacity:0;
+    transform:translateY(20px);
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:700px){
+
+    .sidebar{
+        width:62px;
+        padding:12px 6px;
+    }
+
+    .sidebar-title{
+        display:none;
+    }
+
+    .menu button{
+        text-align:center;
+        font-size:18px;
+        padding:11px 4px;
+    }
+
+    .menu button span{
+        display:none;
+    }
+
+    .content{
+        padding:15px;
+    }
+
+    .topbar h1{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+👻 <span>Ghost Code Academy</span>
+</div>
+
+<button
+class="secondary"
+onclick="location.href='index.html'">
+🌐 مشاهده سایت
+</button>
+
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<div class="sidebar-title">
+پنل مدیریت
+</div>
+
+<div class="menu">
+
+<button class="active"
+onclick="showSection('dashboard',this)">
+📊 <span>داشبورد</span>
+</button>
+
+<button
+onclick="showSection('students',this)">
+👥 <span>هنرجوها</span>
+</button>
+
+<button
+onclick="showSection('projects',this)">
+📚 <span>پروژه‌ها</span>
+</button>
+
+<button
+onclick="showSection('certificates',this)">
+🏆 <span>گواهی‌ها</span>
+</button>
+
+<button
+onclick="showSection('tracking',this)">
+💬 <span>پیگیری</span>
+</button>
+
+<button
+onclick="showSection('settings',this)">
+⚙️ <span>تنظیمات</span>
+</button>
+
+<button onclick="logout()">
+🚪 <span>خروج</span>
+</button>
+
+</div>
+</aside>
+
+<main class="content">
+
+<!-- DASHBOARD -->
+
+<section id="dashboard">
+
+<div class="topbar">
+
+<div>
+<h1>داشبورد مدیریت</h1>
+<p>Ghost Code Academy</p>
+</div>
+
+<button
+class="primary"
+onclick="openAddStudent()">
++ افزودن هنرجو
+</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-icon">👥</div>
+<div class="stat-title">هنرجوها</div>
+<div id="statStudents"
+class="stat-number">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">📚</div>
+<div class="stat-title">پروژه‌ها</div>
+<div class="stat-number">12</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">🏆</div>
+<div class="stat-title">گواهی‌ها</div>
+<div id="statCertificates"
+class="stat-number">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">📈</div>
+<div class="stat-title">میانگین پیشرفت</div>
+<div id="statProgress"
+class="stat-number">0%</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-title">
+<h2>⚡ فعالیت اخیر</h2>
+</div>
+
+<div id="recentActivity"
+class="empty">
+هنوز فعالیتی ثبت نشده است.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STUDENTS -->
+
+<section id="students"
+style="display:none">
+
+<div class="topbar">
+
+<div>
+<h1>👥 هنرجوها</h1>
+<p>مدیریت هنرجوها و کد اختصاصی</p>
+</div>
+
+<button
+class="primary"
+onclick="openAddStudent()">
++ هنرجوی جدید
+</button>
+
+</div>
+
+<div class="panel">
+
+<div id="studentList"
+class="students">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects"
+style="display:none">
+
+<div class="topbar">
+
+<div>
+<h1>📚 پروژه‌ها</h1>
+<p>مدیریت پروژه آموزشی</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="students">
+
+<div class="student">
+
+<div class="student-head">
+
+<div class="avatar">💻</div>
+
+<div>
+
+<div class="student-name">
+پروژه جامع برنامه‌نویسی
+</div>
+
+<div class="student-code">
+۱۲ بخش
+</div>
+
+</div>
+
+</div>
+
+<div class="progress-info">
+<span>وضعیت</span>
+<span>فعال</span>
+</div>
+
+<div class="progress">
+<div
+class="progress-bar"
+style="width:100%">
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CERTIFICATES -->
+
+<section id="certificates"
+style="display:none">
+
+<div class="topbar">
+
+<div>
+<h1>🏆 گواهی‌ها</h1>
+<p>گواهی‌های پایان دوره</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div id="certificateList"
+class="students">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TRACKING -->
+
+<section id="tracking"
+style="display:none">
+
+<div class="topbar">
+
+<div>
+<h1>💬 پیگیری هنرجوها</h1>
+<p>هنرجوهای تکمیل‌کننده پروژه</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div id="trackingList">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section id="settings"
+style="display:none">
+
+<div class="topbar">
+
+<div>
+<h1>⚙️ تنظیمات</h1>
+<p>تنظیمات Ghost Code Academy</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>👻 Ghost Code Academy</h2>
+
+<p style="
+color:#777;
+font-size:10px;
+line-height:2;">
+
+این نسخه برای استفاده آزمایشی است.
+اطلاعات هنرجوها فعلاً در مرورگر ذخیره می‌شوند.
+
+</p>
+
+<button
+class="danger"
+onclick="clearStudents()">
+
+🗑 پاک کردن اطلاعات آزمایشی
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ADD STUDENT -->
+
+<section id="addStudent"
+style="display:none">
+
+<div class="topbar">
+
+<div>
+<h1>➕ افزودن هنرجو</h1>
+<p>ساخت هنرجو و تولید کد اختصاصی</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="form">
+
+<div class="field">
+
+<label>
+نام و نام خانوادگی
+</label>
+
+<input
+id="studentName"
+type="text"
+placeholder="مثلاً کاربر نمونه">
+
+</div>
+
+<div class="field">
+
+<label>
+پروژه
+</label>
+
+<select id="studentProject">
+
+<option>
+پروژه جامع برنامه‌نویسی
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<br>
+
+<button
+class="primary"
+onclick="createStudent()">
+
+ساخت هنرجو و تولید کد
+
+</button>
+
+<button
+class="secondary"
+onclick="showSection('students')">
+
+انصراف
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<div id="toast" class="toast">
+انجام شد
+</div>
+
+
+<script>
+
+/* =========================
+   DATA
+========================= */
+
+let students =
+JSON.parse(
+localStorage.getItem(
+"ghost_students"
+) || "[]"
+);
+
+
+/* =========================
+   GENERATE CODE
+========================= */
+
+function generateStudentCode(){
+
+    let code;
+
+    do{
+
+        const number =
+        Math.floor(
+            10000 +
+            Math.random()*90000
+        );
+
+        code =
+        "GC-" + number;
+
+    }
+    while(
+        students.some(
+            s => s.code === code
+        )
+    );
+
+    return code;
+}
+
+
+/* =========================
+   CREATE STUDENT
+========================= */
+
+function createStudent(){
+
+    const input =
+    document.getElementById(
+        "studentName"
+    );
+
+    const name =
+    input.value.trim();
+
+    if(!name){
+
+        showToast(
+            "⚠️ نام هنرجو را وارد کن"
+        );
+
+        return;
+    }
+
+    const student = {
+
+        id:Date.now(),
+
+        name:name,
+
+        code:
+        generateStudentCode(),
+
+        project:
+        "پروژه جامع برنامه‌نویسی",
+
+        progress:0,
+
+        certificate:false,
+
+        createdAt:
+        new Date().toLocaleDateString(
+            "fa-IR"
+        )
+
+    };
+
+
+    students.push(student);
+
+    saveStudents();
+
+
+    input.value="";
+
+
+    showToast(
+        "✅ کد هنرجو: " +
+        student.code
+    );
+
+
+    setTimeout(
+        ()=>{
+            showSection("students");
+        },
+        700
+    );
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function saveStudents(){
+
+    localStorage.setItem(
+        "ghost_students",
+        JSON.stringify(students)
+    );
+
+    renderAll();
+}
+
+
+/* =========================
+   STUDENTS
+========================= */
+
+function renderStudents(){
+
+    const box =
+    document.getElementById(
+        "studentList"
+    );
+
+    if(!students.length){
+
+        box.innerHTML =
+        `<div class="empty">
+        هنوز هنرجویی اضافه نشده است.
+        </div>`;
+
+        return;
+    }
+
+
+    box.innerHTML =
+    students.map(
+        s => `
+
+        <div class="student">
+
+            <div class="student-head">
+
+                <div class="avatar">
+                👤
+                </div>
+
+                <div>
+
+                    <div class="student-name">
+                    ${escapeHTML(s.name)}
+                    </div>
+
+                    <div class="student-code">
+                    🆔 ${s.code}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="progress-info">
+
+                <span>
+                پیشرفت
+                </span>
+
+                <span>
+                ${s.progress}%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                class="progress-bar"
+                style="
+                width:${s.progress}%;
+                ">
+                </div>
+
+            </div>
+
+            <div
+            style="
+            color:#555;
+            font-size:8px;
+            margin-top:10px;">
+
+            پروژه:
+            ${escapeHTML(s.project)}
+
+            </div>
+
+            <div
+            style="
+            color:#555;
+            font-size:8px;
+            margin-top:5px;">
+
+            ایجاد:
+            ${s.createdAt}
+
+            </div>
+
+            <div class="student-actions">
+
+                <button
+                class="secondary"
+                onclick="
+                increaseProgress(${s.id})
+                ">
+
+                +۱۰٪
+
+                </button>
+
+                <button
+                class="danger"
+                onclick="
+                deleteStudent(${s.id})
+                ">
+
+                حذف
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `
+    ).join("");
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function increaseProgress(id){
+
+    const student =
+    students.find(
+        s => s.id === id
+    );
+
+    if(!student)return;
+
+
+    student.progress += 10;
+
+
+    if(student.progress > 100){
+
+        student.progress=100;
+
+    }
+
+
+    if(student.progress === 100){
+
+        student.certificate=true;
+
+    }
+
+
+    saveStudents();
+
+
+    showToast(
+        "📈 پیشرفت به‌روزرسانی شد"
+    );
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+function deleteStudent(id){
+
+    if(
+        !confirm(
+            "این هنرجو حذف شود؟"
+        )
+    )return;
+
+
+    students =
+    students.filter(
+        s => s.id !== id
+    );
+
+
+    saveStudents();
+
+
+    showToast(
+        "🗑 هنرجو حذف شد"
+    );
+}
+
+
+/* =========================
+   CERTIFICATES
+========================= */
+
+function renderCertificates(){
+
+    const box =
+    document.getElementById(
+        "certificateList"
+    );
+
+
+    const list =
+    students.filter(
+        s => s.certificate
+    );
+
+
+    if(!list.length){
+
+        box.innerHTML =
+        `<div class="empty">
+        هنوز گواهی‌ای صادر نشده است.
+        </div>`;
+
+        return;
+    }
+
+
+    box.innerHTML =
+    list.map(
+        s => `
+
+        <div class="student">
+
+            <div class="student-head">
+
+                <div class="avatar">
+                🏆
+                </div>
+
+                <div>
+
+                    <div class="student-name">
+                    ${escapeHTML(s.name)}
+                    </div>
+
+                    <div class="student-code">
+                    ${s.code}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p style="
+            color:#777;
+            font-size:9px;">
+
+            پروژه کامل شده است.
+
+            </p>
+
+        </div>
+
+        `
+    ).join("");
+}
+
+
+/* =========================
+   TRACKING
+========================= */
+
+function renderTracking(){
+
+    const box =
+    document.getElementById(
+        "trackingList"
+    );
+
+
+    const list =
+    students.filter(
+        s => s.progress === 100
+    );
+
+
+    if(!list.length){
+
+        box.innerHTML =
+        `<div class="empty">
+        هنوز هنرجویی پروژه را کامل نکرده است.
+        </div>`;
+
+        return;
+    }
+
+
+    box.innerHTML =
+    list.map(
+        s => `
+
+        <div class="student"
+        style="margin-bottom:10px;">
+
+        👤
+        <strong>
+        ${escapeHTML(s.name)}
+        </strong>
+
+        <br>
+
+        <span
+        style="
+        color:#00ffff;
+        font-size:9px;">
+
+        🆔 ${s.code}
+
+        </span>
+
+        <p
+        style="
+        color:#777;
+        font-size:9px;">
+
+        ✅ پروژه کامل شده؛
+        آماده پیگیری.
+
+        </p>
+
+        </div>
+
+        `
+    ).join("");
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function renderStats(){
+
+    document.getElementById(
+        "statStudents"
+    ).innerText =
+    students.length;
+
+
+    const certificates =
+    students.filter(
+        s => s.certificate
+    ).length;
+
+
+    document.getElementById(
+        "statCertificates"
+    ).innerText =
+    certificates;
+
+
+    let average=0;
+
+
+    if(students.length){
+
+        average =
+        Math.round(
+            students.reduce(
+                (sum,s)=>
+                sum+s.progress,
+                0
+            )
+            /
+            students.length
+        );
+
+    }
+
+
+    document.getElementById(
+        "statProgress"
+    ).innerText =
+    average+"%";
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
+function renderAll(){
+
+    renderStudents();
+
+    renderCertificates();
+
+    renderTracking();
+
+    renderStats();
+}
+
+renderAll();
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+function showSection(
+    id,
+    button=null
+){
+
+    const sections=[
+        "dashboard",
+        "students",
+        "projects",
+        "certificates",
+        "tracking",
+        "settings",
+        "addStudent"
+    ];
+
+
+    sections.forEach(
+        name=>{
+
+            const el=
+            document.getElementById(
+                name
+            );
+
+            if(el){
+
+                el.style.display =
+                name===id
+                ? "block"
+                : "none";
+
+            }
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        ".menu button"
+    )
+    .forEach(
+        b=>
+        b.classList.remove(
+            "active"
+        )
+    );
+
+
+    if(button){
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   ADD
+========================= */
+
+function openAddStudent(){
+
+    showSection(
+        "addStudent"
+    );
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearStudents(){
+
+    if(
+        !confirm(
+            "تمام اطلاعات آزمایشی پاک شود؟"
+        )
+    )return;
+
+
+    students=[];
+
+    saveStudents();
+
+
+    showToast(
+        "🗑 اطلاعات پاک شد"
+    );
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+    if(
+        confirm(
+            "از پنل خارج شوی؟"
+        )
+    ){
+
+        location.href=
+        "index.html";
+
+    }
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+    const toast=
+    document.getElementById(
+        "toast"
+    );
+
+    toast.innerText=
+    message;
+
+    toast.classList.add(
+        "show"
+    );
+
+    setTimeout(
+        ()=>{
+            toast.classList.remove(
+                "show"
+            );
+        },
+        2500
+    );
+
+}
+
+
+/* =========================
+   SAFE TEXT
+========================= */
+
+function escapeHTML(text){
+
+    return String(text)
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+</script>
+
+</body>
+  </html>
