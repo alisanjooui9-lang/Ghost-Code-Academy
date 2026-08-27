@@ -2,12 +2,16 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Ghost Code | ثبت نام</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -20,177 +24,319 @@ body{
 }
 
 @keyframes rgb{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
 }
 
 header{
+
     height:70px;
+
     background:#080808;
+
     border-bottom:1px solid #222;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     padding:0 20px;
+
 }
 
 .logo{
+
     font-size:21px;
+
     font-weight:bold;
+
     font-family:Arial;
+
 }
 
 .logo span{
+
     background:linear-gradient(
         90deg,
-        red,#ff00ff,blue,cyan,lime,yellow,red
+        red,
+        #ff00ff,
+        blue,
+        cyan,
+        lime,
+        yellow,
+        red
     );
+
     background-size:400%;
+
     animation:rgb 4s linear infinite;
+
     -webkit-background-clip:text;
+
     background-clip:text;
+
     color:transparent;
+
 }
 
 .back{
+
     color:#aaa;
+
     text-decoration:none;
+
     font-size:10px;
+
 }
 
 .container{
+
     max-width:500px;
+
     margin:auto;
+
     padding:40px 15px;
+
 }
 
 .card{
+
     position:relative;
+
     background:#090909;
+
     border:1px solid #292929;
+
     border-radius:18px;
+
     padding:25px;
+
     overflow:hidden;
+
 }
 
 .card:before{
+
     content:"";
+
     position:absolute;
+
     top:0;
+
     right:0;
+
     width:100%;
+
     height:3px;
+
     background:linear-gradient(
         90deg,
-        red,#ff00ff,blue,cyan,lime,yellow,red
+        red,
+        #ff00ff,
+        blue,
+        cyan,
+        lime,
+        yellow,
+        red
     );
+
     background-size:400%;
+
     animation:rgb 3s linear infinite;
+
 }
 
 h1{
+
     text-align:center;
+
     font-family:Arial;
+
     font-size:27px;
+
     margin:5px 0 8px;
+
 }
 
 .subtitle{
+
     text-align:center;
+
     color:#666;
+
     font-size:9px;
+
     margin-bottom:30px;
+
 }
 
 label{
+
     display:block;
+
     color:#aaa;
+
     font-size:10px;
+
     margin-bottom:7px;
+
 }
 
 input{
+
     width:100%;
+
     padding:14px;
+
     margin-bottom:17px;
+
     background:#111;
+
     color:#fff;
+
     border:1px solid #292929;
+
     border-radius:10px;
+
     outline:none;
+
 }
 
 input:focus{
+
     border-color:#00ffff;
+
 }
 
 button{
+
     width:100%;
+
     padding:14px;
+
     border:0;
+
     border-radius:10px;
+
     color:#fff;
+
     font-weight:bold;
+
     cursor:pointer;
+
     background:linear-gradient(
         90deg,
-        red,#ff00ff,blue,cyan,lime,yellow
+        red,
+        #ff00ff,
+        blue,
+        cyan,
+        lime,
+        yellow
     );
+
     background-size:300%;
+
     animation:rgb 4s linear infinite;
+
 }
 
 button:disabled{
+
     opacity:.5;
+
     cursor:not-allowed;
+
 }
 
 .message{
+
     display:none;
+
     margin-top:18px;
+
     padding:14px;
+
     border-radius:10px;
+
     font-size:9px;
+
     line-height:2;
+
 }
 
 .error{
+
     background:#180707;
+
     border:1px solid #5b2222;
+
     color:#ff8585;
+
 }
 
 .success{
+
     background:#071207;
+
     border:1px solid #285528;
+
     color:#9cff9c;
+
 }
 
 .login{
+
     text-align:center;
+
     margin-top:20px;
+
     color:#666;
+
     font-size:9px;
+
 }
 
 .login a{
+
     color:#00ffff;
+
     text-decoration:none;
+
 }
+
 </style>
+
 </head>
 
 <body>
 
+
 <header>
 
 <div class="logo">
+
 👻 <span>GHOST CODE</span>
+
 </div>
 
+
 <a href="فهرست.html" class="back">
+
 ← بازگشت
+
 </a>
 
 </header>
@@ -200,18 +346,30 @@ button:disabled{
 
 <div class="card">
 
-<h1>ساخت حساب</h1>
+
+<h1>
+
+ساخت حساب
+
+</h1>
+
 
 <div class="subtitle">
+
 GHOST CODE • ACADEMY
+
 </div>
 
 
 <form id="registerForm">
 
+
 <label>
+
 نام و نام خانوادگی
+
 </label>
+
 
 <input
 id="fullName"
@@ -223,8 +381,11 @@ placeholder="نام خود را وارد کنید">
 
 
 <label>
+
 ایمیل
+
 </label>
+
 
 <input
 id="email"
@@ -235,8 +396,11 @@ placeholder="example@gmail.com">
 
 
 <label>
+
 رمز عبور
+
 </label>
+
 
 <input
 id="password"
@@ -248,8 +412,11 @@ placeholder="حداقل ۶ کاراکتر">
 
 
 <label>
+
 تکرار رمز عبور
+
 </label>
+
 
 <input
 id="confirmPassword"
@@ -268,12 +435,14 @@ type="submit">
 
 </button>
 
+
 </form>
 
 
 <div
 id="message"
 class="message">
+
 </div>
 
 
@@ -282,10 +451,13 @@ class="message">
 حساب دارید؟
 
 <a href="ورود.html">
+
 ورود به حساب
+
 </a>
 
 </div>
+
 
 </div>
 
@@ -294,17 +466,20 @@ class="message">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
 <script>
 
-/* =========================
+/* =================================
    SUPABASE
-========================= */
+================================= */
 
 const SUPABASE_URL =
 "https://essyqqpfjdjchtihgmgh.supabase.co";
 
+
 const SUPABASE_KEY =
 "sb_publishable_aofMM0RYuApBZQRiqakofg_rhTwFfqZ";
+
 
 const supabaseClient =
 window.supabase.createClient(
@@ -313,19 +488,21 @@ window.supabase.createClient(
 );
 
 
-/* =========================
+/* =================================
    ELEMENTS
-========================= */
+================================= */
 
 const form =
 document.getElementById(
     "registerForm"
 );
 
+
 const button =
 document.getElementById(
     "registerButton"
 );
+
 
 const message =
 document.getElementById(
@@ -333,25 +510,30 @@ document.getElementById(
 );
 
 
-/* =========================
+/* =================================
    MESSAGE
-========================= */
+================================= */
 
-function showMessage(text,type){
+function showMessage(
+    text,
+    type
+){
 
-    message.textContent = text;
+    message.textContent =
+    text;
 
     message.className =
     "message " + type;
 
     message.style.display =
     "block";
+
 }
 
 
-/* =========================
+/* =================================
    REGISTER
-========================= */
+================================= */
 
 form.addEventListener(
 "submit",
@@ -388,6 +570,8 @@ async function(event){
     "none";
 
 
+    /* نام */
+
     if(!fullName){
 
         showMessage(
@@ -396,8 +580,11 @@ async function(event){
         );
 
         return;
+
     }
 
+
+    /* رمز */
 
     if(password.length < 6){
 
@@ -407,8 +594,11 @@ async function(event){
         );
 
         return;
+
     }
 
+
+    /* تکرار رمز */
 
     if(password !== confirmPassword){
 
@@ -418,10 +608,13 @@ async function(event){
         );
 
         return;
+
     }
 
 
-    button.disabled = true;
+    button.disabled =
+    true;
+
 
     button.textContent =
     "در حال ساخت حساب...";
@@ -429,7 +622,10 @@ async function(event){
 
     try{
 
-        /* ساخت حساب در Auth */
+
+        /* =================================
+           CREATE AUTH USER
+        ================================= */
 
         const {
             data,
@@ -439,7 +635,17 @@ async function(event){
 
             email:email,
 
-            password:password
+            password:password,
+
+            options:{
+
+                data:{
+
+                    full_name:fullName
+
+                }
+
+            }
 
         });
 
@@ -447,6 +653,7 @@ async function(event){
         if(error){
 
             throw error;
+
         }
 
 
@@ -455,36 +662,13 @@ async function(event){
             throw new Error(
                 "کاربر ساخته نشد."
             );
+
         }
 
 
-        /* ذخیره پروفایل */
-
-        const {
-            error:profileError
-        } =
-        await supabaseClient
-        .from("profiles")
-        .insert({
-
-            id:data.user.id,
-
-            full_name:fullName,
-
-            xp:0,
-
-            level:1,
-
-            completed_lessons:0
-
-        });
-
-
-        if(profileError){
-
-            throw profileError;
-        }
-
+        /* =================================
+           SUCCESS
+        ================================= */
 
         showMessage(
             "✅ حساب شما با موفقیت ساخته شد!",
@@ -499,7 +683,9 @@ async function(event){
         form.reset();
 
 
-    }catch(error){
+    }
+    catch(error){
+
 
         console.error(
             "Ghost Code:",
@@ -520,6 +706,7 @@ async function(event){
         button.disabled =
         false;
 
+
         button.textContent =
         "🚀 ساخت حساب";
 
@@ -528,6 +715,7 @@ async function(event){
 });
 
 </script>
+
 
 </body>
 
