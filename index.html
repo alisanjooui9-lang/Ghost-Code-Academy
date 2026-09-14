@@ -1,1501 +1,934 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ghost Code Academy</title>
+  <title>Ghost Code Academy | آکادمی برنامه‌نویسی گوست</title>
 
-<style>
+  <meta name="description" content="Ghost Code Academy - آموزش برنامه‌نویسی، هوش مصنوعی، طراحی وب و امنیت سایبری">
 
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    background:#000;
-    color:#fff;
-    font-family:tahoma,Arial,sans-serif;
-    min-height:100vh;
-    overflow-x:hidden;
-}
-
-/* =========================
-   RGB BACKGROUND
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:-50%;
-    z-index:-2;
-
-    background:
-    radial-gradient(
-        circle at 20% 20%,
-        rgba(255,0,0,.08),
-        transparent 25%
-    ),
-    radial-gradient(
-        circle at 80% 30%,
-        rgba(0,255,255,.08),
-        transparent 25%
-    ),
-    radial-gradient(
-        circle at 50% 80%,
-        rgba(0,0,255,.08),
-        transparent 25%
-    );
-
-    animation:backgroundMove 10s linear infinite;
-}
-
-@keyframes backgroundMove{
-
-    0%{
-        transform:rotate(0deg) scale(1);
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    50%{
-        transform:rotate(180deg) scale(1.15);
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #173d35 0%, #08130f 42%, #050908 100%);
+      color: #fff;
+      min-height: 100vh;
     }
 
-    100%{
-        transform:rotate(360deg) scale(1);
-    }
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:100;
-
-    min-height:70px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 18px;
-
-    background:rgba(0,0,0,.88);
-
-    backdrop-filter:blur(15px);
-
-    border-bottom:1px solid #222;
-}
-
-.logo{
-    font-size:16px;
-    font-weight:bold;
-    white-space:nowrap;
-}
-
-.logo span{
-    animation:logoRGB 4s linear infinite;
-}
-
-@keyframes logoRGB{
-
-    0%{
-        color:red;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    25%{
-        color:#ff00ff;
+    button {
+      font-family: inherit;
     }
 
-    50%{
-        color:#00ffff;
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 12, 9, 0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(70, 255, 181, 0.12);
     }
 
-    75%{
-        color:#7b00ff;
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      min-height: 72px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
     }
 
-    100%{
-        color:red;
-    }
-}
-
-nav{
-    display:flex;
-    gap:7px;
-}
-
-nav a{
-    color:#aaa;
-
-    text-decoration:none;
-
-    font-size:10px;
-
-    padding:9px 11px;
-
-    border:1px solid #292929;
-
-    border-radius:9px;
-
-    transition:.2s;
-}
-
-nav a:hover{
-    color:#fff;
-    border-color:#777;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-.container{
-    width:100%;
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:
-    30px 15px 70px;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    position:relative;
-
-    text-align:center;
-
-    padding:
-    55px 20px;
-
-    margin-bottom:25px;
-
-    border-radius:25px;
-
-    background:#080808;
-
-    border:1px solid #222;
-
-    overflow:hidden;
-}
-
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-3px;
-
-    border-radius:28px;
-
-    padding:2px;
-
-    background:
-    linear-gradient(
-        90deg,
-        red,
-        #ff00ff,
-        blue,
-        cyan,
-        lime,
-        yellow,
-        red
-    );
-
-    background-size:400% 400%;
-
-    animation:rgbBorder 6s linear infinite;
-
-    -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-
-    -webkit-mask-composite:xor;
-
-    mask-composite:exclude;
-
-    pointer-events:none;
-}
-
-@keyframes rgbBorder{
-
-    0%{
-        background-position:0% 50%;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 20px;
     }
 
-    50%{
-        background-position:100% 50%;
+    .ghost {
+      width: 43px;
+      height: 43px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1cff9a, #087b58);
+      box-shadow: 0 0 25px rgba(28, 255, 154, 0.22);
+      font-size: 23px;
     }
 
-    100%{
-        background-position:0% 50%;
-    }
-}
-
-.hero-icon{
-    font-size:65px;
-}
-
-.hero h1{
-    font-size:clamp(25px,6vw,40px);
-    margin:5px 0 10px;
-}
-
-.hero p{
-    color:#888;
-    font-size:11px;
-    line-height:2;
-
-    max-width:600px;
-
-    margin:auto;
-}
-
-.main-button{
-
-    display:inline-block;
-
-    margin-top:22px;
-
-    padding:13px 25px;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    background:#111;
-
-    border:1px solid #444;
-
-    border-radius:11px;
-
-    font-size:11px;
-
-    transition:.25s;
-}
-
-.main-button:hover{
-
-    transform:translateY(-3px);
-
-    border-color:#fff;
-}
-
-/* =========================
-   SECTION TITLE
-========================= */
-
-.section-title{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin:
-    30px 5px 15px;
-}
-
-.section-title h2{
-    font-size:18px;
-    margin:0;
-}
-
-.section-title span{
-    color:#555;
-    font-size:9px;
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(230px,1fr)
-    );
-
-    gap:18px;
-}
-
-/* =========================
-   RGB CARD
-========================= */
-
-.card{
-
-    position:relative;
-
-    padding:2px;
-
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-        90deg,
-        red,
-        #ff00ff,
-        blue,
-        cyan,
-        lime,
-        yellow,
-        red
-    );
-
-    background-size:500% 500%;
-
-    animation:rgbBorder 5s linear infinite;
-
-    transition:
-    transform .25s,
-    filter .25s;
-}
-
-.card-inner{
-
-    min-height:250px;
-
-    background:#080808;
-
-    border-radius:18px;
-
-    padding:22px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-}
-
-.card:hover{
-
-    transform:
-    translateY(-7px)
-    scale(1.015);
-
-    filter:
-    drop-shadow(
-        0 0 15px
-        rgba(0,255,255,.25)
-    );
-}
-
-.card-icon{
-    font-size:42px;
-}
-
-.card-number{
-
-    color:#555;
-
-    font-size:9px;
-
-    margin-top:7px;
-}
-
-.card h3{
-
-    font-size:17px;
-
-    margin:8px 0;
-}
-
-.card p{
-
-    color:#888;
-
-    font-size:10px;
-
-    line-height:1.9;
-}
-
-.card-button{
-
-    display:block;
-
-    text-align:center;
-
-    padding:11px;
-
-    margin-top:15px;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    background:#151515;
-
-    border:1px solid #333;
-
-    border-radius:10px;
-
-    font-size:10px;
-
-    transition:.2s;
-}
-
-.card-button:hover{
-
-    background:#222;
-
-    border-color:#777;
-}
-
-/* =========================
-   COMING SOON
-========================= */
-
-.soon-title{
-
-    margin-top:45px;
-}
-
-.soon-card{
-
-    opacity:.65;
-}
-
-.soon-card:hover{
-
-    transform:
-    translateY(-4px);
-
-    opacity:.8;
-}
-
-.soon-button{
-
-    cursor:not-allowed;
-
-    color:#666;
-
-    background:#0d0d0d;
-
-    border-color:#252525;
-}
-
-/* =========================
-   FEATURES
-========================= */
-
-.features{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(200px,1fr)
-    );
-
-    gap:12px;
-}
-
-.feature{
-
-    background:#080808;
-
-    border:1px solid #222;
-
-    border-radius:15px;
-
-    padding:18px;
-}
-
-.feature-icon{
-    font-size:25px;
-}
-
-.feature h3{
-    font-size:13px;
-}
-
-.feature p{
-
-    color:#777;
-
-    font-size:9px;
-
-    line-height:1.9;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    text-align:center;
-
-    padding:30px 15px;
-
-    border-top:1px solid #181818;
-
-    color:#555;
-
-    font-size:9px;
-}
-
-.footer-rgb{
-
-    margin-top:7px;
-
-    font-size:8px;
-
-    animation:
-    logoRGB 4s linear infinite;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    header{
-
-        min-height:65px;
-
-        gap:10px;
-
+    .logo span {
+      color: #39ffa8;
     }
 
-    nav a{
-
-        padding:
-        7px 8px;
-
-        font-size:8px;
-
+    nav {
+      display: flex;
+      gap: 7px;
     }
 
-    .hero{
-
-        padding:
-        40px 15px;
-
+    nav a {
+      padding: 10px 14px;
+      border-radius: 11px;
+      color: #c7d7d1;
+      font-size: 14px;
+      transition: .2s;
     }
 
-    .card-inner{
-
-        min-height:230px;
-
+    nav a:hover,
+    nav a.active {
+      background: rgba(45, 255, 166, 0.1);
+      color: #43ffac;
     }
 
-}
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: rgba(45, 255, 166, 0.1);
+      color: #43ffac;
+      padding: 10px 13px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
 
-</style>
+    /* Hero */
 
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 18px 50px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 13px;
+      border-radius: 50px;
+      background: rgba(48, 255, 164, 0.09);
+      border: 1px solid rgba(48, 255, 164, 0.18);
+      color: #55ffb4;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 67px);
+      line-height: 1.08;
+      margin-bottom: 20px;
+      font-weight: 950;
+    }
+
+    .hero h1 span {
+      color: #38ffa6;
+      text-shadow: 0 0 35px rgba(56, 255, 166, .2);
+    }
+
+    .hero p {
+      color: #b7c8c1;
+      font-size: 17px;
+      line-height: 2;
+      max-width: 680px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      padding: 14px 22px;
+      border-radius: 13px;
+      font-size: 15px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38ffa6, #0fa96e);
+      color: #03100b;
+      box-shadow: 0 8px 30px rgba(31, 255, 157, .15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.1);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+    /* Hero Card */
+
+    .hero-card {
+      position: relative;
+      padding: 30px;
+      border-radius: 27px;
+      background: linear-gradient(
+        145deg,
+        rgba(22, 54, 43, .85),
+        rgba(8, 18, 14, .9)
+      );
+      border: 1px solid rgba(63,255,173,.14);
+      box-shadow: 0 25px 80px rgba(0,0,0,.3);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #25ffa0;
+      filter: blur(100px);
+      opacity: .12;
+      top: -80px;
+      right: -60px;
+    }
+
+    .code-window {
+      background: #050a08;
+      border-radius: 17px;
+      border: 1px solid rgba(255,255,255,.08);
+      overflow: hidden;
+    }
+
+    .code-top {
+      padding: 12px 15px;
+      display: flex;
+      gap: 7px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #40524a;
+    }
+
+    .code {
+      padding: 22px;
+      direction: ltr;
+      text-align: left;
+      font-family: monospace;
+      line-height: 2;
+      color: #d9fff0;
+      font-size: 14px;
+    }
+
+    .green {
+      color: #40ffa9;
+    }
+
+    .gray {
+      color: #71827b;
+    }
+
+    /* Stats */
+
+    .stats {
+      max-width: 1150px;
+      margin: 10px auto 50px;
+      padding: 0 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+    }
+
+    .stat {
+      padding: 22px;
+      text-align: center;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 17px;
+    }
+
+    .stat strong {
+      display: block;
+      color: #42ffad;
+      font-size: 27px;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: #9fb2aa;
+      font-size: 13px;
+    }
+
+    /* Sections */
+
+    .section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 35px 18px 70px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #9fb2aa;
+      line-height: 1.8;
+    }
+
+    /* Courses */
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .course {
+      position: relative;
+      padding: 25px;
+      min-height: 245px;
+      border-radius: 21px;
+      background: rgba(12, 27, 21, .86);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: .25s;
+      overflow: hidden;
+    }
+
+    .course:hover {
+      transform: translateY(-5px);
+      border-color: rgba(55,255,169,.25);
+      box-shadow: 0 15px 45px rgba(0,0,0,.22);
+    }
+
+    .course-icon {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(47,255,164,.09);
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .course h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .course p {
+      color: #9db0a8;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    .course-footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .course-status {
+      color: #46ffad;
+      font-size: 12px;
+    }
+
+    .course-btn {
+      padding: 9px 13px;
+      border-radius: 10px;
+      background: rgba(53,255,166,.1);
+      color: #45ffac;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Features */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .feature {
+      padding: 24px 18px;
+      text-align: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.065);
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 13px;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #92a69e;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* CTA */
+
+    .cta {
+      max-width: 1150px;
+      margin: 10px auto 70px;
+      padding: 0 18px;
+    }
+
+    .cta-box {
+      padding: 42px 25px;
+      text-align: center;
+      border-radius: 25px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(26, 95, 70, .55),
+          rgba(8, 24, 17, .8)
+        );
+      border: 1px solid rgba(53,255,166,.15);
+    }
+
+    .cta-box h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: #a9bbb4;
+      line-height: 1.8;
+      margin-bottom: 23px;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 30px 18px;
+      text-align: center;
+      color: #71827b;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    footer strong {
+      color: #42ffad;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+
+      .hero-card {
+        max-width: 600px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .courses {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        right: 12px;
+        left: 12px;
+        padding: 10px;
+        flex-direction: column;
+        background: #0a1712;
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 15px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .courses {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .ghost {
+        width: 39px;
+        height: 39px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
+  <div class="header-inner">
 
-<div class="logo">
+    <a href="index.html" class="logo">
+      <div class="ghost">👻</div>
+      <div>
+        Ghost <span>Code</span>
+        <small style="display:block;color:#71827b;font-size:10px;">
+          Academy
+        </small>
+      </div>
+    </a>
 
-👻
-<span>
-Ghost Code Academy
-</span>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-</div>
+    <nav id="nav">
+      <a href="index.html" class="active">خانه</a>
+      <a href="#courses">دوره‌ها</a>
+      <a href="#features">امکانات</a>
+      <a href="register.html">ورود / ثبت‌نام</a>
+    </nav>
 
-<nav>
-
-<a href="index.html">
-خانه
-</a>
-
-<a href="register.html">
-ثبت‌نام
-</a>
-
-<a href="projects.html">
-پروژه‌ها
-</a>
-
-</nav>
-
+  </div>
 </header>
 
 
-<main class="container">
+<main>
 
+  <!-- Hero -->
 
-<!-- HERO -->
+  <section class="hero">
 
-<section class="hero">
+    <div>
 
-<div class="hero-icon">
-👻
-</div>
+      <div class="badge">
+        👻 آکادمی برنامه‌نویسی گوست
+      </div>
 
-<h1>
-Ghost Code Academy
-</h1>
+      <h1>
+        برنامه‌نویسی را
+        <br>
+        <span>واقعی یاد بگیر.</span>
+      </h1>
 
-<p>
-آکادمی آموزش برنامه‌نویسی؛
-از اولین خط کد تا ساخت پروژه‌های واقعی.
-</p>
+      <p>
+        آموزش برنامه‌نویسی، هوش مصنوعی، طراحی وب و امنیت سایبری
+        با درس‌های مرحله‌ای، تمرین، آزمون، پروژه و سیستم پیشرفت.
+      </p>
 
-<a
-class="main-button"
-href="#programming">
+      <div class="hero-buttons">
 
-🚀 شروع یادگیری
+        <a href="#courses" class="btn btn-primary">
+          شروع یادگیری
+        </a>
 
-</a>
+        <a href="register.html" class="btn btn-secondary">
+          ورود به آکادمی
+        </a>
 
-</section>
+      </div>
 
+    </div>
 
-<!-- MAIN PROJECT -->
 
-<div
-id="programming"
-class="section-title">
+    <div class="hero-card">
 
-<h2>
-💻 پروژه جامع برنامه‌نویسی
-</h2>
+      <div class="code-window">
 
-<span>
-۱۲ بخش
-</span>
+        <div class="code-top">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
 
-</div>
+        <div class="code">
 
+          <div class="gray"># Welcome to Ghost Code Academy</div>
 
-<section class="cards">
+          <br>
 
+          <div>
+            <span class="green">name</span> =
+            <span>"Ghost Developer"</span>
+          </div>
 
-<!-- 1 PYTHON -->
+          <div>
+            <span class="green">level</span> = 1
+          </div>
 
-<div class="card">
+          <div>
+            <span class="green">xp</span> = 0
+          </div>
 
-<div class="card-inner">
+          <br>
 
-<div>
+          <div>
+            print(<span class="green">"Let's code!"</span>)
+          </div>
 
-<div class="card-icon">
-🐍
-</div>
+        </div>
 
-<div class="card-number">
-بخش ۱
-</div>
+      </div>
 
-<h3>
-Python
-</h3>
+    </div>
 
-<p>
-آموزش Python از پایه تا ساخت پروژه‌های ساده.
-</p>
+  </section>
 
-</div>
 
-<a
-class="card-button"
-href="python.html">
+  <!-- Stats -->
 
-مشاهده بخش
+  <section class="stats">
 
-</a>
+    <div class="stat">
+      <strong>4+</strong>
+      <span>دوره آموزشی</span>
+    </div>
 
-</div>
+    <div class="stat">
+      <strong>∞</strong>
+      <span>تمرین و پروژه</span>
+    </div>
 
-</div>
+    <div class="stat">
+      <strong>XP</strong>
+      <span>سیستم پیشرفت</span>
+    </div>
 
+    <div class="stat">
+      <strong>🎓</strong>
+      <span>مدرک پایان دوره</span>
+    </div>
 
-<!-- 2 AI -->
+  </section>
 
-<div class="card">
 
-<div class="card-inner">
+  <!-- Courses -->
 
-<div>
+  <section class="section" id="courses">
 
-<div class="card-icon">
-🤖
-</div>
+    <div class="section-title">
+      <h2>دوره‌های آکادمی</h2>
+      <p>
+        مسیر یادگیری خودت را انتخاب کن و مرحله‌به‌مرحله جلو برو.
+      </p>
+    </div>
 
-<div class="card-number">
-بخش ۲
-</div>
 
-<h3>
-هوش مصنوعی
-</h3>
+    <div class="courses">
 
-<p>
-آشنایی با مفاهیم هوش مصنوعی و یادگیری ماشین.
-</p>
+      <article class="course">
 
-</div>
+        <div class="course-icon">🐍</div>
 
-<a
-class="card-button"
-href="ai.html">
+        <h3>برنامه‌نویسی Python</h3>
 
-مشاهده بخش
+        <p>
+          آموزش پایتون از پایه تا پیشرفته، همراه با تمرین،
+          پروژه، آزمون و چالش‌های کدنویسی.
+        </p>
 
-</a>
+        <div class="course-footer">
+          <span class="course-status">به‌زودی</span>
 
-</div>
+          <a href="python.html" class="course-btn">
+            ورود به دوره
+          </a>
+        </div>
 
-</div>
+      </article>
 
 
-<!-- 3 JAVA -->
+      <article class="course">
 
-<div class="card">
+        <div class="course-icon">🤖</div>
 
-<div class="card-inner">
+        <h3>هوش مصنوعی</h3>
 
-<div>
+        <p>
+          آشنایی با هوش مصنوعی، مفاهیم مهم، الگوریتم‌ها،
+          مدل‌ها و ساخت پروژه‌های کاربردی.
+        </p>
 
-<div class="card-icon">
-☕
-</div>
+        <div class="course-footer">
+          <span class="course-status">به‌زودی</span>
 
-<div class="card-number">
-بخش ۳
-</div>
+          <a href="ai.html" class="course-btn">
+            ورود به دوره
+          </a>
+        </div>
 
-<h3>
-Java
-</h3>
+      </article>
 
-<p>
-یادگیری Java و مفاهیم برنامه‌نویسی شیءگرا.
-</p>
 
-</div>
+      <article class="course">
 
-<a
-class="card-button"
-href="java.html">
+        <div class="course-icon">🌐</div>
 
-مشاهده بخش
+        <h3>طراحی وب</h3>
 
-</a>
+        <p>
+          یادگیری HTML، CSS و JavaScript و ساخت
+          سایت‌های واقعی و واکنش‌گرا.
+        </p>
 
-</div>
+        <div class="course-footer">
+          <span class="course-status">به‌زودی</span>
 
-</div>
+          <a href="web.html" class="course-btn">
+            ورود به دوره
+          </a>
+        </div>
 
+      </article>
 
-<!-- 4 JAVASCRIPT -->
 
-<div class="card">
+      <article class="course">
 
-<div class="card-inner">
+        <div class="course-icon">⚡</div>
 
-<div>
+        <h3>JavaScript</h3>
 
-<div class="card-icon">
-⚡
-</div>
+        <p>
+          برنامه‌نویسی جاوااسکریپت از پایه تا مباحث
+          پیشرفته و ساخت برنامه‌های تعاملی.
+        </p>
 
-<div class="card-number">
-بخش ۴
-</div>
+        <div class="course-footer">
+          <span class="course-status">به‌زودی</span>
 
-<h3>
-JavaScript
-</h3>
+          <a href="javascript.html" class="course-btn">
+            ورود به دوره
+          </a>
+        </div>
 
-<p>
-ساخت صفحات تعاملی و برنامه‌های وب.
-</p>
+      </article>
 
-</div>
 
-<a
-class="card-button"
-href="javascript.html">
+      <article class="course">
 
-مشاهده بخش
+        <div class="course-icon">🛡️</div>
 
-</a>
+        <h3>امنیت سایبری</h3>
 
-</div>
+        <p>
+          آشنایی آموزشی با امنیت، شبکه، تهدیدها،
+          محافظت از سیستم‌ها و مفاهیم امنیت سایبری.
+        </p>
 
-</div>
+        <div class="course-footer">
+          <span class="course-status">به‌زودی</span>
 
+          <a href="cybersecurity.html" class="course-btn">
+            ورود به دوره
+          </a>
+        </div>
 
-<!-- 5 HTML -->
+      </article>
 
-<div class="card">
 
-<div class="card-inner">
+      <article class="course">
 
-<div>
+        <div class="course-icon">🚀</div>
 
-<div class="card-icon">
-🌐
-</div>
+        <h3>پروژه‌های واقعی</h3>
 
-<div class="card-number">
-بخش ۵
-</div>
+        <p>
+          بعد از یادگیری، مهارت‌هایت را با پروژه‌های
+          عملی و چالش‌های واقعی امتحان کن.
+        </p>
 
-<h3>
-HTML
-</h3>
+        <div class="course-footer">
+          <span class="course-status">به‌زودی</span>
 
-<p>
-ساختار صفحات وب و ساخت اولین سایت.
-</p>
+          <a href="#features" class="course-btn">
+            بیشتر بدان
+          </a>
+        </div>
 
-</div>
+      </article>
 
-<a
-class="card-button"
-href="html.html">
+    </div>
 
-مشاهده بخش
+  </section>
 
-</a>
 
-</div>
+  <!-- Features -->
 
-</div>
+  <section class="section" id="features">
 
+    <div class="section-title">
+      <h2>سیستم یادگیری Ghost</h2>
 
-<!-- 6 CSS -->
+      <p>
+        فقط آموزش نمی‌بینی؛ تمرین می‌کنی، آزمون می‌دهی و پیشرفت می‌کنی.
+      </p>
+    </div>
 
-<div class="card">
 
-<div class="card-inner">
+    <div class="features">
 
-<div>
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <h3>آموزش مرحله‌ای</h3>
+        <p>
+          مطالب از پایه شروع می‌شوند و مرحله‌به‌مرحله
+          به مباحث پیشرفته می‌رسند.
+        </p>
+      </div>
 
-<div class="card-icon">
-🎨
-</div>
 
-<div class="card-number">
-بخش ۶
-</div>
+      <div class="feature">
+        <div class="feature-icon">💻</div>
+        <h3>تمرین کدنویسی</h3>
+        <p>
+          بعد از یادگیری، با تمرین‌های عملی مهارتت را امتحان کن.
+        </p>
+      </div>
 
-<h3>
-CSS
-</h3>
 
-<p>
-طراحی ظاهر سایت، رنگ‌ها و انیمیشن‌ها.
-</p>
+      <div class="feature">
+        <div class="feature-icon">🏆</div>
+        <h3>XP و پیشرفت</h3>
+        <p>
+          با انجام درس‌ها و آزمون‌ها XP بگیر و مراحل جدید را باز کن.
+        </p>
+      </div>
 
-</div>
 
-<a
-class="card-button"
-href="css.html">
+      <div class="feature">
+        <div class="feature-icon">🎓</div>
+        <h3>مدرک پایان دوره</h3>
+        <p>
+          پس از تکمیل دوره و قبولی در آزمون نهایی،
+          مدرک پایان دوره دریافت کن.
+        </p>
+      </div>
 
-مشاهده بخش
+    </div>
 
-</a>
+  </section>
 
-</div>
 
-</div>
+  <!-- CTA -->
 
+  <section class="cta">
 
-<!-- 7 C -->
+    <div class="cta-box">
 
-<div class="card">
+      <h2>آماده‌ای شروع کنی؟</h2>
 
-<div class="card-inner">
+      <p>
+        یک مسیر آموزشی را انتخاب کن و قدم‌به‌قدم
+        به یک برنامه‌نویس بهتر تبدیل شو.
+      </p>
 
-<div>
+      <a href="#courses" class="btn btn-primary">
+        مشاهده دوره‌ها
+      </a>
 
-<div class="card-icon">
-💻
-</div>
+    </div>
 
-<div class="card-number">
-بخش ۷
-</div>
-
-<h3>
-C
-</h3>
-
-<p>
-آشنایی با زبان C و مفاهیم پایه.
-</p>
-
-</div>
-
-<a
-class="card-button"
-href="c.html">
-
-مشاهده بخش
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- 8 C++ -->
-
-<div class="card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🚀
-</div>
-
-<div class="card-number">
-بخش ۸
-</div>
-
-<h3>
-C++
-</h3>
-
-<p>
-یادگیری C++ و مفاهیم شیءگرایی.
-</p>
-
-</div>
-
-<a
-class="card-button"
-href="cpp.html">
-
-مشاهده بخش
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- 9 C# -->
-
-<div class="card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🧠
-</div>
-
-<div class="card-number">
-بخش ۹
-</div>
-
-<h3>
-C#
-</h3>
-
-<p>
-آشنایی با C# و ساخت برنامه‌های کاربردی.
-</p>
-
-</div>
-
-<a
-class="card-button"
-href="csharp.html">
-
-مشاهده بخش
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- 10 PHP -->
-
-<div class="card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🐘
-</div>
-
-<div class="card-number">
-بخش ۱۰
-</div>
-
-<h3>
-PHP
-</h3>
-
-<p>
-برنامه‌نویسی سمت سرور و ساخت سایت‌های پویا.
-</p>
-
-</div>
-
-<a
-class="card-button"
-href="php.html">
-
-مشاهده بخش
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- 11 GO -->
-
-<div class="card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🦫
-</div>
-
-<div class="card-number">
-بخش ۱۱
-</div>
-
-<h3>
-Go
-</h3>
-
-<p>
-آشنایی با زبان Go و برنامه‌نویسی سریع.
-</p>
-
-</div>
-
-<a
-class="card-button"
-href="go.html">
-
-مشاهده بخش
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- 12 RUST -->
-
-<div class="card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🦀
-</div>
-
-<div class="card-number">
-بخش ۱۲
-</div>
-
-<h3>
-Rust
-</h3>
-
-<p>
-آشنایی با Rust و برنامه‌نویسی سریع و امن.
-</p>
-
-</div>
-
-<a
-class="card-button"
-href="rust.html">
-
-مشاهده بخش
-
-</a>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-<!-- COMING SOON -->
-
-<div class="section-title soon-title">
-
-<h2>
-🔒 بزودی در آکادمی
-</h2>
-
-<span>
-COMING SOON
-</span>
-
-</div>
-
-
-<section class="cards">
-
-
-<!-- KOTLIN -->
-
-<div class="card soon-card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-💎
-</div>
-
-<div class="card-number">
-بزودی
-</div>
-
-<h3>
-Kotlin
-</h3>
-
-<p>
-آموزش Kotlin برای برنامه‌نویسی مدرن.
-</p>
-
-</div>
-
-<div class="card-button soon-button">
-🔒 بزودی
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SWIFT -->
-
-<div class="card soon-card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🦅
-</div>
-
-<div class="card-number">
-بزودی
-</div>
-
-<h3>
-Swift
-</h3>
-
-<p>
-آموزش زبان Swift و آشنایی با توسعه برنامه.
-</p>
-
-</div>
-
-<div class="card-button soon-button">
-🔒 بزودی
-</div>
-
-</div>
-
-</div>
-
-
-<!-- TYPESCRIPT -->
-
-<div class="card soon-card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🔷
-</div>
-
-<div class="card-number">
-بزودی
-</div>
-
-<h3>
-TypeScript
-</h3>
-
-<p>
-نسخه قدرتمندتر JavaScript برای پروژه‌های بزرگ.
-</p>
-
-</div>
-
-<div class="card-button soon-button">
-🔒 بزودی
-</div>
-
-</div>
-
-</div>
-
-
-<!-- DART -->
-
-<div class="card soon-card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-💙
-</div>
-
-<div class="card-number">
-بزودی
-</div>
-
-<h3>
-Dart
-</h3>
-
-<p>
-آشنایی با Dart و پایه‌های Flutter.
-</p>
-
-</div>
-
-<div class="card-button soon-button">
-🔒 بزودی
-</div>
-
-</div>
-
-</div>
-
-
-<!-- RUBY -->
-
-<div class="card soon-card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-💜
-</div>
-
-<div class="card-number">
-بزودی
-</div>
-
-<h3>
-Ruby
-</h3>
-
-<p>
-آشنایی با زبان Ruby و برنامه‌نویسی ساده.
-</p>
-
-</div>
-
-<div class="card-button soon-button">
-🔒 بزودی
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SCALA -->
-
-<div class="card soon-card">
-
-<div class="card-inner">
-
-<div>
-
-<div class="card-icon">
-🟠
-</div>
-
-<div class="card-number">
-بزودی
-</div>
-
-<h3>
-Scala
-</h3>
-
-<p>
-آشنایی با زبان Scala و برنامه‌نویسی کاربردی.
-</p>
-
-</div>
-
-<div class="card-button soon-button">
-🔒 بزودی
-</div>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-<!-- FEATURES -->
-
-<div class="section-title">
-
-<h2>
-✨ امکانات آکادمی
-</h2>
-
-</div>
-
-
-<section class="features">
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🎓
-</div>
-
-<h3>
-آزمون
-</h3>
-
-<p>
-بعد از آموزش هر بخش می‌توانی در آزمون همان بخش شرکت کنی.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🏆
-</div>
-
-<h3>
-گواهی پایان دوره
-</h3>
-
-<p>
-پس از قبولی، گواهی آموزشی مخصوص دوره نمایش داده می‌شود.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-⭐
-</div>
-
-<h3>
-XP و پیشرفت
-</h3>
-
-<p>
-با کامل کردن آموزش‌ها XP دریافت کن و پیشرفتت را ببین.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-📱
-</div>
-
-<h3>
-مناسب موبایل
-</h3>
-
-<p>
-طراحی شده تا روی گوشی سریع و راحت استفاده شود.
-</p>
-
-</div>
-
-
-</section>
-
+  </section>
 
 </main>
 
 
 <footer>
 
-© 2026 Ghost Code Academy
+  <strong>👻 Ghost Code Academy</strong>
 
-<div class="footer-rgb">
-Learn • Code • Create
-</div>
+  <br>
+
+  آموزش برنامه‌نویسی و مهارت‌های دیجیتال
+
+  <br>
+
+  © 2026 Ghost Academy
 
 </footer>
 
 
-</body>
+<script>
 
+  function toggleMenu() {
+    document.getElementById("nav").classList.toggle("show");
+  }
+
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("nav").classList.remove("show");
+    });
+  });
+
+</script>
+
+</body>
 </html>
