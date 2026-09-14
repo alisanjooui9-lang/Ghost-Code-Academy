@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Web Development | Ghost Code Academy</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#06110d;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(3,12,9,.95);
+    border-bottom:1px solid #173d2b;
+    backdrop-filter:blur(10px);
+}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#55ff9b;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.ghost{
+    width:38px;
+    height:38px;
+    border:2px solid #55ff9b;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.back{
+    text-decoration:none;
+    color:#c7d8cf;
+    border:1px solid #214b37;
+    padding:9px 14px;
+    border-radius:10px;
+}
+
+.back:hover{
+    background:#0d2a1d;
+    color:#55ff9b;
+}
+
+.hero{
+    max-width:1100px;
+    margin:auto;
+    padding:55px 20px 30px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#0b2b1c;
+    color:#55ff9b;
+    border:1px solid #1c6742;
+    padding:8px 14px;
+    border-radius:30px;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.hero p{
+    color:#a9bbb2;
+    line-height:2;
+    max-width:760px;
+    margin:auto;
+}
+
+.stats{
+    max-width:1100px;
+    margin:10px auto 25px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:#091a12;
+    border:1px solid #173d2b;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:26px;
+    color:#55ff9b;
+    margin-bottom:7px;
+}
+
+.stat span{
+    color:#9db1a7;
+    font-size:13px;
+}
+
+.progressBox{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px 30px;
+}
+
+.progressTop{
+    display:flex;
+    justify-content:space-between;
+    color:#b9c9c1;
+    margin-bottom:9px;
+}
+
+.progress{
+    width:100%;
+    height:12px;
+    background:#10241a;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #193d2b;
+}
+
+.progressBar{
+    width:0%;
+    height:100%;
+    background:#55ff9b;
+    transition:.3s;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px 60px;
+}
+
+.sectionTitle{
+    margin:30px 0 18px;
+    font-size:24px;
+}
+
+.stages{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.stage{
+    background:#091a12;
+    border:1px solid #173d2b;
+    border-radius:16px;
+    padding:20px;
+    transition:.2s;
+}
+
+.stage:hover{
+    transform:translateY(-2px);
+    border-color:#286947;
+}
+
+.stage.locked{opacity:.45}
+.stage.completed{border-color:#55ff9b}
+
+.stageNumber{
+    color:#55ff9b;
+    font-weight:bold;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.stage h3{margin-bottom:10px}
+
+.stage p{
+    color:#a8bab0;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.stage button{
+    margin-top:16px;
+    width:100%;
+    padding:11px;
+    border:0;
+    border-radius:10px;
+    background:#55ff9b;
+    color:#06110d;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.stage button:disabled{
+    background:#1b3025;
+    color:#74867c;
+    cursor:not-allowed;
+}
+
+.lesson{
+    display:none;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid #183b2a;
+}
+
+.lesson.show{display:block}
+
+.lesson h4{
+    color:#55ff9b;
+    margin-bottom:10px;
+}
+
+.lesson p{
+    color:#c3d1ca;
+    line-height:2;
+    margin-bottom:10px;
+}
+
+.code{
+    direction:ltr;
+    text-align:left;
+    background:#030907;
+    border:1px solid #193d2b;
+    padding:14px;
+    border-radius:10px;
+    overflow:auto;
+    color:#caffdb;
+    font-family:monospace;
+    line-height:1.7;
+    margin:12px 0;
+}
+
+.complete{
+    background:#55ff9b!important;
+    color:#06110d!important;
+}
+
+.final{
+    display:none;
+    margin-top:35px;
+    background:#091a12;
+    border:1px solid #55ff9b;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+}
+
+.final.show{display:block}
+
+.final h2{
+    color:#55ff9b;
+    margin-bottom:12px;
+}
+
+.final p{
+    color:#b7c8bf;
+    line-height:2;
+}
+
+.final button{
+    margin-top:18px;
+    padding:12px 25px;
+    border:0;
+    border-radius:10px;
+    background:#55ff9b;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.certificate{
+    display:none;
+    margin-top:25px;
+    padding:30px;
+    border:2px solid #55ff9b;
+    border-radius:18px;
+    text-align:center;
+    background:#07150e;
+}
+
+.certificate.show{display:block}
+
+.certificate h2{
+    color:#55ff9b;
+    margin-bottom:15px;
+}
+
+.codeId{
+    color:#b8c9c0;
+    margin-top:10px;
+}
+
+.certificate button{
+    margin-top:15px;
+    padding:12px 22px;
+    border:0;
+    border-radius:10px;
+    background:#55ff9b;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+@media(max-width:700px){
+    h1{font-size:31px}
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .stages{
+        grid-template-columns:1fr;
+    }
+
+    .nav{
+        padding:12px 15px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<div class="logo">
+<div class="ghost">👻</div>
+Ghost Code Academy
+</div>
+
+<a href="index.html" class="back">بازگشت</a>
+
+</div>
+</header>
+
+<section class="hero">
+
+<div class="badge">🌐 Web Development Academy</div>
+
+<h1>آموزش کامل طراحی وب</h1>
+
+<p>
+از ساخت اولین صفحه وب تا HTML، CSS، JavaScript،
+طراحی واکنش‌گرا، رابط کاربری، DOM، API و مفاهیم پیشرفته وب.
+</p>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<strong id="completedCount">0</strong>
+<span>مرحله تکمیل‌شده</span>
+</div>
+
+<div class="stat">
+<strong id="xp">0</strong>
+<span>XP</span>
+</div>
+
+<div class="stat">
+<strong>100</strong>
+<span>کل مراحل</span>
+</div>
+
+</section>
+
+<div class="progressBox">
+
+<div class="progressTop">
+<span>پیشرفت دوره</span>
+<span id="percent">0%</span>
+</div>
+
+<div class="progress">
+<div class="progressBar" id="progressBar"></div>
+</div>
+
+</div>
+
+<main class="container">
+
+<h2 class="sectionTitle">📚 مراحل دوره Web Development</h2>
+
+<div class="stages" id="stages"></div>
+
+<div class="final" id="final">
+
+<h2>🎓 دوره طراحی وب کامل شد!</h2>
+
+<p>
+هر ۱۰۰ مرحله را تکمیل کردی.
+حالا می‌توانی آزمون نهایی دوره را انجام دهی.
+</p>
+
+<button onclick="finalExam()">
+شروع آزمون نهایی
+</button>
+
+</div>
+
+<div class="certificate" id="certificate">
+
+<h2>🏆 گواهی پایان دوره Web Development</h2>
+
+<p>
+این گواهی نشان می‌دهد دوره طراحی وب
+در Ghost Code Academy با موفقیت تکمیل شده است.
+</p>
+
+<div class="codeId" id="certificateCode"></div>
+
+<button onclick="window.print()">
+🖨 چاپ / ذخیره مدرک
+</button>
+
+</div>
+
+</main>
+
+<script>
+
+const stagesData=[
+
+["وب چیست؟","آشنایی با مفهوم وب و نحوه ارتباط کاربران با سایت‌ها.","Web = World Wide Web"],
+["مرورگر چیست؟","شناخت Browser و وظیفه آن در نمایش صفحات وب.","Browser → Website"],
+["سرور چیست؟","آشنایی با Server و نقش آن در ارائه سایت.","Browser → Server"],
+["Client و Server","شناخت معماری Client-Server.","Client ↔ Server"],
+["URL چیست؟","شناخت آدرس صفحات وب.","https://example.com"],
+["Domain","آشنایی با دامنه سایت.","example.com"],
+["Hosting","آشنایی با میزبانی سایت.","Website → Hosting"],
+["HTTP","شناخت پروتکل انتقال اطلاعات وب.","HTTP Request"],
+["HTTPS","شناخت ارتباط امن در وب.","HTTPS = Secure HTTP"],
+["جمع‌بندی وب","مرور اجزای اصلی یک سایت.","Browser + Server + Web"],
+
+["HTML چیست؟","آشنایی با زبان ساختار صفحات وب.","<h1>Hello</h1>"],
+["ساختار HTML","شناخت ساختار اصلی یک فایل HTML.","<!DOCTYPE html>"],
+["DOCTYPE","شناخت اعلام نوع سند HTML.","<!DOCTYPE html>"],
+["HTML Element","آشنایی با عناصر HTML.","<p>Text</p>"],
+["HTML Tag","شناخت تگ‌های HTML.","<div></div>"],
+["Heading","ساخت عنوان‌ها با h1 تا h6.","<h1>Title</h1>"],
+["Paragraph","ساخت پاراگراف.","<p>Hello</p>"],
+["Link","ساخت لینک.","<a href='index.html'>Home</a>"],
+["Image","نمایش تصویر.","<img src='image.jpg'>"],
+["HTML مرور","مرور مفاهیم پایه HTML.","HTML → Structure"],
+
+["لیست‌ها","ساخت لیست‌های مرتب و نامرتب.","<ul><li>Item</li></ul>"],
+["Table","ساخت جدول.","<table></table>"],
+["Form","ساخت فرم دریافت اطلاعات.","<form></form>"],
+["Input","ساخت ورودی کاربر.","<input type='text'>"],
+["Button","ساخت دکمه.","<button>Click</button>"],
+["Label","برچسب‌گذاری ورودی‌ها.","<label>Name</label>"],
+["Textarea","ساخت ورودی چندخطی.","<textarea></textarea>"],
+["Select","ساخت فهرست انتخاب.","<select></select>"],
+["Semantic HTML","شناخت تگ‌های معنایی.","<header><main><footer>"],
+["HTML پیشرفته","مرور ساختارهای مهم HTML.","HTML Structure"],
+
+["CSS چیست؟","آشنایی با زبان طراحی صفحات وب.","color: green;"],
+["CSS Syntax","شناخت ساختار دستورهای CSS.","selector { property:value; }"],
+["Selector","انتخاب عناصر HTML در CSS.","p { }"],
+["Class","استفاده از کلاس‌ها.",".card { }"],
+["ID","انتخاب عنصر با ID.","#title { }"],
+["Color","تغییر رنگ عناصر.","color:#55ff9b;"],
+["Background","تغییر پس‌زمینه.","background:#06110d;"],
+["Font","تنظیم فونت.","font-size:20px;"],
+["Border","ساخت حاشیه.","border:1px solid;"],
+["CSS مرور","مرور اصول طراحی با CSS.","HTML + CSS"],
+
+["Margin","فاصله بیرونی عناصر.","margin:20px;"],
+["Padding","فاصله داخلی عناصر.","padding:20px;"],
+["Width و Height","تعیین اندازه عناصر.","width:100px;"],
+["Box Model","شناخت مدل جعبه‌ای CSS.","Content + Padding + Border + Margin"],
+["Display","شناخت display.","display:block;"],
+["Flexbox","آشنایی با Flexbox.","display:flex;"],
+["Flex Direction","تغییر جهت عناصر Flex.","flex-direction:column;"],
+["Justify Content","تنظیم محور اصلی.","justify-content:center;"],
+["Align Items","تنظیم محور فرعی.","align-items:center;"],
+["Flexbox مرور","مرور ساخت رابط با Flexbox.","Flexbox Layout"],
+
+["Grid","آشنایی با CSS Grid.","display:grid;"],
+["Grid Columns","ساخت ستون‌های Grid.","grid-template-columns:1fr 1fr;"],
+["Gap","فاصله بین آیتم‌ها.","gap:20px;"],
+["Position","آشنایی با position.","position:relative;"],
+["Relative","موقعیت‌دهی نسبی.","position:relative;"],
+["Absolute","موقعیت‌دهی مطلق.","position:absolute;"],
+["Fixed","ثابت کردن عنصر.","position:fixed;"],
+["Sticky","چسباندن عنصر هنگام اسکرول.","position:sticky;"],
+["Z-index","کنترل لایه‌ها.","z-index:10;"],
+["Layout پیشرفته","ترکیب Grid، Flex و Position.","Grid + Flex"],
+
+["Responsive Design","آشنایی با طراحی واکنش‌گرا.","Responsive Website"],
+["Viewport","شناخت viewport در موبایل.","<meta name='viewport'>"],
+["Media Query","تغییر طراحی بر اساس اندازه صفحه.","@media(max-width:700px){}"],
+["Mobile First","طراحی ابتدا برای موبایل.","Mobile First"],
+["Desktop Design","بهینه‌سازی برای نمایشگرهای بزرگ.","Desktop Layout"],
+["Responsive Images","تنظیم تصاویر واکنش‌گرا.","img {max-width:100%;}"],
+["Responsive Text","تنظیم اندازه متن.","font-size:clamp(...)"],
+["Navigation موبایل","ساخت منوی مناسب موبایل.","Mobile Menu"],
+["Responsive Cards","ساخت کارت‌های واکنش‌گرا.","Grid Cards"],
+["Responsive مرور","مرور طراحی واکنش‌گرا.","Mobile + Desktop"],
+
+["JavaScript چیست؟","آشنایی با زبان برنامه‌نویسی وب.","console.log('Hello')"],
+["متغیر در JavaScript","شناخت let و const.","let score=100;"],
+["Data Types","شناخت انواع داده.","let name='User';"],
+["Operators","آشنایی با عملگرها.","let x=10+5;"],
+["if","شرط‌گذاری در JavaScript.","if(x>5){}"],
+["for","ساخت حلقه.","for(let i=0;i<5;i++){}"],
+["Function","ساخت تابع.","function hello(){}"],
+["Array","ساخت آرایه.","let items=[];"],
+["Object","ساخت شیء.","let user={name:'User'};"],
+["JavaScript مرور","مرور مفاهیم پایه JavaScript.","JS → Logic"],
+
+["DOM چیست؟","آشنایی با Document Object Model.","document.body"],
+["انتخاب Element","دسترسی به عناصر HTML.","document.querySelector()"],
+["تغییر متن","تغییر محتوای عنصر.","element.textContent='Hello'"],
+["تغییر Style","تغییر ظاهر با JavaScript.","element.style.color='green'"],
+["Event","آشنایی با رویدادها.","click"],
+["Click Event","واکنش به کلیک کاربر.","button.onclick=function(){}"],
+["Form Event","مدیریت فرم‌ها.","form.addEventListener()"],
+["ClassList","تغییر کلاس‌ها.","element.classList.add('active')"],
+["LocalStorage","ذخیره اطلاعات روی دستگاه.","localStorage.setItem('key','value')"],
+["DOM مرور","مرور تعامل JavaScript و HTML.","HTML + CSS + JS"],
+
+["Fetch API","آشنایی با درخواست‌های وب.","fetch(url)"],
+["JSON","شناخت قالب JSON.","{\"name\":\"User\"}"],
+["API چیست؟","آشنایی با رابط برنامه‌نویسی.","Client → API → Server"],
+["GET Request","دریافت اطلاعات.","GET → Data"],
+["POST Request","ارسال اطلاعات.","POST → Server"],
+["Async و Await","آشنایی با عملیات غیرهمزمان.","async function(){}"],
+["Promise","شناخت Promise.","Promise → Result"],
+["Error Handling","مدیریت خطاهای JavaScript.","try{}catch{}"],
+["Web Storage","مرور LocalStorage و SessionStorage.","localStorage / sessionStorage"],
+["API مرور","مرور ارتباط سایت با سرویس‌ها.","Website → API"],
+
+["UI چیست؟","آشنایی با رابط کاربری.","User Interface"],
+["UX چیست؟","آشنایی با تجربه کاربری.","User Experience"],
+["رنگ‌بندی","انتخاب رنگ مناسب برای رابط.","Primary + Secondary"],
+["Typography","طراحی مناسب متن.","Font + Size + Spacing"],
+["Card Design","ساخت کارت‌های رابط کاربری.","Card UI"],
+["Navigation","طراحی مسیرهای دسترسی سایت.","Navbar"],
+["Hero Section","ساخت بخش معرفی اصلی.","Hero"],
+["Footer","ساخت بخش پایانی سایت.","Footer"],
+["Accessibility","آشنایی با دسترس‌پذیری وب.","Accessible Web"],
+["UI/UX مرور","جمع‌بندی طراحی رابط وب.","UI + UX"],
+
+["ساختار پروژه","آشنایی با ساختار فایل‌های وب.","index.html / style.css / app.js"],
+["تصاویر و Assets","مدیریت فایل‌های تصویری پروژه.","assets/"],
+["فایل CSS جدا","جدا کردن استایل از HTML.","style.css"],
+["فایل JS جدا","جدا کردن JavaScript.","app.js"],
+["Component Thinking","تقسیم رابط به بخش‌های قابل استفاده.","Header / Card / Footer"],
+["کدنویسی تمیز","اهمیت نظم در پروژه.","Clean Code"],
+["نام‌گذاری","نام‌گذاری مناسب کلاس‌ها و فایل‌ها.",".main-card"],
+["بهینه‌سازی","کاهش حجم و بهبود عملکرد.","Optimize"],
+["امنیت پایه وب","آشنایی اولیه با امنیت صفحات وب.","Secure Web"],
+["پروژه وب","مرور مسیر ساخت یک سایت کامل.","HTML + CSS + JS"],
+
+["Git چیست؟","آشنایی با کنترل نسخه.","Git"],
+["Repository","شناخت مخزن پروژه.","Repository"],
+["GitHub","آشنایی با GitHub.","GitHub Repository"],
+["Commit","شناخت ثبت تغییرات.","git commit"],
+["Branch","آشنایی با شاخه‌ها.","git branch"],
+["GitHub Pages","انتشار سایت استاتیک.","GitHub Pages"],
+["دامنه سایت","اتصال دامنه به سایت.","Domain → Website"],
+["انتشار پروژه","آشنایی با مراحل انتشار.","Build → Deploy"],
+["نگهداری سایت","به‌روزرسانی و مدیریت پروژه.","Update → Test → Deploy"],
+["جمع‌بندی Web","مرور مسیر کامل توسعه وب.","HTML + CSS + JS + Deploy"]
+
+];
+
+let state=JSON.parse(
+localStorage.getItem("gca_web_100")
+)||{
+completed:[],
+xp:0,
+final:false
+};
+
+const stages=document.getElementById("stages");
+
+function save(){
+localStorage.setItem(
+"gca_web_100",
+JSON.stringify(state)
+);
+}
+
+function escapeHtml(text){
+return text
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;");
+}
+
+function render(){
+
+stages.innerHTML="";
+
+stagesData.forEach((item,index)=>{
+
+const number=index+1;
+
+const completed=
+state.completed.includes(number);
+
+const unlocked=
+number===1||
+state.completed.includes(number-1);
+
+const card=document.createElement("div");
+
+card.className=
+"stage"+
+(completed?" completed":"")+
+(!unlocked?" locked":"");
+
+card.innerHTML=`
+
+<div class="stageNumber">
+مرحله ${number} از 100
+</div>
+
+<h3>${item[0]}</h3>
+
+<p>${item[1]}</p>
+
+<button
+${!unlocked?"disabled":""}
+onclick="openLesson(${number})">
+
+${
+completed
+?"✅ تکمیل شده"
+:unlocked
+?"📖 شروع درس"
+:"🔒 قفل است"
+}
+
+</button>
+
+<div
+class="lesson"
+id="lesson-${number}">
+
+<h4>📚 آموزش</h4>
+
+<p>${item[1]}</p>
+
+<h4>💡 مثال</h4>
+
+<pre class="code">${escapeHtml(item[2])}</pre>
+
+${
+completed
+?
+`<p style="color:#55ff9b">
+✅ این مرحله قبلاً تکمیل شده است.
+</p>`
+:
+`<button
+class="complete"
+onclick="completeStage(${number})">
+✅ تکمیل مرحله
+</button>`
+}
+
+</div>
+`;
+
+stages.appendChild(card);
+
+});
+
+updateStats();
+
+}
+
+function openLesson(number){
+
+const lesson=
+document.getElementById(
+"lesson-"+number
+);
+
+if(!lesson)return;
+
+lesson.classList.toggle("show");
+
+if(lesson.classList.contains("show")){
+
+lesson.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+}
+
+}
+
+function completeStage(number){
+
+if(state.completed.includes(number))
+return;
+
+if(
+number>1 &&
+!state.completed.includes(number-1)
+){
+
+alert(
+"اول مرحله قبلی را کامل کن."
+);
+
+return;
+}
+
+state.completed.push(number);
+
+state.completed.sort(
+(a,b)=>a-b
+);
+
+state.xp+=100;
+
+save();
+
+render();
+
+}
+
+function updateStats(){
+
+const count=state.completed.length;
+
+const percent=
+Math.floor((count/100)*100);
+
+document.getElementById(
+"completedCount"
+).textContent=count;
+
+document.getElementById(
+"xp"
+).textContent=state.xp;
+
+document.getElementById(
+"percent"
+).textContent=percent+"%";
+
+document.getElementById(
+"progressBar"
+).style.width=
+percent+"%";
+
+if(count>=100){
+
+document
+.getElementById("final")
+.classList.add("show");
+
+}
+
+if(state.final){
+
+document
+.getElementById("certificate")
+.classList.add("show");
+
+document.getElementById(
+"certificateCode"
+).textContent=
+"کد مدرک: GCA-WEB-"+
+generateCode();
+
+}
+
+}
+
+function finalExam(){
+
+if(state.completed.length<100){
+
+alert(
+"برای آزمون نهایی باید هر 100 مرحله را کامل کنی."
+);
+
+return;
+}
+
+const answer=prompt(
+`آزمون نهایی Web Development
+
+سؤال:
+
+کدام زبان برای ساختار اصلی صفحات وب استفاده می‌شود؟
+
+1) HTML
+2) Python
+3) SQL
+
+عدد پاسخ را وارد کن:`
+);
+
+if(answer==="1"){
+
+alert(
+"🎉 عالی! پاسخ درست بود."
+);
+
+state.final=true;
+
+state.xp+=500;
+
+save();
+
+render();
+
+}else{
+
+alert(
+"❌ پاسخ درست نبود. دوباره تلاش کن."
+);
+
+}
+
+}
+
+function generateCode(){
+
+return Math.random()
+.toString(36)
+.substring(2,8)
+.toUpperCase();
+
+}
+
+render();
+
+</script>
+
+</body>
+</html>
