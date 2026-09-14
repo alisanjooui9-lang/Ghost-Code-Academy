@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI | Ghost Code Academy</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#06110d;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(3,12,9,.95);
+    border-bottom:1px solid #173d2b;
+    backdrop-filter:blur(10px);
+}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+    color:#55ff9b;
+}
+
+.ghost{
+    width:38px;
+    height:38px;
+    border:2px solid #55ff9b;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.back{
+    text-decoration:none;
+    color:#c7d8cf;
+    border:1px solid #214b37;
+    padding:9px 14px;
+    border-radius:10px;
+}
+
+.back:hover{
+    background:#0d2a1d;
+    color:#55ff9b;
+}
+
+.hero{
+    max-width:1100px;
+    margin:auto;
+    padding:55px 20px 30px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#0b2b1c;
+    color:#55ff9b;
+    border:1px solid #1c6742;
+    padding:8px 14px;
+    border-radius:30px;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.hero p{
+    color:#a9bbb2;
+    line-height:2;
+    max-width:720px;
+    margin:auto;
+}
+
+.stats{
+    max-width:1100px;
+    margin:10px auto 25px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:#091a12;
+    border:1px solid #173d2b;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:26px;
+    color:#55ff9b;
+    margin-bottom:7px;
+}
+
+.stat span{
+    color:#9db1a7;
+    font-size:13px;
+}
+
+.progressBox{
+    max-width:1100px;
+    margin:0 auto 30px;
+    padding:0 20px;
+}
+
+.progressTop{
+    display:flex;
+    justify-content:space-between;
+    color:#b9c9c1;
+    margin-bottom:9px;
+}
+
+.progress{
+    width:100%;
+    height:12px;
+    background:#10241a;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #193d2b;
+}
+
+.progressBar{
+    width:0%;
+    height:100%;
+    background:#55ff9b;
+    transition:.3s;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px 50px;
+}
+
+.sectionTitle{
+    margin:30px 0 18px;
+    font-size:24px;
+}
+
+.stages{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.stage{
+    background:#091a12;
+    border:1px solid #173d2b;
+    border-radius:16px;
+    padding:20px;
+    transition:.2s;
+}
+
+.stage:hover{
+    transform:translateY(-2px);
+    border-color:#286947;
+}
+
+.stage.locked{
+    opacity:.45;
+}
+
+.stage.completed{
+    border-color:#55ff9b;
+}
+
+.stageNumber{
+    color:#55ff9b;
+    font-weight:bold;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.stage h3{
+    margin-bottom:10px;
+}
+
+.stage p{
+    color:#a8bab0;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.stage button{
+    margin-top:16px;
+    width:100%;
+    padding:11px;
+    border:0;
+    border-radius:10px;
+    background:#55ff9b;
+    color:#06110d;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.stage button:disabled{
+    background:#1b3025;
+    color:#74867c;
+    cursor:not-allowed;
+}
+
+.lesson{
+    display:none;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid #183b2a;
+}
+
+.lesson.show{
+    display:block;
+}
+
+.lesson h4{
+    color:#55ff9b;
+    margin-bottom:10px;
+}
+
+.lesson p{
+    color:#c3d1ca;
+    line-height:2;
+    margin-bottom:10px;
+}
+
+.code{
+    direction:ltr;
+    text-align:left;
+    background:#030907;
+    border:1px solid #193d2b;
+    padding:14px;
+    border-radius:10px;
+    overflow:auto;
+    color:#caffdb;
+    font-family:monospace;
+    line-height:1.7;
+    margin:12px 0;
+}
+
+.complete{
+    background:#55ff9b!important;
+    color:#06110d!important;
+}
+
+.final{
+    display:none;
+    margin-top:35px;
+    background:#091a12;
+    border:1px solid #55ff9b;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+}
+
+.final.show{
+    display:block;
+}
+
+.final h2{
+    color:#55ff9b;
+    margin-bottom:12px;
+}
+
+.final p{
+    color:#b7c8bf;
+    line-height:2;
+}
+
+.final button{
+    margin-top:18px;
+    padding:12px 25px;
+    border:0;
+    border-radius:10px;
+    background:#55ff9b;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.certificate{
+    display:none;
+    margin-top:25px;
+    padding:30px;
+    border:2px solid #55ff9b;
+    border-radius:18px;
+    text-align:center;
+    background:#07150e;
+}
+
+.certificate.show{
+    display:block;
+}
+
+.certificate h2{
+    color:#55ff9b;
+    margin-bottom:15px;
+}
+
+.codeId{
+    color:#b8c9c0;
+    margin-top:10px;
+}
+
+@media(max-width:700px){
+    h1{
+        font-size:31px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .stages{
+        grid-template-columns:1fr;
+    }
+
+    .nav{
+        padding:12px 15px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="logo">
+            <div class="ghost">👻</div>
+            Ghost Code Academy
+        </div>
+
+        <a href="index.html" class="back">
+            بازگشت
+        </a>
+
+    </div>
+</header>
+
+<section class="hero">
+
+    <div class="badge">🤖 AI Academy</div>
+
+    <h1>آموزش کامل هوش مصنوعی</h1>
+
+    <p>
+        از مفاهیم پایه هوش مصنوعی تا یادگیری ماشین،
+        شبکه‌های عصبی، یادگیری عمیق، پردازش زبان،
+        بینایی ماشین و مفاهیم مدرن AI.
+    </p>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat">
+        <strong id="completedCount">0</strong>
+        <span>مرحله تکمیل‌شده</span>
+    </div>
+
+    <div class="stat">
+        <strong id="xp">0</strong>
+        <span>XP</span>
+    </div>
+
+    <div class="stat">
+        <strong>100</strong>
+        <span>کل مراحل</span>
+    </div>
+
+</section>
+
+<div class="progressBox">
+
+    <div class="progressTop">
+        <span>پیشرفت دوره</span>
+        <span id="percent">0%</span>
+    </div>
+
+    <div class="progress">
+        <div class="progressBar" id="progressBar"></div>
+    </div>
+
+</div>
+
+<main class="container">
+
+    <h2 class="sectionTitle">
+        📚 مراحل دوره هوش مصنوعی
+    </h2>
+
+    <div class="stages" id="stages"></div>
+
+    <div class="final" id="final">
+
+        <h2>🎓 دوره هوش مصنوعی کامل شد!</h2>
+
+        <p>
+            تمام ۱۰۰ مرحله را تکمیل کردی.
+            اکنون می‌توانی آزمون نهایی دوره را انجام دهی.
+        </p>
+
+        <button onclick="finalExam()">
+            شروع آزمون نهایی
+        </button>
+
+    </div>
+
+    <div class="certificate" id="certificate">
+
+        <h2>🏆 گواهی پایان دوره هوش مصنوعی</h2>
+
+        <p>
+            این گواهی نشان می‌دهد که دوره هوش مصنوعی
+            در Ghost Code Academy با موفقیت تکمیل شده است.
+        </p>
+
+        <div class="codeId" id="certificateCode"></div>
+
+        <br>
+
+        <button onclick="window.print()">
+            🖨 چاپ / ذخیره مدرک
+        </button>
+
+    </div>
+
+</main>
+
+<script>
+
+const stagesData = [
+
+/* 1 - 10 */
+
+["هوش مصنوعی چیست؟","آشنایی با مفهوم Artificial Intelligence و اینکه ماشین‌ها چگونه می‌توانند وظایفی را انجام دهند که معمولاً به هوش انسانی نیاز دارند.","AI = Artificial Intelligence"],
+
+["تاریخچه هوش مصنوعی","آشنایی با شکل‌گیری ایده هوش مصنوعی و مسیر پیشرفت آن.","AI → Machine Learning → Deep Learning"],
+
+["هوش مصنوعی ضعیف","شناخت سیستم‌هایی که برای یک وظیفه مشخص ساخته شده‌اند.","Example: Image Recognition"],
+
+["هوش مصنوعی عمومی","آشنایی با مفهوم هوش مصنوعی عمومی و تفاوت آن با سیستم‌های تخصصی.","AGI = Artificial General Intelligence"],
+
+["هوش مصنوعی و انسان","بررسی تفاوت توانایی‌های انسان و سیستم‌های هوش مصنوعی.","Human Intelligence ≠ AI"],
+
+["داده چیست؟","شناخت Data به عنوان یکی از مهم‌ترین عناصر سیستم‌های هوش مصنوعی.","data = [10,20,30]"],
+
+["الگوریتم چیست؟","آشنایی با الگوریتم و نقش آن در حل مسئله.","Input → Algorithm → Output"],
+
+["مدل چیست؟","درک مفهوم Model در سیستم‌های هوش مصنوعی.","Data → Model → Prediction"],
+
+["پیش‌بینی","شناخت مفهوم Prediction در سیستم‌های AI.","Model → Prediction"],
+
+["جمع‌بندی مبانی AI","مرور مفاهیم اولیه هوش مصنوعی.","AI = Data + Algorithms + Models"],
+
+/* 11 - 20 */
+
+["یادگیری ماشین","آشنایی با Machine Learning و تفاوت آن با برنامه‌نویسی سنتی.","Data → Learning → Model"],
+
+["یادگیری نظارت‌شده","شناخت Supervised Learning و داده‌های دارای برچسب.","Input + Label → Model"],
+
+["یادگیری بدون نظارت","آشنایی با Unsupervised Learning.","Data → Patterns"],
+
+["یادگیری تقویتی","آشنایی با Reinforcement Learning و مفهوم پاداش.","Agent → Action → Reward"],
+
+["داده آموزشی","شناخت Training Data.","Training Data → Model"],
+
+["داده آزمایشی","شناخت Test Data برای ارزیابی مدل.","Test Data → Evaluation"],
+
+["Feature چیست؟","آشنایی با ویژگی‌هایی که مدل از آن‌ها استفاده می‌کند.","Age, Height, Price"],
+
+["Label چیست؟","شناخت برچسب یا پاسخ موردنظر در داده‌های آموزشی.","Feature → Label"],
+
+["Classification","آشنایی با دسته‌بندی داده‌ها.","Cat / Dog"],
+
+["Regression","آشنایی با پیش‌بینی مقدار عددی.","House → Price"],
+
+/* 21 - 30 */
+
+["داده تمیز","اهمیت داده‌های صحیح و مرتب برای آموزش مدل.","Clean Data → Better Model"],
+
+["داده ناقص","شناخت Missing Values.","Name, Age, ?"],
+
+["داده تکراری","شناخت Duplicate Data.","A, B, B, C"],
+
+["داده پرت","آشنایی با Outlier.","10, 11, 12, 500"],
+
+["پیش‌پردازش داده","شناخت Data Preprocessing.","Raw Data → Clean Data"],
+
+["Normalization","آشنایی با مقیاس‌بندی داده‌ها.","0 → 1"],
+
+["Standardization","شناخت مفهوم استانداردسازی داده.","Mean = 0"],
+
+["تقسیم داده","تقسیم داده به Training و Testing.","Train / Test"],
+
+["Feature Engineering","ساخت یا انتخاب ویژگی‌های مناسب.","Raw Features → Better Features"],
+
+["چرخه داده","مرور آماده‌سازی داده قبل از آموزش مدل.","Collect → Clean → Prepare"],
+
+/* 31 - 40 */
+
+["مدل خطی","آشنایی با Linear Models.","y = ax + b"],
+
+["رگرسیون خطی","استفاده از رابطه خطی برای پیش‌بینی.","X → Linear Model → Y"],
+
+["درخت تصمیم","آشنایی با Decision Tree.","Question → Branch → Result"],
+
+["Random Forest","شناخت مجموعه‌ای از درخت‌های تصمیم.","Tree + Tree + Tree"],
+
+["K-Nearest Neighbors","آشنایی با الگوریتم KNN.","Nearest Points → Class"],
+
+["Support Vector Machine","شناخت مفهوم SVM.","Points → Boundary"],
+
+["Naive Bayes","آشنایی با یک الگوریتم احتمالاتی.","Probability → Prediction"],
+
+["خوشه‌بندی","آشنایی با Clustering.","Data → Groups"],
+
+["K-Means","شناخت الگوریتم K-Means.","Data → Centroids → Clusters"],
+
+["مقایسه الگوریتم‌ها","شناخت تفاوت الگوریتم‌های مختلف Machine Learning.","Algorithm → Model → Result"],
+
+/* 41 - 50 */
+
+["ارزیابی مدل","آشنایی با Model Evaluation.","Model → Metrics"],
+
+["Accuracy","شناخت معیار دقت.","Correct / Total"],
+
+["Precision","آشنایی با Precision.","True Positive / Predicted Positive"],
+
+["Recall","آشنایی با Recall.","True Positive / Actual Positive"],
+
+["F1 Score","شناخت F1 برای ترکیب Precision و Recall.","F1 = 2PR/(P+R)"],
+
+["Confusion Matrix","آشنایی با ماتریس خطا.","TP / TN / FP / FN"],
+
+["Overfitting","شناخت بیش‌برازش مدل.","Training ↑ Test ↓"],
+
+["Underfitting","شناخت کم‌برازش.","Training ↓ Test ↓"],
+
+["Cross Validation","آشنایی با اعتبارسنجی چندبخشی.","Fold 1 / Fold 2 / Fold 3"],
+
+["بهبود مدل","روش‌های کلی افزایش کیفیت مدل.","Better Data → Better Model"],
+
+/* 51 - 60 */
+
+["شبکه عصبی","آشنایی با Neural Network.","Input → Hidden → Output"],
+
+["Neuron","شناخت نورون مصنوعی.","Inputs → Weights → Output"],
+
+["Weight","آشنایی با وزن‌ها در شبکه عصبی.","Input × Weight"],
+
+["Bias","شناخت Bias.","Weighted Sum + Bias"],
+
+["Activation Function","نقش تابع فعال‌سازی.","Input → Activation → Output"],
+
+["ReLU","آشنایی با تابع ReLU.","max(0,x)"],
+
+["Sigmoid","آشنایی با Sigmoid.","0 → 1"],
+
+["Softmax","شناخت Softmax برای خروجی‌های چندکلاسه.","Class Probabilities"],
+
+["Forward Propagation","آشنایی با عبور داده در شبکه.","Input → Layers → Output"],
+
+["Neural Network جمع‌بندی","مرور اجزای اصلی شبکه عصبی.","Neuron → Layer → Network"],
+
+/* 61 - 70 */
+
+["Training شبکه عصبی","آشنایی با آموزش شبکه عصبی.","Data → Network → Learning"],
+
+["Loss Function","شناخت تابع خطا.","Prediction vs Target"],
+
+["Gradient Descent","آشنایی با روش کاهش خطا.","Loss ↓"],
+
+["Learning Rate","شناخت نرخ یادگیری.","Small / Medium / Large"],
+
+["Epoch","آشنایی با Epoch.","One Epoch = One Training Pass"],
+
+["Batch","شناخت Batch در آموزش.","Dataset → Batches"],
+
+["Backpropagation","آشنایی با پس‌انتشار خطا.","Output Error → Backward"],
+
+["Hyperparameter","شناخت پارامترهایی که قبل از آموزش تنظیم می‌شوند.","Learning Rate"],
+
+["Training Pipeline","شناخت مسیر کامل آموزش.","Data → Train → Validate → Test"],
+
+["بهینه‌سازی شبکه","مرور روش‌های بهبود آموزش شبکه عصبی.","Optimize → Evaluate"],
+
+/* 71 - 80 */
+
+["Deep Learning","آشنایی با یادگیری عمیق.","Multiple Neural Layers"],
+
+["CNN","شناخت شبکه‌های عصبی کانولوشنی.","Image → CNN → Class"],
+
+["Convolution","آشنایی با عملیات کانولوشن.","Image + Filter"],
+
+["Pooling","شناخت Pooling در CNN.","Feature Map → Smaller Map"],
+
+["Image Classification","طبقه‌بندی تصاویر با AI.","Image → Class"],
+
+["Object Detection","آشنایی با تشخیص اشیاء.","Image → Objects"],
+
+["Computer Vision","شناخت بینایی ماشین.","Camera → AI → Understanding"],
+
+["پردازش تصویر","آشنایی با آماده‌سازی تصاویر.","Resize → Normalize"],
+
+["تشخیص چهره","شناخت مفهوم Face Detection.","Image → Face"],
+
+["کاربردهای بینایی ماشین","مرور کاربردهای Computer Vision.","Vision AI"],
+
+/* 81 - 90 */
+
+["پردازش زبان طبیعی","آشنایی با NLP.","Text → AI → Meaning"],
+
+["Tokenization","تقسیم متن به Tokenها.","Hello World → Tokens"],
+
+["Embedding","نمایش معنایی داده‌های متنی به صورت بردار.","Word → Vector"],
+
+["Sentiment Analysis","تشخیص احساس متن.","Text → Positive / Negative"],
+
+["Text Classification","دسته‌بندی متن.","Text → Category"],
+
+["Machine Translation","آشنایی با ترجمه ماشینی.","English → AI → Persian"],
+
+["Speech Recognition","تبدیل گفتار به متن.","Voice → Text"],
+
+["Text To Speech","تبدیل متن به گفتار.","Text → Voice"],
+
+["Chatbot","آشنایی با چت‌بات‌های هوشمند.","User → Chatbot → Response"],
+
+["کاربردهای NLP","مرور کاربردهای پردازش زبان طبیعی.","NLP → Search / Chat / Translation"],
+
+/* 91 - 100 */
+
+["مدل‌های زبانی","آشنایی با Language Models.","Text → Language Model"],
+
+["مدل‌های بزرگ زبانی","شناخت مفهوم Large Language Model.","Large Dataset → LLM"],
+
+["Generative AI","آشنایی با هوش مصنوعی مولد.","Prompt → Generated Content"],
+
+["Prompt چیست؟","شناخت دستور یا ورودی متنی برای مدل هوش مصنوعی.","Prompt → AI"],
+
+["Prompt Engineering","آشنایی با روش طراحی دستورهای بهتر.","Clear Prompt → Better Result"],
+
+["Multimodal AI","شناخت مدل‌هایی که چند نوع داده را پردازش می‌کنند.","Text + Image + Audio"],
+
+["اخلاق در هوش مصنوعی","شناخت اهمیت استفاده مسئولانه از AI.","AI + Responsibility"],
+
+["امنیت هوش مصنوعی","آشنایی با خطرات و محافظت از سیستم‌های AI.","AI Security"],
+
+["ساختار یک پروژه AI","شناخت مراحل کلی یک پروژه هوش مصنوعی.","Data → Model → Evaluation → Deployment"],
+
+["جمع‌بندی و ورود به دنیای AI","مرور مسیر یادگیری و مهارت‌های به‌دست‌آمده در ۱۰۰ مرحله.","AI Journey → Start Building"]
+
+];
+
+let state = JSON.parse(
+    localStorage.getItem("gca_ai_100")
+) || {
+    completed: [],
+    xp: 0,
+    final: false
+};
+
+const stages = document.getElementById("stages");
+
+function save(){
+
+    localStorage.setItem(
+        "gca_ai_100",
+        JSON.stringify(state)
+    );
+
+}
+
+function escapeHtml(text){
+
+    return text
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+
+}
+
+function render(){
+
+    stages.innerHTML = "";
+
+    stagesData.forEach((item,index)=>{
+
+        const number = index + 1;
+
+        const completed =
+            state.completed.includes(number);
+
+        const unlocked =
+            number === 1 ||
+            state.completed.includes(number - 1);
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "stage" +
+            (completed ? " completed" : "") +
+            (!unlocked ? " locked" : "");
+
+        card.innerHTML = `
+
+            <div class="stageNumber">
+                مرحله ${number} از 100
+            </div>
+
+            <h3>
+                ${item[0]}
+            </h3>
+
+            <p>
+                ${item[1]}
+            </p>
+
+            <button
+                ${!unlocked ? "disabled" : ""}
+                onclick="openLesson(${number})"
+            >
+                ${
+                    completed
+                    ? "✅ تکمیل شده"
+                    : unlocked
+                    ? "📖 شروع درس"
+                    : "🔒 قفل است"
+                }
+            </button>
+
+            <div
+                class="lesson"
+                id="lesson-${number}"
+            >
+
+                <h4>
+                    📚 آموزش
+                </h4>
+
+                <p>
+                    ${item[1]}
+                </p>
+
+                <h4>
+                    💡 مثال
+                </h4>
+
+                <pre class="code">${escapeHtml(item[2])}</pre>
+
+                ${
+                    completed
+                    ?
+                    `
+                    <p style="color:#55ff9b">
+                        ✅ این مرحله قبلاً تکمیل شده است.
+                    </p>
+                    `
+                    :
+                    `
+                    <button
+                        class="complete"
+                        onclick="completeStage(${number})"
+                    >
+                        ✅ تکمیل مرحله
+                    </button>
+                    `
+                }
+
+            </div>
+        `;
+
+        stages.appendChild(card);
+
+    });
+
+    updateStats();
+
+}
+
+function openLesson(number){
+
+    const lesson =
+        document.getElementById(
+            "lesson-" + number
+        );
+
+    if(!lesson) return;
+
+    lesson.classList.toggle("show");
+
+    if(lesson.classList.contains("show")){
+
+        lesson.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    }
+
+}
+
+function completeStage(number){
+
+    if(state.completed.includes(number))
+        return;
+
+    if(
+        number > 1 &&
+        !state.completed.includes(number - 1)
+    ){
+
+        alert(
+            "اول مرحله قبلی را کامل کن."
+        );
+
+        return;
+    }
+
+    state.completed.push(number);
+
+    state.completed.sort(
+        (a,b)=>a-b
+    );
+
+    state.xp += 100;
+
+    save();
+
+    render();
+
+}
+
+function updateStats(){
+
+    const count =
+        state.completed.length;
+
+    const percent =
+        Math.floor((count / 100) * 100);
+
+    document.getElementById(
+        "completedCount"
+    ).textContent = count;
+
+    document.getElementById(
+        "xp"
+    ).textContent = state.xp;
+
+    document.getElementById(
+        "percent"
+    ).textContent = percent + "%";
+
+    document.getElementById(
+        "progressBar"
+    ).style.width = percent + "%";
+
+    if(count >= 100){
+
+        document
+            .getElementById("final")
+            .classList.add("show");
+
+    }
+
+    if(state.final){
+
+        document
+            .getElementById("certificate")
+            .classList.add("show");
+
+        document.getElementById(
+            "certificateCode"
+        ).textContent =
+            "کد مدرک: GCA-AI-" +
+            generateCode();
+
+    }
+
+}
+
+function finalExam(){
+
+    if(state.completed.length < 100){
+
+        alert(
+            "برای آزمون نهایی باید هر 100 مرحله را کامل کنی."
+        );
+
+        return;
+
+    }
+
+    const answer = prompt(
+`آزمون نهایی هوش مصنوعی
+
+سؤال:
+کدام گزینه یک زیرمجموعه مهم از هوش مصنوعی است؟
+
+1) Machine Learning
+2) HTML
+3) CSS
+
+عدد پاسخ را وارد کن:`
+    );
+
+    if(answer === "1"){
+
+        alert(
+            "🎉 عالی! پاسخ درست بود و آزمون را با موفقیت گذراندی."
+        );
+
+        state.final = true;
+
+        state.xp += 500;
+
+        save();
+
+        render();
+
+    }else{
+
+        alert(
+            "❌ پاسخ درست نبود. دوباره تلاش کن."
+        );
+
+    }
+
+}
+
+function generateCode(){
+
+    return Math.random()
+        .toString(36)
+        .substring(2,8)
+        .toUpperCase();
+
+}
+
+render();
+
+</script>
+
+</body>
+          </html>
