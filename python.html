@@ -2,217 +2,354 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Python | Ghost Code Academy</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
 body{
-margin:0;
-font-family:Tahoma,Arial,sans-serif;
-background:#06100b;
-color:#effff5
+    font-family:Tahoma,Arial,sans-serif;
+    background:#06110d;
+    color:#fff;
+    min-height:100vh;
 }
+
 header{
-position:sticky;
-top:0;
-z-index:99;
-background:rgba(4,13,9,.96);
-border-bottom:1px solid #1b4930;
-padding:14px
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(3,12,9,.95);
+    border-bottom:1px solid #173d2b;
+    backdrop-filter:blur(10px);
 }
+
 .nav{
-max-width:1100px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px
+    max-width:1100px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
 }
-.logo{font-size:19px;font-weight:bold;color:#45f58b}
-.nav a{color:#b8d8c5;text-decoration:none;margin:5px}
-.container{max-width:1050px;margin:auto;padding:20px 14px 60px}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+    color:#55ff9b;
+}
+
+.ghost{
+    width:38px;
+    height:38px;
+    border:2px solid #55ff9b;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.back{
+    text-decoration:none;
+    color:#c7d8cf;
+    border:1px solid #214b37;
+    padding:9px 14px;
+    border-radius:10px;
+}
+
+.back:hover{
+    background:#0d2a1d;
+    color:#55ff9b;
+}
+
 .hero{
-background:linear-gradient(135deg,#0b2518,#07130d);
-border:1px solid #205c3b;
-border-radius:25px;
-padding:28px 18px;
-text-align:center;
-box-shadow:0 15px 50px #0008
+    max-width:1100px;
+    margin:auto;
+    padding:55px 20px 30px;
+    text-align:center;
 }
-.hero h1{margin:0;color:#4cff91;font-size:32px}
-.hero p{line-height:2;color:#b9d6c5}
+
+.badge{
+    display:inline-block;
+    background:#0b2b1c;
+    color:#55ff9b;
+    border:1px solid #1c6742;
+    padding:8px 14px;
+    border-radius:30px;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.hero p{
+    color:#a9bbb2;
+    line-height:2;
+    max-width:700px;
+    margin:auto;
+}
+
 .stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-margin-top:20px
+    max-width:1100px;
+    margin:10px auto 25px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
+
 .stat{
-background:#0b1d14;
-border:1px solid #1a4930;
-border-radius:15px;
-padding:13px
+    background:#091a12;
+    border:1px solid #173d2b;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
 }
-.stat b{
-display:block;
-font-size:21px;
-color:#4cff91;
-margin-bottom:5px
+
+.stat strong{
+    display:block;
+    font-size:26px;
+    color:#55ff9b;
+    margin-bottom:7px;
 }
-.progressbox{
-margin-top:18px;
-background:#08150e;
-border:1px solid #1a4930;
-border-radius:15px;
-padding:14px;
-text-align:right
+
+.stat span{
+    color:#9db1a7;
+    font-size:13px;
 }
+
+.progressBox{
+    max-width:1100px;
+    margin:0 auto 30px;
+    padding:0 20px;
+}
+
+.progressTop{
+    display:flex;
+    justify-content:space-between;
+    color:#b9c9c1;
+    margin-bottom:9px;
+}
+
 .progress{
-height:12px;
-background:#14291e;
-border-radius:20px;
-overflow:hidden;
-margin-top:10px
+    width:100%;
+    height:12px;
+    background:#10241a;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #193d2b;
 }
-.progress i{
-display:block;
-height:100%;
-width:0;
-background:#45f28b;
-transition:.4s
+
+.progressBar{
+    width:0%;
+    height:100%;
+    background:#55ff9b;
+    transition:.3s;
 }
-.toolbar{
-display:flex;
-gap:9px;
-flex-wrap:wrap;
-margin:18px 0
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px 50px;
 }
-button{
-border:0;
-border-radius:12px;
-padding:11px 15px;
-font-weight:bold;
-cursor:pointer;
-background:#3ce97f;
-color:#031008
+
+.sectionTitle{
+    margin:30px 0 18px;
+    font-size:24px;
 }
-button.dark{
-background:#10271a;
-border:1px solid #255c3d;
-color:#bdf4cf
+
+.stages{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
 }
+
 .stage{
-background:#0a1911;
-border:1px solid #19482f;
-border-radius:19px;
-margin:12px 0;
-overflow:hidden
+    background:#091a12;
+    border:1px solid #173d2b;
+    border-radius:16px;
+    padding:20px;
+    transition:.2s;
 }
-.stageHead{
-padding:17px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-cursor:pointer
+
+.stage:hover{
+    transform:translateY(-2px);
+    border-color:#286947;
 }
-.stageHead:hover{background:#0d2117}
-.stageTitle{font-weight:bold}
-.lock{color:#777}
-.stageBody{
-display:none;
-padding:0 17px 20px;
-border-top:1px solid #173c29
+
+.stage.locked{
+    opacity:.45;
 }
-.stageBody.open{display:block}
+
+.stage.completed{
+    border-color:#55ff9b;
+}
+
+.stageNumber{
+    color:#55ff9b;
+    font-weight:bold;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.stage h3{
+    margin-bottom:10px;
+}
+
+.stage p{
+    color:#a8bab0;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.stage button{
+    margin-top:16px;
+    width:100%;
+    padding:11px;
+    border:0;
+    border-radius:10px;
+    background:#55ff9b;
+    color:#06110d;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.stage button:disabled{
+    background:#1b3025;
+    color:#74867c;
+    cursor:not-allowed;
+}
+
 .lesson{
-background:#0d2117;
-border:1px solid #1c4c32;
-border-radius:15px;
-padding:17px;
-margin-top:15px
+    display:none;
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid #183b2a;
 }
-.lesson h3{color:#4cff91;margin-top:0}
-.lesson p,.lesson li{line-height:2;color:#c7dfd0}
-pre{
-direction:ltr;
-text-align:left;
-overflow:auto;
-background:#030805;
-border:1px solid #173d29;
-border-radius:11px;
-padding:14px;
-color:#caffdc
+
+.lesson.show{
+    display:block;
 }
-.challenge{
-background:#1a1507;
-border:1px solid #80651f;
-border-radius:17px;
-padding:18px;
-margin-top:17px
+
+.lesson h4{
+    color:#55ff9b;
+    margin-bottom:10px;
 }
-.challenge h3{color:#ffd65a}
-textarea{
-width:100%;
-min-height:190px;
-background:#030805;
-color:#d8ffe5;
-border:1px solid #285a3d;
-border-radius:12px;
-padding:14px;
-direction:ltr;
-text-align:left;
-font-family:Consolas,monospace;
-resize:vertical
+
+.lesson p{
+    color:#c3d1ca;
+    line-height:2;
+    margin-bottom:10px;
 }
-.result{
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-display:none;
-line-height:1.9
+
+.code{
+    direction:ltr;
+    text-align:left;
+    background:#030907;
+    border:1px solid #193d2b;
+    padding:14px;
+    border-radius:10px;
+    overflow:auto;
+    color:#caffdb;
+    font-family:monospace;
+    line-height:1.7;
+    margin:12px 0;
 }
-.good{display:block;background:#103c25;color:#8effb6}
-.bad{display:block;background:#3c1818;color:#ffaaaa}
-.quiz{
-background:#08150e;
-border:1px solid #21583a;
-border-radius:15px;
-padding:17px;
-margin-top:17px
+
+.complete{
+    background:#55ff9b!important;
+    color:#06110d!important;
 }
-.option{
-display:block;
-width:100%;
-margin:7px 0;
-text-align:right;
-background:#10271a;
-color:#d9f9e5;
-border:1px solid #255c3d
-}
+
 .final{
-display:none;
-background:linear-gradient(135deg,#102a1b,#08150d);
-border:2px solid #45f28b;
-border-radius:22px;
-padding:28px;
-text-align:center;
-margin-top:30px
+    display:none;
+    margin-top:35px;
+    background:#091a12;
+    border:1px solid #55ff9b;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
 }
-.final h2{color:#4cff91}
+
+.final.show{
+    display:block;
+}
+
+.final h2{
+    color:#55ff9b;
+    margin-bottom:12px;
+}
+
+.final p{
+    color:#b7c8bf;
+    line-height:2;
+}
+
+.final button{
+    margin-top:18px;
+    padding:12px 25px;
+    border:0;
+    border-radius:10px;
+    background:#55ff9b;
+    cursor:pointer;
+    font-weight:bold;
+}
+
 .certificate{
-display:none;
-background:#10291b;
-border:2px solid #ffd75a;
-border-radius:20px;
-padding:28px;
-text-align:center;
-margin-top:20px
+    display:none;
+    margin-top:25px;
+    padding:30px;
+    border:2px solid #55ff9b;
+    border-radius:18px;
+    text-align:center;
+    background:#07150e;
 }
-.certificate h2{color:#ffd75a}
+
+.certificate.show{
+    display:block;
+}
+
+.certificate h2{
+    color:#55ff9b;
+    margin-bottom:15px;
+}
+
+.certificate .codeId{
+    color:#b8c9c0;
+    margin-top:10px;
+}
+
 @media(max-width:700px){
-.stats{grid-template-columns:repeat(2,1fr)}
-.hero h1{font-size:27px}
+    h1{
+        font-size:31px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .stages{
+        grid-template-columns:1fr;
+    }
+
+    .nav{
+        padding:12px 15px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
 }
 </style>
 </head>
@@ -220,1139 +357,467 @@ margin-top:20px
 <body>
 
 <header>
-<div class="nav">
-<div class="logo">👻 Ghost Code Academy</div>
-<div>
-<a href="index.html">خانه</a>
-<a href="javascript.html">JavaScript</a>
-</div>
-</div>
+    <div class="nav">
+        <div class="logo">
+            <div class="ghost">👻</div>
+            Ghost Code Academy
+        </div>
+
+        <a href="index.html" class="back">بازگشت</a>
+    </div>
 </header>
 
-<div class="container">
-
 <section class="hero">
-<h1>🐍 دوره جامع Python</h1>
-<p>
-۱۰۰ مرحله آموزش برنامه‌نویسی Python از پایه تا مباحث پیشرفته
-</p>
 
-<div class="stats">
-<div class="stat"><b id="xp">0</b>XP</div>
-<div class="stat"><b id="done">0</b>مرحله</div>
-<div class="stat"><b id="rank">Beginner</b>رتبه</div>
-<div class="stat"><b>100</b>کل مراحل</div>
-</div>
+    <div class="badge">🐍 Python Academy</div>
 
-<div class="progressbox">
-پیشرفت دوره: <span id="percent">0%</span>
-<div class="progress"><i id="bar"></i></div>
-</div>
+    <h1>آموزش کامل پایتون</h1>
+
+    <p>
+        مسیر آموزشی مرحله‌به‌مرحله پایتون از صفر تا مباحث پیشرفته.
+        تمام پیشرفت شما روی همین دستگاه ذخیره می‌شود.
+    </p>
+
 </section>
 
-<div class="toolbar">
-<button onclick="nextStage()">🚀 مرحله بعدی</button>
-<button class="dark" onclick="topPage()">⬆ بالا</button>
-<button class="dark" onclick="resetProgress()">🗑 پاک کردن پیشرفت</button>
+<section class="stats">
+
+    <div class="stat">
+        <strong id="completedCount">0</strong>
+        <span>مرحله تکمیل‌شده</span>
+    </div>
+
+    <div class="stat">
+        <strong id="xp">0</strong>
+        <span>XP</span>
+    </div>
+
+    <div class="stat">
+        <strong>100</strong>
+        <span>کل مراحل</span>
+    </div>
+
+</section>
+
+<div class="progressBox">
+
+    <div class="progressTop">
+        <span>پیشرفت دوره</span>
+        <span id="percent">0%</span>
+    </div>
+
+    <div class="progress">
+        <div class="progressBar" id="progressBar"></div>
+    </div>
+
 </div>
 
-<div id="course"></div>
+<main class="container">
 
-<div class="final" id="final">
-<h2>🏆 دوره Python تمام شد!</h2>
-<p>تمام ۱۰۰ مرحله را تکمیل کردی.</p>
-<button onclick="finalExam()">📝 شروع آزمون نهایی</button>
-<div id="exam"></div>
-</div>
+    <h2 class="sectionTitle">📚 مراحل دوره</h2>
 
-<div class="certificate" id="certificate">
-<h2>🎓 گواهی پایان دوره Python</h2>
-<p>تبریک! شما دوره Python را با موفقیت به پایان رساندید.</p>
-<p>نام: <b id="certName">کاربر نمونه</b></p>
-<p>امتیاز: <b id="certScore">100%</b></p>
-<p>کد گواهی: <b id="certCode"></b></p>
-<p id="certDate"></p>
-<button onclick="window.print()">🖨 چاپ / ذخیره گواهی</button>
-</div>
+    <div class="stages" id="stages"></div>
 
-</div>
+    <div class="final" id="final">
+
+        <h2>🎓 دوره پایتون کامل شد!</h2>
+
+        <p>
+            تمام ۱۰۰ مرحله را با موفقیت پشت سر گذاشتی.
+            اکنون می‌توانی آزمون نهایی را انجام دهی.
+        </p>
+
+        <button onclick="finalExam()">
+            شروع آزمون نهایی
+        </button>
+
+    </div>
+
+    <div class="certificate" id="certificate">
+
+        <h2>🏆 گواهی پایان دوره</h2>
+
+        <p>
+            این گواهی نشان می‌دهد که دوره آموزش پایتون
+            در Ghost Code Academy تکمیل شده است.
+        </p>
+
+        <div class="codeId" id="certificateCode"></div>
+
+        <br>
+
+        <button onclick="window.print()">
+            🖨 چاپ / ذخیره مدرک
+        </button>
+
+    </div>
+
+</main>
 
 <script>
 
-/* =========================
-   اطلاعات دوره
-========================= */
-
-const groups=[
-["پایه‌های Python",[
-"Python چیست؟","نصب و اجرای Python","اولین برنامه","print","کامنت‌ها",
-"ساختار کد","Indentation","خطاهای ابتدایی","نام‌گذاری","تمرین پایه"
-]],
-["متغیر و داده",[
-"متغیرها","int","float","str","bool",
-"None","تبدیل نوع","type","عملگرهای ریاضی","تمرین داده"
-]],
-["ورودی و خروجی",[
-"input","ورودی عددی","f-string","فرمت متن","چند ورودی",
-"خروجی چند مقدار","تمرین مشخصات کاربر","ماشین حساب ساده","محاسبه سن","تمرین ورودی"
-]],
-["عملگرها",[
-"جمع","تفریق","ضرب","تقسیم","باقی‌مانده",
-"توان","مقایسه","برابری","عملگرهای منطقی","تمرین عملگرها"
-]],
-["شرط‌ها",[
-"if","else","elif","شرط تو در تو","and",
-"or","not","شرط ترکیبی","شرط کوتاه","تمرین شرط"
-]],
-["حلقه‌ها",[
-"for","range","while","شمارنده","break",
-"continue","حلقه تو در تو","حلقه روی متن","حلقه روی داده","تمرین حلقه"
-]],
-["List",[
-"ساخت List","index","slice","append","insert",
-"remove","pop","sort","reverse","تمرین List"
-]],
-["Tuple و Set",[
-"Tuple","index در Tuple","packing","unpacking","Set",
-"add","remove","union","intersection","تمرین مجموعه‌ها"
-]],
-["Dictionary",[
-"Dictionary","key و value","دسترسی","تغییر مقدار","افزودن",
-"حذف","keys","values","items","تمرین Dictionary"
-]],
-["Functions",[
-"def","پارامتر","argument","return","default argument",
-"چند پارامتر","scope","تابع تو در تو","*args","تمرین توابع"
-]],
-["String پیشرفته",[
-"len","upper","lower","strip","replace",
-"split","join","find","startswith","تمرین String"
-]],
-["List پیشرفته",[
-"List comprehension","شرط در comprehension","تو در تو","copy","clear",
-"count","index","extend","مرتب‌سازی سفارشی","تمرین List"
-]],
-["Lambda",[
-"Lambda چیست؟","پارامتر Lambda","return","استفاده در sorted","استفاده در map",
-"filter","reduce","توابع کوتاه","محدودیت Lambda","تمرین Lambda"
-]],
-["Modules",[
-"import","from import","math","random","datetime",
-"ساخت Module","نام Module","import چندگانه","کتابخانه استاندارد","تمرین Modules"
-]],
-["Files",[
-"open","read","readline","readlines","write",
-"append در فایل","with","encoding","کار با فایل متنی","تمرین فایل"
-]],
-["Exceptions",[
-"خطا چیست؟","try","except","ValueError","TypeError",
-"ZeroDivisionError","چند except","else","finally","تمرین خطا"
-]],
-["Debugging",[
-"SyntaxError","Runtime Error","Traceback","print debugging","بررسی متغیر",
-"خطای منطقی","تست ورودی","خطای index","خطای key","تمرین Debug"
-]],
-["OOP پایه",[
-"Class","Object","attribute","method","self",
-"__init__","ساخت چند object","متدها","ویژگی‌ها","تمرین Class"
-]],
-["OOP پیشرفته",[
-"Inheritance","Parent","Child","Override","super",
-"Encapsulation","property","class variable","static method","تمرین OOP"
-]],
-["پروژه و تفکر برنامه‌نویسی",[
-"تحلیل مسئله","الگوریتم","شبه‌کد","تقسیم پروژه","نام‌گذاری",
-"ساختار فایل","توابع پروژه","مدیریت خطا","تست پروژه","پروژه کوچک"
-]]
-]];
-
-/* تبدیل گروه‌ها به 100 مرحله */
-const stages=[];
-groups.forEach(g=>{
-g[1].forEach(title=>{
-stages.push({
-title:title,
-group:g[0]
-});
-});
-});
-
-/* محتوای آموزشی هر مرحله */
-const explanations={
-
-"Python چیست؟":`
-<p>Python یک زبان برنامه‌نویسی خوانا و قدرتمند است که در پروژه‌های مختلف استفاده می‌شود.</p>
-<pre><code>print("Hello Python")</code></pre>`,
-
-"نصب و اجرای Python":`
-<p>Python را می‌توان روی کامپیوتر، موبایل یا محیط‌های آموزشی اجرا کرد.</p>
-<pre><code>python --version</code></pre>`,
-
-"اولین برنامه":`
-<p>اولین برنامه معمولاً با نمایش یک پیام شروع می‌شود.</p>
-<pre><code>print("Hello World")</code></pre>`,
-
-"print":`
-<p>تابع print برای نمایش اطلاعات استفاده می‌شود.</p>
-<pre><code>print("Hello")
-print(10)
-print(2 + 3)</code></pre>`,
-
-"کامنت‌ها":`
-<p>کامنت توضیحی برای برنامه‌نویس است.</p>
-<pre><code># این یک کامنت است
-print("Hello")</code></pre>`,
-
-"متغیرها":`
-<p>متغیر برای نگهداری مقدار استفاده می‌شود.</p>
-<pre><code>name = "Ali"
-score = 100</code></pre>`,
-
-"int":`
-<pre><code>age = 13
-print(type(age))</code></pre>`,
-
-"float":`
-<pre><code>price = 12.5
-print(price)</code></pre>`,
-
-"str":`
-<pre><code>name = "Python"
-print(name)</code></pre>`,
-
-"bool":`
-<pre><code>online = True
-banned = False</code></pre>`,
-
-"None":`
-<p>None یعنی در حال حاضر مقدار مشخصی وجود ندارد.</p>
-<pre><code>result = None</code></pre>`,
-
-"تبدیل نوع":`
-<pre><code>age = int("13")
-price = float("12.5")
-text = str(100)</code></pre>`,
-
-"type":`
-<pre><code>x = 10
-print(type(x))</code></pre>`,
-
-"input":`
-<pre><code>name = input("Name: ")
-print(name)</code></pre>`,
-
-"ورودی عددی":`
-<pre><code>age = int(input("Age: "))
-print(age + 1)</code></pre>`,
-
-"f-string":`
-<pre><code>name = "Ali"
-age = 13
-print(f"{name} - {age}")</code></pre>`,
-
-"جمع":`
-<pre><code>print(5 + 3)</code></pre>`,
-
-"تفریق":`
-<pre><code>print(5 - 3)</code></pre>`,
-
-"ضرب":`
-<pre><code>print(5 * 3)</code></pre>`,
-
-"تقسیم":`
-<pre><code>print(10 / 2)</code></pre>`,
-
-"باقی‌مانده":`
-<pre><code>print(10 % 3)</code></pre>`,
-
-"توان":`
-<pre><code>print(2 ** 3)</code></pre>`,
-
-"مقایسه":`
-<pre><code>print(10 > 5)
-print(10 < 5)</code></pre>`,
-
-"برابری":`
-<pre><code>print(10 == 10)
-print(10 != 5)</code></pre>`,
-
-"if":`
-<pre><code>age = 18
-
-if age >= 18:
-    print("OK")</code></pre>`,
-
-"else":`
-<pre><code>age = 15
-
-if age >= 18:
-    print("Adult")
-else:
-    print("Teen")</code></pre>`,
-
-"elif":`
-<pre><code>score = 80
-
-if score >= 90:
-    print("A")
-elif score >= 70:
-    print("B")
-else:
-    print("C")</code></pre>`,
-
-"for":`
-<pre><code>for i in range(5):
-    print(i)</code></pre>`,
-
-"range":`
-<pre><code>for i in range(1,6):
-    print(i)</code></pre>`,
-
-"while":`
-<pre><code>x = 1
-while x <= 5:
-    print(x)
-    x += 1</code></pre>`,
-
-"break":`
-<pre><code>for i in range(10):
-    if i == 5:
-        break</code></pre>`,
-
-"continue":`
-<pre><code>for i in range(5):
-    if i == 2:
-        continue
-    print(i)</code></pre>`,
-
-"ساخت List":`
-<pre><code>numbers = [1,2,3,4]</code></pre>`,
-
-"index":`
-<pre><code>names = ["Ali","Sara"]
-print(names[0])</code></pre>`,
-
-"slice":`
-<pre><code>numbers = [1,2,3,4,5]
-print(numbers[1:4])</code></pre>`,
-
-"append":`
-<pre><code>numbers = [1,2]
-numbers.append(3)</code></pre>`,
-
-"remove":`
-<pre><code>numbers = [1,2,3]
-numbers.remove(2)</code></pre>`,
-
-"sort":`
-<pre><code>numbers = [5,2,8,1]
-numbers.sort()
-print(numbers)</code></pre>`,
-
-"Tuple":`
-<pre><code>data = (1,2,3)
-print(data[0])</code></pre>`,
-
-"Set":`
-<pre><code>numbers = {1,2,2,3}
-print(numbers)</code></pre>`,
-
-"add":`
-<pre><code>numbers = {1,2}
-numbers.add(3)</code></pre>`,
-
-"union":`
-<pre><code>a = {1,2}
-b = {2,3}
-print(a | b)</code></pre>`,
-
-"intersection":`
-<pre><code>a = {1,2}
-b = {2,3}
-print(a & b)</code></pre>`,
-
-"Dictionary":`
-<pre><code>user = {
- "name":"Ali",
- "score":100
-}</code></pre>`,
-
-"key و value":`
-<pre><code>user = {"name":"Ali"}
-print(user["name"])</code></pre>`,
-
-"دسترسی":`
-<pre><code>user = {"score":100}
-print(user["score"])</code></pre>`,
-
-"افزودن":`
-<pre><code>user["level"] = 5</code></pre>`,
-
-"keys":`
-<pre><code>print(user.keys())</code></pre>`,
-
-"values":`
-<pre><code>print(user.values())</code></pre>`,
-
-"items":`
-<pre><code>for key,value in user.items():
-    print(key,value)</code></pre>`,
-
-"def":`
-<pre><code>def hello():
-    print("Hello")
-
-hello()</code></pre>`,
-
-"پارامتر":`
-<pre><code>def hello(name):
-    print(name)
-
-hello("Ali")</code></pre>`,
-
-"return":`
-<pre><code>def add(a,b):
-    return a+b
-
-print(add(2,3))</code></pre>`,
-
-"*args":`
-<pre><code>def total(*numbers):
-    return sum(numbers)</code></pre>`,
-
-"len":`
-<pre><code>text = "Python"
-print(len(text))</code></pre>`,
-
-"upper":`
-<pre><code>print("python".upper())</code></pre>`,
-
-"lower":`
-<pre><code>print("PYTHON".lower())</code></pre>`,
-
-"strip":`
-<pre><code>text = " hello "
-print(text.strip())</code></pre>`,
-
-"replace":`
-<pre><code>print("Hello".replace("H","Y"))</code></pre>`,
-
-"split":`
-<pre><code>print("a,b,c".split(","))</code></pre>`,
-
-"join":`
-<pre><code>words = ["Python","is","fun"]
-print(" ".join(words))</code></pre>`,
-
-"List comprehension":`
-<pre><code>numbers = [x for x in range(5)]
-print(numbers)</code></pre>`,
-
-"Lambda چیست؟":`
-<pre><code>square = lambda x: x*x
-print(square(5))</code></pre>`,
-
-"import":`
-<pre><code>import math
-print(math.sqrt(25))</code></pre>`,
-
-"math":`
-<pre><code>import math
-print(math.pi)
-print(math.sqrt(16))</code></pre>`,
-
-"random":`
-<pre><code>import random
-print(random.randint(1,10))</code></pre>`,
-
-"datetime":`
-<pre><code>from datetime import datetime
-print(datetime.now())</code></pre>`,
-
-"open":`
-<pre><code>file = open("data.txt","r")
-text = file.read()
-file.close()</code></pre>`,
-
-"read":`
-<pre><code>with open("data.txt","r") as file:
-    print(file.read())</code></pre>`,
-
-"write":`
-<pre><code>with open("data.txt","w") as file:
-    file.write("Hello")</code></pre>`,
-
-"with":`
-<pre><code>with open("data.txt") as file:
-    data = file.read()</code></pre>`,
-
-"خطا چیست؟":`
-<p>خطاها اتفاقاتی هستند که باعث می‌شوند اجرای برنامه متوقف شود یا نتیجه اشتباه شود.</p>`,
-
-"try":`
-<pre><code>try:
-    x = 10 / 0
-except:
-    print("Error")</code></pre>`,
-
-"ValueError":`
-<pre><code>try:
-    x = int("abc")
-except ValueError:
-    print("Invalid")</code></pre>`,
-
-"finally":`
-<pre><code>try:
-    print("Run")
-finally:
-    print("Done")</code></pre>`,
-
-"SyntaxError":`
-<p>وقتی ساختار کد Python اشتباه باشد SyntaxError رخ می‌دهد.</p>`,
-
-"Traceback":`
-<p>Traceback مسیر خطا را نشان می‌دهد و برای پیدا کردن مشکل بسیار مهم است.</p>`,
-
-"Class":`
-<pre><code>class User:
-    pass</code></pre>`,
-
-"Object":`
-<pre><code>class User:
-    pass
-
-u = User()</code></pre>`,
-
-"attribute":`
-<pre><code>class User:
-    def __init__(self):
-        self.name = "Ali"</code></pre>`,
-
-"method":`
-<pre><code>class User:
-    def hello(self):
-        print("Hello")</code></pre>`,
-
-"self":`
-<p>self به نمونه فعلی کلاس اشاره می‌کند.</p>`,
-
-"__init__":`
-<pre><code>class User:
-    def __init__(self,name):
-        self.name = name</code></pre>`,
-
-"Inheritance":`
-<pre><code>class Animal:
-    pass
-
-class Dog(Animal):
-    pass</code></pre>`,
-
-"Override":`
-<pre><code>class Animal:
-    def speak(self):
-        print("Sound")
-
-class Dog(Animal):
-    def speak(self):
-        print("Bark")</code></pre>`,
-
-"super":`
-<pre><code>class Dog(Animal):
-    def __init__(self):
-        super().__init__()</code></pre>`,
-
-"Encapsulation":`
-<p>Encapsulation یعنی کنترل دسترسی به داده‌ها و رفتارهای داخلی یک کلاس.</p>`,
-
-"property":`
-<p>property برای کنترل نحوه دسترسی به ویژگی‌های یک کلاس استفاده می‌شود.</p>`,
-
-"تحلیل مسئله":`
-<p>قبل از کدنویسی ابتدا مسئله را دقیق مشخص کن.</p>`,
-
-"الگوریتم":`
-<p>الگوریتم مجموعه‌ای از مراحل منطقی برای حل یک مسئله است.</p>`,
-
-"شبه‌کد":`
-<pre><code>شروع
-گرفتن عدد
-اگر عدد مثبت بود
-    نمایش مثبت
-پایان</code></pre>`,
-
-"تقسیم پروژه":`
-<p>یک پروژه بزرگ را به بخش‌های کوچک‌تر تقسیم کن.</p>`,
-
-"نام‌گذاری":`
-<pre><code>player_score = 100</code></pre>
-<p>نام واضح باعث خوانایی بهتر برنامه می‌شود.</p>`,
-
-"ساختار فایل":`
-<p>پروژه‌های بزرگ بهتر است ساختار مشخصی برای فایل‌ها و بخش‌ها داشته باشند.</p>`,
-
-"مدیریت خطا":`
-<p>برنامه واقعی باید ورودی‌های اشتباه را هم مدیریت کند.</p>`,
-
-"تست پروژه":`
-<p>قبل از انتشار پروژه، قابلیت‌های مختلف آن را آزمایش کن.</p>`
+const stagesData = [
+
+["آشنایی با Python","Python چیست و چرا یکی از محبوب‌ترین زبان‌های برنامه‌نویسی است؟","print('Hello Python')"],
+["نصب و اجرای Python","روش اجرای برنامه‌های پایتون و آشنایی با محیط برنامه‌نویسی.","print('Ghost Code Academy')"],
+["اولین برنامه","ساخت اولین برنامه ساده با دستور print.","print('سلام دنیا')"],
+["قواعد نوشتن کد","آشنایی با ساختار کلی دستورات Python.","print(10)"],
+["کامنت‌ها","استفاده از توضیحات داخل کد با علامت #.","# این یک کامنت است"],
+["خطاهای ابتدایی","شناخت خطاهای Syntax و روش پیدا کردن آن‌ها.","print('Hello')"],
+["متغیر چیست؟","ذخیره اطلاعات در متغیرها.","name = 'Ali'"],
+["نام‌گذاری متغیرها","قوانین مناسب برای نام‌گذاری متغیرها.","user_name = 'User'"],
+["print پیشرفته","نمایش چند مقدار و ترکیب اطلاعات.","name='User'\nprint('Hello', name)"],
+["جمع‌بندی پایه","مرور مفاهیم اولیه Python.","x = 10\nprint(x)"],
+
+["اعداد صحیح","کار با اعداد صحیح در Python.","age = 13"],
+["اعداد اعشاری","آشنایی با float.","price = 12.5"],
+["رشته‌ها","کار با متن‌ها و String.","name = 'Python'"],
+["Boolean","آشنایی با True و False.","active = True"],
+["نوع داده","استفاده از type برای شناخت نوع داده.","print(type(10))"],
+["تبدیل داده‌ها","تبدیل String، Integer و Float.","number = int('10')"],
+["ورودی کاربر","دریافت اطلاعات با input.","name = input('Name: ')"],
+["خروجی بهتر","ترکیب متن و متغیرها.","name='User'\nprint(f'Hello {name}')"],
+["عملگرهای ریاضی","جمع، تفریق، ضرب و تقسیم.","x = 10 + 5"],
+["مرور متغیرها","جمع‌بندی متغیرها و انواع داده.","score = 100"],
+
+["شرط if","اجرای کد بر اساس یک شرط.","if age >= 13:\n    print('OK')"],
+["else","اجرای حالت دوم در شرط.","if x > 10:\n    print('A')\nelse:\n    print('B')"],
+["elif","استفاده از چند حالت.","if x>10:\n    print('A')\nelif x==10:\n    print('B')"],
+["مقایسه","عملگرهای مقایسه‌ای.","x == 10"],
+["and","ترکیب دو شرط.","if age>10 and score>50:\n    print('OK')"],
+["or","استفاده از چند انتخاب.","if x==1 or x==2:\n    print('OK')"],
+["not","برعکس کردن یک شرط.","if not active:\n    print('OFF')"],
+["شرط‌های تو در تو","قرار دادن شرط داخل شرط.","if x>0:\n    if x<10:\n        print('OK')"],
+["منطق برنامه","ترکیب شرط‌ها برای تصمیم‌گیری.","score=90"],
+["مرور شرط‌ها","مرور کامل ساختارهای شرطی.","if score >= 50:\n    print('Pass')"],
+
+["حلقه for","تکرار دستورات با for.","for i in range(5):\n    print(i)"],
+["range","ساخت بازه‌های عددی.","for i in range(1,6):\n    print(i)"],
+["حلقه while","تکرار تا زمانی که شرط برقرار است.","x=0\nwhile x<5:\n    x+=1"],
+["break","خروج از حلقه.","for i in range(10):\n    if i==5:\n        break"],
+["continue","رفتن به دور بعدی حلقه.","for i in range(5):\n    continue"],
+["حلقه تو در تو","استفاده از حلقه داخل حلقه.","for i in range(3):\n    for j in range(3):\n        print(i,j)"],
+["شمارنده","ساخت شمارنده با حلقه.","count=0"],
+["جمع با حلقه","محاسبه مجموع اعداد.","total=0\nfor i in range(5):\n    total+=i"],
+["حلقه و شرط","ترکیب حلقه با شرط.","for i in range(10):\n    if i%2==0:\n        print(i)"],
+["مرور حلقه‌ها","جمع‌بندی for و while.","for i in range(5):\n    print(i)"],
+
+["ساخت String","تعریف رشته‌های متنی.","text='Python'"],
+["طول رشته","استفاده از len.","text='Python'\nprint(len(text))"],
+["حروف بزرگ و کوچک","استفاده از upper و lower.","text='Python'\nprint(text.upper())"],
+["جستجوی متن","بررسی وجود یک کلمه.","'Py' in 'Python'"],
+["جایگزینی","استفاده از replace.","text='Hello'\ntext.replace('Hello','Hi')"],
+["برش رشته","استفاده از slicing.","text='Python'\nprint(text[0:3])"],
+["split","تبدیل متن به بخش‌های مختلف.","text='a,b,c'\nprint(text.split(','))"],
+["join","چسباندن چند رشته.","words=['A','B']\nprint('-'.join(words))"],
+["فرمت متن","استفاده از f-string.","name='User'\nprint(f'Hi {name}')"],
+["مرور String","ترکیب قابلیت‌های رشته‌ها.","text='Python'"],
+
+["List چیست؟","آشنایی با لیست‌ها.","numbers=[1,2,3]"],
+["دسترسی به List","دسترسی با index.","items=['A','B']\nprint(items[0])"],
+["افزودن به List","استفاده از append.","items=[]\nitems.append('Python')"],
+["حذف از List","استفاده از remove و pop.","items=[1,2,3]\nitems.remove(2)"],
+["تغییر مقدار","تغییر یک عنصر.","items=[1,2,3]\nitems[0]=10"],
+["برش List","استفاده از slicing.","items=[1,2,3,4]\nprint(items[1:3])"],
+["مرتب‌سازی","استفاده از sort.","numbers=[3,1,2]\nnumbers.sort()"],
+["List با حلقه","پیمایش عناصر لیست.","for item in items:\n    print(item)"],
+["List تو در تو","ساخت لیست چندبعدی.","matrix=[[1,2],[3,4]]"],
+["مرور List","جمع‌بندی کار با لیست‌ها.","items=['Python','AI']"],
+
+["Tuple","آشنایی با Tuple.","data=(1,2,3)"],
+["Set","آشنایی با مجموعه‌ها.","items={1,2,3}"],
+["حذف تکراری‌ها","استفاده از Set برای داده‌های تکراری.","numbers=[1,1,2,2]\nunique=set(numbers)"],
+["Dictionary","آشنایی با کلید و مقدار.","user={'name':'User'}"],
+["دسترسی Dictionary","دریافت مقدار با key.","user={'name':'User'}\nprint(user['name'])"],
+["افزودن به Dictionary","اضافه کردن اطلاعات.","user={}\nuser['name']='User'"],
+["حذف Dictionary","حذف داده‌ها.","user={'name':'User'}\ndel user['name']"],
+["حلقه Dictionary","پیمایش کلید و مقدار.","for k,v in user.items():\n    print(k,v)"],
+["ساختارهای ترکیبی","ترکیب List و Dictionary.","users=[{'name':'User'}]"],
+["مرور ساختار داده","مرور Tuple، Set و Dictionary.","data={'name':'User'}"],
+
+["Function چیست؟","ساخت تابع برای جلوگیری از تکرار کد.","def hello():\n    print('Hello')"],
+["پارامتر","ارسال اطلاعات به تابع.","def hello(name):\n    print(name)"],
+["return","برگرداندن نتیجه از تابع.","def add(a,b):\n    return a+b"],
+["چند پارامتر","تابع با چند ورودی.","def add(a,b,c):\n    return a+b+c"],
+["مقدار پیش‌فرض","تعریف مقدار پیش‌فرض پارامتر.","def hello(name='User'):\n    print(name)"],
+["Scope","شناخت محدوده متغیرها.","x=10"],
+["Lambda","آشنایی با توابع کوتاه.","double=lambda x:x*2"],
+["Comprehension","ساخت سریع لیست‌ها.","numbers=[x*x for x in range(5)]"],
+["Module","آشنایی با import.","import math"],
+["مرور Function","ساختاردهی برنامه با توابع.","def start():\n    print('Start')"],
+
+["خواندن فایل","خواندن اطلاعات از فایل.","with open('data.txt') as f:\n    text=f.read()"],
+["نوشتن فایل","ذخیره اطلاعات در فایل.","with open('data.txt','w') as f:\n    f.write('Hello')"],
+["append فایل","اضافه کردن اطلاعات.","with open('data.txt','a') as f:\n    f.write('New')"],
+["خطاها","آشنایی با Exception.","try:\n    x=10/0\nexcept:\n    print('Error')"],
+["try و except","مدیریت خطاها.","try:\n    print(x)\nexcept NameError:\n    print('Error')"],
+["finally","اجرای بخش پایانی.","try:\n    print('OK')\nfinally:\n    print('Done')"],
+["raise","ایجاد خطای کنترل‌شده.","raise ValueError('Error')"],
+["Debug","روش پیدا کردن خطا در برنامه.","print('Debug')"],
+["Testing","آشنایی با تست برنامه.","assert 2+2==4"],
+["مرور فایل و خطا","جمع‌بندی مدیریت فایل و خطا.","try:\n    pass\nexcept:\n    pass"],
+
+["Class","آشنایی با کلاس‌ها.","class User:\n    pass"],
+["Object","ساخت شیء.","class User:\n    pass\nuser=User()"],
+["__init__","سازنده کلاس.","class User:\n    def __init__(self,name):\n        self.name=name"],
+["self","شناخت self.","class User:\n    def hello(self):\n        print('Hello')"],
+["Method","ساخت متد برای کلاس.","class User:\n    def hello(self):\n        return 'Hi'"],
+["Inheritance","ارث‌بری کلاس‌ها.","class Admin(User):\n    pass"],
+["Encapsulation","مدیریت داده‌های داخل کلاس.","class User:\n    def __init__(self):\n        self.name='User'"],
+["الگوریتم","آشنایی با مفهوم الگوریتم.","numbers=[3,1,2]"],
+["ساختار پروژه","تقسیم برنامه به بخش‌های مختلف.","def main():\n    pass"],
+["پروژه نهایی پایتون","مرور مهارت‌های اصلی پایتون برای ورود به پروژه‌های واقعی.","print('Python Project')"]
+
+];
+
+let state = JSON.parse(
+    localStorage.getItem("gca_python_100")
+) || {
+    completed: [],
+    xp: 0,
+    final: false
 };
 
-/* مواردی که توضیح اختصاصی ندارند */
-function explanation(title){
-if(explanations[title]) return explanations[title];
-
-return `
-<p><b>${title}</b> یکی از مفاهیم مهم Python است.</p>
-<p>در این مرحله مفهوم را یاد بگیر، مثال را بررسی کن و سپس خودت یک نمونه مشابه بنویس.</p>
-<pre><code># تمرین ${title}
-print("Practice ${title}")</code></pre>
-`;
-}
-
-/* =========================
-   ذخیره پیشرفت
-========================= */
-
-let state=JSON.parse(
-localStorage.getItem("gca_python_100") ||
-'{"completed":[],"xp":0,"quiz":[],"final":false}'
-);
+const stages = document.getElementById("stages");
 
 function save(){
-localStorage.setItem("gca_python_100",JSON.stringify(state));
+    localStorage.setItem(
+        "gca_python_100",
+        JSON.stringify(state)
+    );
 }
-
-/* =========================
-   نمایش
-========================= */
 
 function render(){
 
-const course=document.getElementById("course");
-course.innerHTML="";
+    stages.innerHTML="";
 
-let lastGroup="";
+    stagesData.forEach((item,index)=>{
 
-stages.forEach((stage,index)=>{
+        const number=index+1;
 
-if(stage.group!==lastGroup){
-const group=document.createElement("div");
-group.innerHTML=`
-<div style="
-margin:28px 0 10px;
-color:#4cff91;
-font-size:20px;
-font-weight:bold">
-📚 ${stage.group}
-</div>`;
-course.appendChild(group);
-lastGroup=stage.group;
-}
+        const completed=state.completed.includes(number);
 
-const unlocked=
-index===0 ||
-state.completed.includes(index-1);
+        const unlocked=
+            number===1 ||
+            state.completed.includes(number-1);
 
-const box=document.createElement("div");
-box.className="stage";
-box.id="stage-"+index;
+        const card=document.createElement("div");
 
-const head=document.createElement("div");
-head.className="stageHead";
+        card.className=
+            "stage"+
+            (completed ? " completed":"")+
+            (!unlocked ? " locked":"");
 
-head.innerHTML=`
-<div class="stageTitle">
-مرحله ${index+1} — ${stage.title}
-${unlocked?"":" <span class='lock'>🔒</span>"}
-</div>
-<div>${state.completed.includes(index)?"✅":unlocked?"▼":"🔒"}</div>
-`;
+        card.innerHTML=`
 
-const body=document.createElement("div");
-body.className="stageBody";
+            <div class="stageNumber">
+                مرحله ${number} از 100
+            </div>
 
-if(unlocked){
+            <h3>${item[0]}</h3>
 
-body.innerHTML=`
-<div class="lesson">
-<h3>🎯 آموزش مرحله ${index+1}</h3>
-${explanation(stage.title)}
-</div>
+            <p>${item[1]}</p>
 
-<div class="lesson">
-<h3>🧪 تمرین</h3>
-<p>
-حالا یک مثال مشابه با چیزی که یاد گرفتی بنویس.
-سعی کن فقط کپی نکنی و خودت کد را تغییر بدهی.
-</p>
-</div>
-`;
+            <button
+                ${!unlocked ? "disabled":""}
+                onclick="openLesson(${number})"
+            >
+                ${completed ? "✅ تکمیل شده" :
+                unlocked ? "📖 شروع درس" :
+                "🔒 قفل است"}
+            </button>
 
-if((index+1)%10===0){
+            <div class="lesson" id="lesson-${number}">
 
-body.innerHTML+=`
-<div class="challenge">
-<h3>🔥 چالش عملی مرحله ${index+1}</h3>
-<p>${challengeText(index+1)}</p>
+                <h4>📚 آموزش</h4>
 
-<textarea id="code-${index}"
-placeholder="# کد Python خودت را اینجا بنویس"></textarea>
+                <p>${item[1]}</p>
 
-<br><br>
+                <h4>💡 مثال</h4>
 
-<button onclick="checkChallenge(${index})">
-▶ بررسی کد
-</button>
+                <pre class="code">${escapeHtml(item[2])}</pre>
 
-<button class="dark" onclick="showGuide(${index})">
-💡 راهنما
-</button>
+                ${
+                    !completed
+                    ?
+                    `<button
+                        class="complete"
+                        onclick="completeStage(${number})"
+                    >
+                        ✅ تکمیل مرحله
+                    </button>`
+                    :
+                    `<p style="color:#55ff9b">
+                        این مرحله قبلاً تکمیل شده است.
+                    </p>`
+                }
 
-<div id="result-${index}" class="result"></div>
-</div>
-`;
+            </div>
+        `;
 
-}else{
+        stages.appendChild(card);
 
-body.innerHTML+=`
-<div class="quiz">
-<h3>🧠 آزمون سریع</h3>
-<p>${quizQuestion(index)}</p>
+    });
 
-<button class="option"
-onclick="quizAnswer(${index},this,true)">
-گزینه اول
-</button>
-
-<button class="option"
-onclick="quizAnswer(${index},this,false)">
-گزینه دوم
-</button>
-
-<button class="option"
-onclick="quizAnswer(${index},this,false)">
-گزینه سوم
-</button>
-
-<div id="quiz-result-${index}"></div>
-</div>
-
-<br>
-
-<button onclick="completeStage(${index})">
-✅ تکمیل مرحله
-</button>
-`;
-}
-
-}else{
-
-body.innerHTML=`
-<div class="lesson">
-<p>🔒 این مرحله قفل است.</p>
-<p>ابتدا مرحله قبلی را کامل کن.</p>
-</div>
-`;
-}
-
-head.onclick=()=>{
-if(unlocked){
-body.classList.toggle("open");
-}
-};
-
-box.appendChild(head);
-box.appendChild(body);
-course.appendChild(box);
-
-});
-
-updateStats();
-
-if(state.completed.length===100){
-document.getElementById("final").style.display="block";
-}
-
-if(state.final){
-showCertificate();
-}
-}
-
-/* =========================
-   سوال‌ها
-========================= */
-
-function quizQuestion(index){
-
-const title=stages[index].title;
-
-if(title==="print")
-return "کدام دستور برای نمایش اطلاعات استفاده می‌شود؟";
-
-if(title==="متغیرها")
-return "کدام گزینه یک متغیر Python است؟";
-
-if(title==="for")
-return "کدام ساختار برای تکرار استفاده می‌شود؟";
-
-if(title==="if")
-return "if برای چه کاری است؟";
-
-if(title==="List")
-return "List برای چه چیزی مناسب است؟";
-
-return "برای یادگیری بهتر این مرحله، کدام کار مناسب‌تر است؟";
-}
-
-function quizAnswer(index,btn,correct){
-
-const result=document.getElementById("quiz-result-"+index);
-
-if(correct){
-
-btn.style.background="#14582f";
-
-if(!state.quiz.includes(index)){
-state.quiz.push(index);
-state.xp+=10;
-save();
-}
-
-result.className="result good";
-result.innerHTML="✅ درست! +10 XP";
-
-}else{
-
-btn.style.background="#541d1d";
-
-result.className="result bad";
-result.innerHTML="❌ اشتباه. دوباره درس را بررسی کن.";
-}
-
-updateStats();
-}
-
-/* =========================
-   تکمیل مرحله
-========================= */
-
-function completeStage(index){
-
-if(!state.completed.includes(index)){
-
-state.completed.push(index);
-state.xp+=50;
-
-save();
-render();
-
-setTimeout(()=>{
-
-const next=document.getElementById("stage-"+(index+1));
-
-if(next){
-next.scrollIntoView({behavior:"smooth"});
-}
-
-},150);
-}
+    updateStats();
 
 }
 
-/* =========================
-   چالش‌ها
-========================= */
+function openLesson(number){
 
-function challengeText(number){
+    const lesson=
+        document.getElementById("lesson-"+number);
 
-const challenges={
-
-10:
-"برنامه‌ای بنویس که نام کاربر و سن او را بگیرد و اطلاعات را نمایش دهد.",
-
-20:
-"برنامه‌ای بنویس که دو عدد بگیرد و جمع، تفریق و ضرب آن‌ها را نمایش دهد.",
-
-30:
-"برنامه‌ای بنویس که یک نمره بگیرد و با استفاده از شرط مشخص کند قبول شده یا نه.",
-
-40:
-"برنامه‌ای بنویس که اعداد 1 تا 20 را با حلقه نمایش دهد.",
-
-50:
-"برنامه‌ای بساز که چند نام را داخل List قرار دهد و نام‌ها را نمایش دهد.",
-
-60:
-"برنامه‌ای بساز که اطلاعات یک کاربر را داخل Dictionary ذخیره و نمایش دهد.",
-
-70:
-"تابعی بساز که دو عدد بگیرد و حاصل جمع آن‌ها را با return برگرداند.",
-
-80:
-"برنامه‌ای بساز که یک فایل متنی را باز کند و اطلاعاتی داخل آن بنویسد.",
-
-90:
-"یک Class به نام User بساز که name داشته باشد و آن را نمایش دهد.",
-
-100:
-"یک پروژه کوچک Python طراحی کن که حداقل از متغیر، شرط، حلقه، تابع و یک ساختار داده استفاده کند."
-};
-
-return challenges[number];
-}
-
-function checkChallenge(index){
-
-const code=document.getElementById("code-"+index).value.trim();
-const result=document.getElementById("result-"+index);
-
-if(!code){
-
-result.className="result bad";
-result.innerHTML="❌ ابتدا کدت را وارد کن.";
-return;
-}
-
-let checks=0;
-
-if(/print\s*\(/.test(code)) checks++;
-if(/input\s*\(/.test(code)) checks++;
-if(/if\s+/.test(code)) checks++;
-if(/for\s+|while\s+/.test(code)) checks++;
-if(/def\s+/.test(code)) checks++;
-if(/\[.*\]/s.test(code)||/\{.*\}/s.test(code)) checks++;
-
-let required=index===9?2:
-index===19?3:
-index===29?2:
-index===39?2:
-index===49?2:
-index===59?2:
-index===69?2:
-index===79?2:
-index===89?2:4;
-
-if(checks>=required){
-
-result.className="result good";
-result.innerHTML=
-"✅ چالش قبول شد!<br>🔥 +250 XP<br>مرحله بعدی باز شد.";
-
-if(!state.completed.includes(index)){
-state.completed.push(index);
-state.xp+=250;
-save();
-render();
-}
-
-}else{
-
-result.className="result bad";
-result.innerHTML=
-"❌ هنوز کامل نیست.<br>💡 روی راهنما بزن.";
-}
+    if(lesson){
+        lesson.classList.toggle("show");
+        lesson.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+    }
 
 }
 
-/* =========================
-   راهنما
-========================= */
+function completeStage(number){
 
-function showGuide(index){
+    if(state.completed.includes(number))
+        return;
 
-const code=document.getElementById("code-"+index).value;
-const result=document.getElementById("result-"+index);
+    if(
+        number>1 &&
+        !state.completed.includes(number-1)
+    ){
+        alert("اول مرحله قبلی را کامل کن.");
+        return;
+    }
 
-let message="";
+    state.completed.push(number);
 
-if(!code.trim()){
-message="اول کدت را وارد کن.";
-}else if(index===9){
-message="از input برای گرفتن نام و سن و از print برای نمایش آن‌ها استفاده کن.";
-}else if(index===19){
-message="دو عدد بگیر و با عملگرهای + و - و * نتیجه را نمایش بده.";
-}else if(index===29){
-message="از if و else برای بررسی نمره استفاده کن.";
-}else if(index===39){
-message="از for یا while برای تکرار استفاده کن.";
-}else if(index===49){
-message="یک List بساز و از آن برای نگهداری چند نام استفاده کن.";
-}else if(index===59){
-message="از Dictionary با key و value استفاده کن.";
-}else if(index===69){
-message="یک def بساز و داخل آن return قرار بده.";
-}else if(index===79){
-message="از open یا with open برای کار با فایل استفاده کن.";
-}else if(index===89){
-message="class User بساز و یک attribute مثل name به آن اضافه کن.";
-}else{
-message="پروژه باید از چند مفهوم Python که یاد گرفتی استفاده کند.";
+    state.completed.sort((a,b)=>a-b);
+
+    state.xp += 100;
+
+    save();
+
+    render();
+
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+
 }
-
-result.className="result bad";
-result.innerHTML="💡 "+message;
-}
-
-/* =========================
-   آمار
-========================= */
 
 function updateStats(){
 
-document.getElementById("xp").textContent=state.xp;
-document.getElementById("done").textContent=state.completed.length;
+    const count=state.completed.length;
 
-const percent=Math.round(
-state.completed.length/100*100
-);
+    const percent=Math.floor(
+        (count/100)*100
+    );
 
-document.getElementById("percent").textContent=percent+"%";
-document.getElementById("bar").style.width=percent+"%";
+    document.getElementById(
+        "completedCount"
+    ).textContent=count;
 
-let rank="Beginner";
+    document.getElementById(
+        "xp"
+    ).textContent=state.xp;
 
-if(state.xp>=500)rank="Coder";
-if(state.xp>=1000)rank="Python Learner";
-if(state.xp>=2000)rank="Python Developer";
-if(state.xp>=3500)rank="Python Expert";
-if(state.completed.length===100)rank="Python Master";
+    document.getElementById(
+        "percent"
+    ).textContent=percent+"%";
 
-document.getElementById("rank").textContent=rank;
+    document.getElementById(
+        "progressBar"
+    ).style.width=percent+"%";
+
+    if(count>=100){
+
+        document.getElementById(
+            "final"
+        ).classList.add("show");
+
+    }
+
+    if(state.final){
+
+        document.getElementById(
+            "certificate"
+        ).classList.add("show");
+
+        document.getElementById(
+            "certificateCode"
+        ).textContent=
+            "کد مدرک: GCA-PY-"+generateCode();
+
+    }
+
 }
-
-/* =========================
-   مرحله بعدی
-========================= */
-
-function nextStage(){
-
-const next=state.completed.length;
-
-const el=document.getElementById("stage-"+next);
-
-if(el){
-el.scrollIntoView({behavior:"smooth"});
-el.querySelector(".stageBody").classList.add("open");
-}
-
-}
-
-/* =========================
-   آزمون نهایی
-========================= */
 
 function finalExam(){
 
-const exam=document.getElementById("exam");
+    if(state.completed.length<100){
 
-exam.innerHTML=`
-<div class="lesson">
-<h3>📝 آزمون نهایی Python</h3>
+        alert(
+            "برای آزمون نهایی باید هر 100 مرحله را کامل کنی."
+        );
 
-<p>۱. برای تعریف تابع از چه کلمه‌ای استفاده می‌شود؟</p>
+        return;
+    }
 
-<button class="option" onclick="finalAnswer(this,true)">def</button>
-<button class="option" onclick="finalAnswer(this,false)">function</button>
+    const answer=prompt(
+`آزمون نهایی Python
 
-<p>۲. کدام ساختار برای نگهداری چند مقدار مناسب است؟</p>
+سؤال 1:
+کدام دستور برای نمایش خروجی استفاده می‌شود؟
 
-<button class="option" onclick="finalAnswer(this,true)">List</button>
-<button class="option" onclick="finalAnswer(this,false)">print</button>
+1) input
+2) print
+3) return
 
-<p>۳. کدام کلمه برای شرط استفاده می‌شود؟</p>
+عدد پاسخ را وارد کن:`
+    );
 
-<button class="option" onclick="finalAnswer(this,true)">if</button>
-<button class="option" onclick="finalAnswer(this,false)">loop</button>
+    if(answer==="2"){
 
-<div id="finalResult"></div>
-</div>
-`;
+        alert(
+            "آفرین 🎉 پاسخ درست بود!"
+        );
+
+        state.final=true;
+
+        state.xp+=500;
+
+        save();
+
+        render();
+
+    }else{
+
+        alert(
+            "پاسخ درست نبود. دوباره تلاش کن."
+        );
+
+    }
+
+}
+
+function generateCode(){
+
+    return Math.random()
+        .toString(36)
+        .substring(2,8)
+        .toUpperCase();
 
 }
 
-let finalScore=0;
-let finalAnswers=0;
+function escapeHtml(text){
 
-function finalAnswer(btn,correct){
-
-if(btn.dataset.used)return;
-
-btn.dataset.used="1";
-finalAnswers++;
-
-if(correct){
-finalScore++;
-btn.style.background="#14582f";
-}else{
-btn.style.background="#541d1d";
-}
-
-if(finalAnswers===3){
-
-const result=document.getElementById("finalResult");
-
-if(finalScore>=2){
-
-result.className="result good";
-result.innerHTML=
-"🎉 آزمون قبول شد!<br>امتیاز: "+finalScore+"/3";
-
-state.final=true;
-state.xp+=500;
-save();
-
-showCertificate();
-
-}else{
-
-result.className="result bad";
-result.innerHTML=
-"❌ قبول نشدی. دوباره مطالب را مرور کن.";
-}
-
-}
-}
-
-/* =========================
-   گواهی
-========================= */
-
-function showCertificate(){
-
-document.getElementById("certificate").style.display="block";
-
-document.getElementById("certCode").textContent=
-"GCA-PY-"+Math.random()
-.toString(36)
-.substring(2,9)
-.toUpperCase();
-
-document.getElementById("certDate").textContent=
-"تاریخ: "+
-new Date().toLocaleDateString("fa-IR");
-}
-
-/* =========================
-   ابزارها
-========================= */
-
-function topPage(){
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-}
-
-function resetProgress(){
-
-if(confirm("تمام پیشرفت دوره Python پاک شود؟")){
-
-localStorage.removeItem("gca_python_100");
-
-location.reload();
-
-}
+    return text
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
 
 }
 
@@ -1361,4 +826,4 @@ render();
 </script>
 
 </body>
-  </html>
+   </html>
